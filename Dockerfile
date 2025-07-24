@@ -5,12 +5,16 @@ FROM ubuntu:noble-20250714
 # Add any system dependencies for the developer/build environment here
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    ca-certificates \
+    busybox \
     curl \
+    gdb \
     git \
-    graphviz \
-    man \
+    man-db \
     ssh-client
+
+# Use busybox to provide any missing commands
+# This is useful for commands like `telnet` that are not available in the base image
+RUN busybox --install -s
 
 # Copy in the default bash configuration
 COPY terminal-config /root/terminal-config
