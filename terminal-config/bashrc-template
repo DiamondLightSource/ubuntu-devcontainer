@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# This bashrc will be source from /root/.bashrc upon launch of every terminal
-# in a devcontainer that uses the bash-config feature from
-# https://github.com/DiamondLightSource/devcontainer-features
+# This bashrc will be sourced from /root/.bashrc upon launch of every terminal
+# in a devcontainer that uses the ubuntu-devcontainer as a base
+# https://github.com/DiamondLightSource/ubuntu-devcontainer
 
-# This file is initialized by bash-config, but you are then free to edit it
+# This file is initialized by the devcontainer, but you are then free to edit it
 
-# execute default, opinionated settings - delete this line to remove defaults
+# Execute default, opinionated settings:
+# https://github.com/DiamondLightSource/ubuntu-devcontainer/blob/main/terminal-config/bashrc-default
+# delete this line to remove defaults
 source ~/terminal-config/bashrc-default
 
 if [ ! -f ~/one-time ]; then

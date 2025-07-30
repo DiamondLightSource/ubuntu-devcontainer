@@ -1,17 +1,16 @@
 #!/bin/zsh
 
-# This zshrc will be source from /root/.zshrc upon launch of every terminal
-# in a devcontainer that uses the bash-config feature from
-# https://github.com/DiamondLightSource/devcontainer-features
+# Set the prompt theme to robbyrussell if not already set
+ZSH_THEME=${ZSH_THEME:-robbyrussell}
 
-# This file is initialized by vscode feature bash-config,
-# but you are then free to edit it
+# Source oh my zsh, theme and plugins must be set before this
+source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
-# set up eternal history for zsh
+# Set up eternal history for zsh
 HISTCONTROL=ignoreboth:erasedups
 HISTSIZE=10000000
 SAVEHIST=$HISTSIZE
-HISTFILE=$CONFIG_FOLDER/.zsh_eternal_history
+HISTFILE=$USER_TERMINAL_CONFIG/.zsh_eternal_history
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
@@ -24,7 +23,6 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
-#setopt HIST_BEEP                # Beep when accessing nonexistent history.
 
-# set a theme compatible with vscode terminals
-ZSH_THEME="dst"
+# Setup some common defaults like vscode for the git editor
+source "$HOME/terminal-config/common-defaults"

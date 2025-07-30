@@ -6,11 +6,16 @@ FROM ubuntu:noble-20250714
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     busybox \
+    ca-certificates \
     curl \
     gdb \
     git \
     man-db \
-    ssh-client
+    ssh-client \
+    zsh
+
+# Add oh my zsh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Use busybox to provide any missing commands
 # This is useful for commands like `telnet` that are not available in the base image
@@ -25,8 +30,8 @@ ENV USER_TERMINAL_CONFIG=/user-terminal-config
 # This can be overridden by the user mounting a different folder over the top
 RUN /root/terminal-config/ensure-user-terminal-config.sh && \
     ln -fs $USER_TERMINAL_CONFIG/inputrc /root/.inputrc && \
-    echo 'source ${USER_TERMINAL_CONFIG}/bashrc' >> /root/.bashrc && \
-    echo 'source ${USER_TERMINAL_CONFIG}/zshrc' >> /root/.zshrc
+    ln -fs $USER_TERMINAL_CONFIG/bashrc /root/.bash_aliases && \
+    echo 'source ${USER_TERMINAL_CONFIG}/zshrc' > /root/.zshrc
 
 # Install uv using the official image
 # See https://docs.astral.sh/uv/guides/integration/docker/#installing-uv
