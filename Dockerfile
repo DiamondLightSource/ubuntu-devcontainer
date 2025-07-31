@@ -30,9 +30,9 @@ ENV USER_TERMINAL_CONFIG=/user-terminal-config
 # This can be overridden by the user mounting a different folder over the top
 RUN /root/terminal-config/ensure-user-terminal-config.sh && \
     ln -fs $USER_TERMINAL_CONFIG/inputrc /root/.inputrc && \
-    echo '/root/terminal-config/ensure-user-terminal-config.sh' >> /root/.bashrc \
-    echo 'source ${USER_TERMINAL_CONFIG}/bashrc' >> /root/.bashrc \
-    echo '/root/terminal-config/ensure-user-terminal-config.sh' > /root/.zshrc \
+    echo '/root/terminal-config/ensure-user-terminal-config.sh' >> /root/.bashrc && \
+    echo 'source ${USER_TERMINAL_CONFIG}/bashrc' >> /root/.bashrc && \
+    echo '/root/terminal-config/ensure-user-terminal-config.sh' > /root/.zshrc && \
     echo 'source ${USER_TERMINAL_CONFIG}/zshrc' >> /root/.zshrc
 
 # Install uv using the official image
