@@ -6,18 +6,16 @@
     },
     "remoteEnv": {
         // Allow X11 apps to run inside the container
-        "DISPLAY": "${localEnv:DISPLAY}",
+        "DISPLAY": "${localEnv:DISPLAY}"
     },
     // Create the config folder for the user modifiable terminal-config and the uv cache
-    "initializeCommand": "mkdir -p ${localEnv:HOME}/.config/terminal-config ${localEnv:HOME}/.cache/uv",    
+    "initializeCommand": "mkdir -p ${localEnv:HOME}/.config/terminal-config ${localEnv:HOME}/.cache/uv",
     "runArgs": [
         // Allow the container to access the host X11 display and EPICS CA
         "--net=host",
         // Make sure SELinux does not disable with access to host filesystems like tmp
         "--security-opt=label=disable"
     ],
-    // Populate the user's terminal config folder with default config if it is blank
-    "onCreateCommand": "/root/terminal-config/ensure-user-terminal-config.sh",
     "mounts": [
         // Mount in the user terminal config folder so it can be edited
         {
@@ -33,5 +31,5 @@
         }
     ],
     // Mount the parent as /workspaces so we can pip install peers as editable
-    "workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspaces,type=bind",
+    "workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspaces,type=bind"
 }
