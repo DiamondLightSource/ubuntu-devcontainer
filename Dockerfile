@@ -1,6 +1,6 @@
 # The devcontainer should use the developer target and run as root with podman
 # or docker with user namespaces.
-FROM ubuntu:noble-20250714
+FROM ubuntu:noble-20250805
 
 # Add any system dependencies for the developer/build environment here
 RUN apt-get update && apt-get install -y --no-install-recommends \
