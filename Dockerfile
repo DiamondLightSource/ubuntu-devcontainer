@@ -10,9 +10,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     gdb \
     git \
+    less \
+    locales \
     man-db \
     ssh-client \
     zsh
+
+# VSCode will use en_US for git operations, so make it available in the container
+# https://github.com/microsoft/vscode/pull/210506
+RUN locale-gen en_US.UTF-8
 
 # Add oh my zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
