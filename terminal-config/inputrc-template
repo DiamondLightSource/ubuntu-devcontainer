@@ -1,10 +1,12 @@
-# Readline configuration for bash shell.
+# This inputrc will be linked as /root/.inputrc and used in every terminal launch
+# in a devcontainer that uses the ubuntu-devcontainer as a base
+# https://github.com/DiamondLightSource/ubuntu-devcontainer
 
-# Incremental history searching with up and down arrows (C-P and C-N for old
-# style navigation).
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+# This file is initialized by the devcontainer, but you are then free to edit it
 
-# Control left and right for word movement
-"\e[5C": forward-word
-"\e[5D": backward-word
+# Execute default, opinionated settings:
+# https://github.com/DiamondLightSource/ubuntu-devcontainer/blob/main/terminal-config/inputrc-default
+# delete this line to remove defaults
+$include ~/terminal-config/inputrc-default
+
+# add your override settings for every shell below

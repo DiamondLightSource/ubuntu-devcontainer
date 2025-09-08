@@ -29,11 +29,11 @@ ENV USER_TERMINAL_CONFIG=/user-terminal-config
 # and add hooks to all the files we reference
 # This can be overridden by the user mounting a different folder over the top
 RUN /root/terminal-config/ensure-user-terminal-config.sh && \
-    ln -fs $USER_TERMINAL_CONFIG/inputrc /root/.inputrc && \
     echo '/root/terminal-config/ensure-user-terminal-config.sh' >> /root/.bashrc && \
     echo 'source ${USER_TERMINAL_CONFIG}/bashrc' >> /root/.bashrc && \
     echo '/root/terminal-config/ensure-user-terminal-config.sh' > /root/.zshrc && \
-    echo 'source ${USER_TERMINAL_CONFIG}/zshrc' >> /root/.zshrc
+    echo 'source ${USER_TERMINAL_CONFIG}/zshrc' >> /root/.zshrc && \
+    ln -fs $USER_TERMINAL_CONFIG/inputrc /root/.inputrc
 
 # Install uv using the official image
 # See https://docs.astral.sh/uv/guides/integration/docker/#installing-uv

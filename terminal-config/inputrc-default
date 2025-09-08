@@ -1,0 +1,14 @@
+# Readline configuration for bash shell.
+
+# Incremental history searching with up and down arrows (C-P and C-N for old
+# style navigation).
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Control left and right for word movement
+"\e[5C": forward-word
+"\e[5D": backward-word
+
+# Disable terminal bell, then set to visible if available
+set bell-style none
+set bell-style visible
