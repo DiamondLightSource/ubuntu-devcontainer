@@ -3,18 +3,20 @@
 FROM ubuntu:noble-20250910
 
 # Add any system dependencies for the developer/build environment here
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    busybox \
-    ca-certificates \
-    curl \
-    gdb \
-    git \
-    less \
-    locales \
-    man-db \
-    ssh-client \
-    zsh
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        busybox \
+        ca-certificates \
+        curl \
+        gdb \
+        git \
+        less \
+        locales \
+        man-db \
+        ssh-client \
+        zsh && \
+    apt-get dist-clean
 
 # VSCode will use en_US for git operations, so make it available in the container
 # https://github.com/microsoft/vscode/pull/210506
