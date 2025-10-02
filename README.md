@@ -58,19 +58,19 @@ For instance:
 FROM ghcr.io/diamondlightsource/ubuntu-devcontainer:noble AS developer
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     libevent-dev \
-    libreadline-dev
+    libreadline-dev \
+    && apt-get dist-clean
 
 # The build stage makes some assets using the developer tools
 FROM developer AS build
 RUN my-build-script.sh /assets
 
 # The runtime stage installs runtime deps then copies in built assets
-# This time we remove the apt lists to save disk space
 FROM ubuntu:noble as runtime 
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     libevent \
     libreadline \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get dist-clean
 COPY --from=build /assets /
 ```
 
