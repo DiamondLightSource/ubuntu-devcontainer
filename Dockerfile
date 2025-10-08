@@ -45,7 +45,7 @@ RUN /root/terminal-config/ensure-user-terminal-config.sh && \
 
 # Install uv using the official image
 # See https://docs.astral.sh/uv/guides/integration/docker/#installing-uv
-COPY --from=ghcr.io/astral-sh/uv:0.8 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.9 /uv /uvx /bin/
 
 # We recommend mounting in a cache for uv, so silence warnings about it being on a different volume
 # and cache python interpreter downloads in the same directory
