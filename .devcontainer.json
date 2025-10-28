@@ -6,10 +6,13 @@
     },
     "remoteEnv": {
         // Allow X11 apps to run inside the container
-        "DISPLAY": "${localEnv:DISPLAY}"
+        "DISPLAY": "${localEnv:DISPLAY}",
+        // Put things that allow it in the persistent cache
+        "UV_CACHE_DIR": "/cache/uv",
+        "UV_PYTHON_CACHE_DIR": "/cache/uv-python"
     },
-    // Create the config folder for the user modifiable terminal-config and the uv cache
-    "initializeCommand": "mkdir -p ${localEnv:HOME}/.config/terminal-config ${localEnv:HOME}/.cache/uv",
+    // Create the config folder for the user modifiable terminal-config
+    "initializeCommand": "mkdir -p ${localEnv:HOME}/.config/terminal-config",
     "runArgs": [
         // Allow the container to access the host X11 display and EPICS CA
         "--net=host",
@@ -23,11 +26,11 @@
             "target": "/user-terminal-config",
             "type": "bind"
         },
-        // Keep a persistent cross container cache for uv
+        // Keep a persistent cross container cache
         {
-            "source": "${localEnv:HOME}/.cache/uv",
-            "target": "/root/.cache/uv",
-            "type": "bind"
+            "source": "devcontainer-shared-cache",
+            "target": "/cache",
+            "type": "volume"
         }
     ],
     // Mount the parent as /workspaces so we can pip install peers as editable

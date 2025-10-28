@@ -46,6 +46,8 @@ History is also stored in this directory, in `.bash_eternal_history` and `.zsh_e
 
 See [this repo's `.devcontainer.json`](./.devcontainer.json) for an example on how to use as a devcontainer. Or clone this repo, open in vscode and click "reopen in container"
 
+If you are considering using this for a pure python project devcontainer, consider using https://github.com/DiamondLightSource/python-copier-template
+
 ## How to use in the build stage of a Dockerfile
 
 If you are using this during the build stage of a Dockerfile, then you should select the upstream `ubuntu` container for the runtime.
