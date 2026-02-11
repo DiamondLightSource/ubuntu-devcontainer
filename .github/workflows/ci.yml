@@ -30,6 +30,7 @@ jobs:
       - name: Build and export to Docker local cache
         uses: docker/build-push-action@v6
         with:
+          platforms: linux/${{ matrix.arch }}
           # Need load and tags so we can test it below
           load: true
           tags: tag_for_testing
@@ -47,7 +48,7 @@ jobs:
         id: build
         uses: docker/build-push-action@v6
         with:
-          platforms: linux/${{ matrix.platform }}
+          platforms: linux/${{ matrix.arch }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
           outputs: type=image,push-by-digest=true,name-canonical=true,push=true
@@ -61,7 +62,7 @@ jobs:
       - name: Upload digest
         uses: actions/upload-artifact@v4
         with:
-          name: digests-linux-${{ matrix.platform }}
+          name: digests-linux-${{ matrix.arch }}
           path: ${{ runner.temp }}/digests/*
           if-no-files-found: error
           retention-days: 1
