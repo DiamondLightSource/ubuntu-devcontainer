@@ -51,13 +51,18 @@ jobs:
       - name: Test cli works in cached runtime image
         run: docker run --rm tag_for_testing uvx pycowsay 'hello ubuntu-devcontainer!'
 
+      # image names must be all lower case, meta does this for us to make tags
+      # but can't get the image name back out
+      - name: Generate image repo name
+        run: echo REGISTRY_IMAGE=ghcr.io/$(tr '[:upper:]' '[:lower:]' <<< "${{ github.repository }}") >> $GITHUB_ENV
+
       - name: Build and push by digest
         id: build
         # if: github.ref_type == 'tag'
         uses: docker/build-push-action@v6
         with:
           labels: ${{ steps.meta.outputs.labels }}
-          tags: ghcr.io/${{ github.repository }}
+          tags: ${{ env.REGISTRY_IMAGE }}
           outputs: type=image,push-by-digest=true,name-canonical=true,push=true
 
       - name: Export digest
