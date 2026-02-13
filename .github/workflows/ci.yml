@@ -83,7 +83,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build
-    if: github.ref_type == 'tag'
+    # if: github.ref_type == 'tag'
 
     steps:
       - name: Download digests
@@ -109,9 +109,11 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository }}
           tags: |
-            type=ref,event=tag
-            type=raw,value=latest
-            type=raw,value=noble
+            type=ref,event=pr
+
+#            type=ref,event=tag
+#            type=raw,value=latest
+#            type=raw,value=noble
 
       # image names must be all lower case, meta does this for us to make tags
       # but can't get the image name back out
