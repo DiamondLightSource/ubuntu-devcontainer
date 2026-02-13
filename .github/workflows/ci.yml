@@ -57,7 +57,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           labels: ${{ steps.meta.outputs.labels }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/${{ github.repository }}
           outputs: type=image,push-by-digest=true,name-canonical=true,push=true
 
       - name: Export digest
