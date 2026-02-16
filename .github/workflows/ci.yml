@@ -12,12 +12,6 @@ on:
       - '*'
   pull_request:
 
-env:
-  # The name of the Docker image to be built and pushed to GHCR
-  # The image name is derived from the GitHub repository name and the GitHub Container Registry (GHCR) URL.
-  # The image name will be in the format: ghcr.io/<owner>/<repo>
-  GHCR_IMAGE: ghcr.io/${{ github.repository }}
-
 jobs:
 
   build:
@@ -33,6 +27,9 @@ jobs:
     runs-on: ${{ matrix.runner }}
 
     steps:
+      - name: Set lowercase image name
+        run: echo "GHCR_IMAGE=${ghcr.io/${{ github.repository }},,}" >> $GITHUB_ENV
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -68,8 +65,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}
           outputs: type=image,name=${{ env.GHCR_IMAGE }},push-by-digest=true,name-canonical=true,push=true,oci-mediatypes=true
-          cache-from: type=gha,scope=${{ github.repository }}-${{ github.ref_name }}-${{ matrix.platform }}
-          cache-to: type=gha,scope=${{ github.repository }}-${{ github.ref_name }}-${{ matrix.platform }}
 
       - name: Export digest
         run: |
@@ -91,6 +86,9 @@ jobs:
     # if: github.ref_type == 'tag'
 
     steps:
+      - name: Set lowercase image name
+        run: echo "GHCR_IMAGE=${ghcr.io/${{ github.repository }},,}" >> $GITHUB_ENV
+
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
