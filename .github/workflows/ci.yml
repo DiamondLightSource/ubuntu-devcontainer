@@ -1,3 +1,7 @@
+# Written using
+# https://docs.docker.com/build/ci/github-actions/multi-platform/
+# and
+# https://github.com/sredevopsorg/multi-arch-docker-github-workflow/blob/main/.github/workflows/multi-build.yaml
 name: CI
 
 on:
@@ -8,36 +12,42 @@ on:
       - '*'
   pull_request:
 
+env:
+  # The name of the Docker image to be built and pushed to GHCR
+  # The image name is derived from the GitHub repository name and the GitHub Container Registry (GHCR) URL.
+  # The image name will be in the format: ghcr.io/<owner>/<repo>
+  GHCR_IMAGE: ghcr.io/${{ github.repository }}
+
 jobs:
 
-  build_container:
-    runs-on: ubuntu-latest
+  build:
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - arch: amd64
+          runner: ubuntu-latest
+        - arch: arm64
+          runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          # Need this to get version number from last tag
-          fetch-depth: 0
+      - name: Lowercase the image name
+        run: echo "GHCR_IMAGE=${GHCR_IMAGE,,}" >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
-        id: buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to GitHub Docker Registry
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3
+      - name: Extract metadata for publishing image
+        id: meta
+        uses: docker/metadata-action@v5
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          images: ${{ env.GHCR_IMAGE }}
 
       - name: Build and export to Docker local cache
         uses: docker/build-push-action@v6
-        env:
-          DOCKER_BUILD_RECORD_UPLOAD: false
         with:
-          context: .
           # Need load and tags so we can test it below
           load: true
           tags: tag_for_testing
@@ -45,25 +55,81 @@ jobs:
       - name: Test cli works in cached runtime image
         run: docker run --rm tag_for_testing uvx pycowsay 'hello ubuntu-devcontainer!'
 
+      - name: Log in to GitHub Docker Registry
+        if: github.ref_type == 'tag'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push by digest
+        if: github.ref_type == 'tag'
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          labels: ${{ steps.meta.outputs.labels }}
+          annotations: ${{ steps.meta.outputs.annotations }}
+          outputs: type=image,name=${{ env.GHCR_IMAGE }},push-by-digest=true,name-canonical=true,push=true,oci-mediatypes=true
+
+      - name: Export digest
+        if: github.ref_type == 'tag'
+        run: |
+          mkdir -p ${{ runner.temp }}/digests
+          digest="${{ steps.build.outputs.digest }}"
+          touch "${{ runner.temp }}/digests/${digest#sha256:}"
+
+      - name: Upload digest
+        if: github.ref_type == 'tag'
+        uses: actions/upload-artifact@v4
+        with:
+          name: digests-linux-${{ matrix.arch }}
+          path: ${{ runner.temp }}/digests/*
+          if-no-files-found: error
+
+  merge:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    if: github.ref_type == 'tag'
+
+    steps:
+      - name: Lowercase the image name
+        run: echo "GHCR_IMAGE=${GHCR_IMAGE,,}" >> $GITHUB_ENV
+
+      - name: Download digests
+        uses: actions/download-artifact@v4
+        with:
+          path: ${{ runner.temp }}/digests
+          pattern: digests-*
+          merge-multiple: true
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Create tags for publishing image
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}
+          images: ${{ env.GHCR_IMAGE }}
           tags: |
             type=ref,event=tag
             type=raw,value=latest
             type=raw,value=noble
-      
-      - name: Push cached image to container registry
-        if: github.ref_type == 'tag'
-        uses: docker/build-push-action@v6
-        env:
-          DOCKER_BUILD_RECORD_UPLOAD: false
-        # This does not build the image again, it will find the image in the
-        # Docker cache and publish it
+
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@v3
         with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create manifest list and push
+        working-directory: ${{ runner.temp }}/digests
+        run: |
+          docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+            $(printf '${{ env.GHCR_IMAGE }}@sha256:%s ' *)
+
+      - name: Inspect image
+        run: |
+          docker buildx imagetools inspect ${{ env.GHCR_IMAGE }}:${{ steps.meta.outputs.version }}
