@@ -64,8 +64,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push by digest
-        id: build
         if: github.ref_type == 'tag'
+        id: build
         uses: docker/build-push-action@v6
         with:
           labels: ${{ steps.meta.outputs.labels }}
@@ -73,12 +73,14 @@ jobs:
           outputs: type=image,name=${{ env.GHCR_IMAGE }},push-by-digest=true,name-canonical=true,push=true,oci-mediatypes=true
 
       - name: Export digest
+        if: github.ref_type == 'tag'
         run: |
           mkdir -p ${{ runner.temp }}/digests
           digest="${{ steps.build.outputs.digest }}"
           touch "${{ runner.temp }}/digests/${digest#sha256:}"
 
       - name: Upload digest
+        if: github.ref_type == 'tag'
         uses: actions/upload-artifact@v4
         with:
           name: digests-linux-${{ matrix.arch }}
