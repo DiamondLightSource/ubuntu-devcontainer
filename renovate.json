@@ -2,5 +2,21 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "baseBranches": [
+    "main",
+    "noble"
+  ],
+  "packageRules": [
+    {
+      "matchBaseBranches": ["main"],
+      "matchDepNames": ["ubuntu"],
+      "allowedVersions": "/^resolute(-.*)?$/"
+    },
+    {
+      "matchBaseBranches": ["noble"],
+      "matchDepNames": ["ubuntu"],
+      "allowedVersions": "/^noble(-.*)?$/"
+    }
   ]
 }
