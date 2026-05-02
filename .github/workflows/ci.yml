@@ -7,7 +7,7 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - noble
     tags:
       - '*'
   pull_request:
@@ -114,8 +114,8 @@ jobs:
           images: ${{ env.GHCR_IMAGE }}
           tags: |
             type=ref,event=tag
-            type=raw,value=latest
             type=raw,value=noble
+            type=raw,value=24.04
 
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@v4
