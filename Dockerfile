@@ -13,6 +13,7 @@ RUN apt-get update && \
         gh \
         git \
         glab \
+        just \
         lazygit \
         less \
         locales \
