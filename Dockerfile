@@ -11,6 +11,7 @@ RUN apt-get update && \
         curl \
         gdb \
         git \
+        lazygit \
         less \
         locales \
         man-db \
