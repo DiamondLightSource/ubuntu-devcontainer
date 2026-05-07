@@ -10,10 +10,15 @@ RUN apt-get update && \
         ca-certificates \
         curl \
         gdb \
+        gh \
         git \
+        glab \
+        just \
+        lazygit \
         less \
         locales \
         man-db \
+        nodejs \
         ssh-client \
         zsh && \
     apt-get dist-clean
