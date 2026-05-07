@@ -9,6 +9,7 @@ Features:
 - uv for python environment management
 - ssh, gdb and busybox for runtime debugging
 - lazygit for git power users
+- packages for seamless Claude integration
 
 ## How to use from the commandline
 
