@@ -8,6 +8,7 @@ Features:
 - git, curl make and other build-essentials
 - uv for python environment management
 - ssh, gdb and busybox for runtime debugging
+- lazygit for git power users
 
 ## How to use from the commandline
 
