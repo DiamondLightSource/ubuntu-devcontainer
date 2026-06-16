@@ -18,7 +18,7 @@ RUN apt-get update && \
         less \
         locales \
         man-db \
-        nodejs \
+        npm \
         ssh-client \
         zsh && \
     apt-get dist-clean
