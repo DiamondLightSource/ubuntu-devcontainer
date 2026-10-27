@@ -56,7 +56,7 @@ jobs:
         run: docker run --rm tag_for_testing uvx pycowsay 'hello ubuntu-devcontainer!'
 
       - name: Checkout the test script
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Test compromised eMudhra CAs are rejected
         run: docker run --rm -v ${{ github.workspace }}/tests:/tests:ro tag_for_testing /tests/emudhra.sh
