@@ -121,11 +121,11 @@ if [[ $mod == asyn && -n ${EXP_CASCADE:-} ]]; then
     ver=$(awk '/^version:/{print $2}' /epics/generic-source/ibek-support/asyn/asyn.install.yml)
     git clone -q --depth 1 -b "$ver" https://github.com/epics-modules/asyn /epics/support/asyn
     h=/epics/support/asyn/asyn/asynDriver/asynDriver.h
-    grep -q '^#define asynDriverH' "$h"
+    grep -q '^#define ASYNDRIVER_H' "$h"
     case $EXP_CASCADE in
-      comment-top) sed -i '/^#define asynDriverH/a /* sccache experiment: cascade test comment */' "$h" ;;
+      comment-top) sed -i '/^#define ASYNDRIVER_H/a /* sccache experiment: cascade test comment */' "$h" ;;
       comment-end) echo '/* sccache experiment: cascade test comment */' >> "$h" ;;
-      code)        sed -i '/^#define asynDriverH/a typedef int asynSccacheExperimentType;' "$h" ;;
+      code)        sed -i '/^#define ASYNDRIVER_H/a typedef int asynSccacheExperimentType;' "$h" ;;
     esac
     diff <(git -C /epics/support/asyn show HEAD:asyn/asynDriver/asynDriver.h) "$h" > "$R/cascade.diff" || true
 fi
@@ -415,7 +415,7 @@ run_variant() {
     gzip -f "$out"/*.sccache.log 2>/dev/null || true
     log "RUN $name done in $(python3 -c "print(round($t1-$t0,1))") s"
     if [[ $name == R1 || $name == R7rel ]]; then
-        local tag=exp/release; [[ $name == R7rel ]] && tag=exp/release-R7rel
+        local tag=exp/release; [[ $name == R7rel ]] && tag=exp/release-r7rel
         docker tag "exp/run:$name" $tag      # the "released developer image"
         docker run --rm $tag du -sh /sccache | tee "$out/cache_du.txt"
     fi
@@ -426,7 +426,7 @@ run_variant() {
 run_by_name() {
     local net=exp/net sb=exp/sccache-base rel=exp/release
     case $1 in
-        R0|R0b) run_variant "$1" $net $sb ;;                        # no sccache, cold
+        R0?)    run_variant "$1" $net $sb ;;                        # no sccache, cold
         R0shim) run_variant "$1" $net $sb EXP_SHIMS=1 ;;            # cold breakdown
         R1)     run_variant "$1" $sb  $sb ;;                        # empty cache (release build)
         R2?)    run_variant "$1" $sb  $rel ;;                       # warm, direct mode default (on)
@@ -438,8 +438,8 @@ run_by_name() {
         R4c)    run_variant "$1" $sb  $rel EXP_CASCADE=code ;;
         R6)     run_variant "$1" $sb  $rel EXP_NODEPS=1 ;;          # TUNING: no .d generation
         R7rel)  build_patched_sccache; run_variant "$1" exp/sccache-patched-base exp/sccache-base ;;
-        R7?)    run_variant "$1" exp/sccache-patched-base exp/release-R7rel ;;
-        R7dbg)  run_variant "$1" exp/sccache-patched-base exp/release-R7rel EXP_DEBUG=1 ;;
+        R7?)    run_variant "$1" exp/sccache-patched-base exp/release-r7rel ;;
+        R7dbg)  run_variant "$1" exp/sccache-patched-base exp/release-r7rel EXP_DEBUG=1 ;;
         *) echo "unknown run $1"; return 1 ;;
     esac
 }
