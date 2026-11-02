@@ -1,0 +1,3 @@
+developer=exp/sccache-patched-base
+seed=exp/sccache-base
+vars=

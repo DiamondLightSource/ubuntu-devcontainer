@@ -1,0 +1,69 @@
+{"ev": "pb_start", "t": 1793651211.472495}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793651211.4796383, "end": 1793651212.235403}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793651212.2354712, "end": 1793651212.2516036}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793651212.2516644, "end": 1793651212.2710624}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793651212.2711198, "end": 1793651212.291484}
+{"ev": "task", "name": "find : Find the ibek-support* folder for pvlogging", "action": "ansible.builtin.shell", "start": 1793651212.2915273, "end": 1793651212.5338748}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793651212.5339274, "end": 1793651212.5549865}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793651212.5550342, "end": 1793651212.5692961}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793651212.5693414, "end": 1793651212.5825615}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793651212.5826073, "end": 1793651212.8276222}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for pvlogging", "action": "ansible.builtin.copy", "start": 1793651212.8276727, "end": 1793651213.2680755}
+{"ev": "task", "name": "find : Read in the support module vars for pvlogging", "action": "ansible.builtin.include_vars", "start": 1793651213.2681298, "end": 1793651213.292789}
+{"ev": "task", "name": "find : Check that the install.yml for pvlogging names a module and a version", "action": "ansible.builtin.assert", "start": 1793651213.2928364, "end": 1793651213.3209944}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793651213.321056, "end": 1793651213.3435423}
+{"ev": "task", "name": "support : System Installs for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651213.3435876, "end": 1793651213.360636}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793651213.3606796, "end": 1793651213.5238066}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793651213.5238624, "end": 1793651213.5398297}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793651213.5398793, "end": 1793651213.5561783}
+{"ev": "task", "name": "support : Download additional files for pvlogging", "action": "ansible.builtin.get_url", "start": 1793651213.5562253, "end": 1793651213.5673292}
+{"ev": "task", "name": "support : Install system dependencies from registries pvlogging", "action": "ansible.builtin.package", "start": 1793651213.5673718, "end": 1793651213.5773013}
+{"ev": "task", "name": "support : Install local system dependencies pvlogging", "action": "ansible.builtin.package", "start": 1793651213.5773444, "end": 1793651213.587294}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651213.5873384, "end": 1793651213.597081}
+{"ev": "task", "name": "support : Clone pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651213.5971248, "end": 1793651213.6146681}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793651213.6147127, "end": 1793651213.7691681}
+{"ev": "task", "name": "support : Clone https://github.com/diamondlightsource/pvlogging vers 1-5-2 to /epics/support/pvlogging", "action": "ansible.builtin.git", "start": 1793651213.7692246, "end": 1793651215.7845657}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for pvlogging", "action": "ansible.builtin.git", "start": 1793651215.784626, "end": 1793651215.8074675}
+{"ev": "task", "name": "support : Patch file for pvlogging", "action": "ansible.builtin.command", "start": 1793651215.8075266, "end": 1793651215.8292913}
+{"ev": "task", "name": "support : Pre Build Tasks for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651215.8293474, "end": 1793651215.8466992}
+{"ev": "task", "name": "support : Execute additional tasks for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651215.846745, "end": 1793651215.8575134}
+{"ev": "task", "name": "support : Pre Build for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651215.857559, "end": 1793651215.8801074}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793651215.880516, "end": 1793651215.891105}
+{"ev": "task", "name": "support : Comment out lines as required for pvlogging", "action": "ansible.builtin.replace", "start": 1793651215.8911505, "end": 1793651215.9025006}
+{"ev": "task", "name": "support : RTEMS settings for pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651215.9025464, "end": 1793651215.9264433}
+{"ev": "task", "name": "support : Patch blocks for pvlogging", "action": "ansible.builtin.blockinfile", "start": 1793651215.9266338, "end": 1793651215.9382443}
+{"ev": "task", "name": "support : Patch lines for pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651215.9382913, "end": 1793651215.9486806}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for pvlogging", "action": "ansible.builtin.command", "start": 1793651215.9487274, "end": 1793651215.9594684}
+{"ev": "task", "name": "support : Run prebuild bash commands for pvlogging", "action": "ansible.builtin.shell", "start": 1793651215.9595125, "end": 1793651215.9728138}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651215.9728668, "end": 1793651215.9946988}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793651215.9947407, "end": 1793651216.1648908}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for pvlogging", "action": "ansible.builtin.blockinfile", "start": 1793651216.1649432, "end": 1793651216.4185767}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for pvlogging", "action": "ansible.builtin.file", "start": 1793651216.4186296, "end": 1793651216.581637}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651216.5816925, "end": 1793651216.8256593}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651216.82571, "end": 1793651216.8463366}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651216.8463867, "end": 1793651216.8577893}
+{"ev": "task", "name": "support : Build for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651216.8578424, "end": 1793651216.880129}
+{"ev": "task", "name": "support : Clean module for rebuild - pvlogging", "action": "ansible.builtin.command", "start": 1793651216.8801854, "end": 1793651217.139089}
+{"ev": "task", "name": "support : Build module pvlogging", "action": "ansible.builtin.command", "start": 1793651217.139153, "end": 1793651217.6382968}
+{"ev": "task", "name": "support : Clean module pvlogging", "action": "ansible.builtin.command", "start": 1793651217.6383533, "end": 1793651217.9042275}
+{"ev": "task", "name": "support : Post Build for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651217.9042852, "end": 1793651217.9315226}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651217.9315755, "end": 1793651218.107628}
+{"ev": "task", "name": "support : Get db folders for pvlogging", "action": "ansible.builtin.shell", "start": 1793651218.1076975, "end": 1793651218.2739408}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651218.2739956, "end": 1793651218.4436822}
+{"ev": "task", "name": "support : Add this module to the libs_list file - pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651218.4437397, "end": 1793651218.606615}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651218.606671, "end": 1793651218.767345}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651218.7673967, "end": 1793651218.9276247}
+{"ev": "task", "name": "support : Patch blocks for pvlogging", "action": "ansible.builtin.blockinfile", "start": 1793651218.9276757, "end": 1793651218.9389994}
+{"ev": "task", "name": "support : Patch lines for pvlogging", "action": "ansible.builtin.lineinfile", "start": 1793651218.939046, "end": 1793651218.9497216}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for pvlogging", "action": "ansible.builtin.command", "start": 1793651218.949767, "end": 1793651218.960527}
+{"ev": "task", "name": "support : Run postbuild bash commands for pvlogging", "action": "ansible.builtin.shell", "start": 1793651218.9605694, "end": 1793651218.971236}
+{"ev": "task", "name": "support : Post Build Tasks for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651218.971282, "end": 1793651218.9949644}
+{"ev": "task", "name": "support : Execute additional tasks for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651218.9950578, "end": 1793651219.0056543}
+{"ev": "task", "name": "support : Runtime setup for pvlogging", "action": "ansible.builtin.include_tasks", "start": 1793651219.0057003, "end": 1793651219.0301807}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793651219.0302262, "end": 1793651219.6476793}
+{"ev": "task", "name": "support : Link ibek defs files for pvlogging", "action": "ansible.builtin.file", "start": 1793651219.6477363, "end": 1793651219.8205848}
+{"ev": "task", "name": "support : Link pvi device files for pvlogging", "action": "ansible.builtin.file", "start": 1793651219.8206391, "end": 1793651219.8339279}
+{"ev": "task", "name": "support : Link autosave request files for pvlogging", "action": "ansible.builtin.file", "start": 1793651219.8339765, "end": 1793651219.846561}
+{"ev": "task", "name": "support : Copy protocol files for pvlogging", "action": "ansible.builtin.copy", "start": 1793651219.8466053, "end": 1793651219.8603737}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793651219.8604167, "end": 1793651219.8775842}
+{"ev": "pb_end", "t": 1793651219.8776283}

@@ -1,0 +1,69 @@
+{"ev": "pb_start", "t": 1793641197.6773117}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793641197.6857207, "end": 1793641198.4763896}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793641198.476518, "end": 1793641198.4957902}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793641198.4958491, "end": 1793641198.5160735}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793641198.5161247, "end": 1793641198.5374594}
+{"ev": "task", "name": "find : Find the ibek-support* folder for autosave", "action": "ansible.builtin.shell", "start": 1793641198.5375044, "end": 1793641198.794109}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793641198.7941678, "end": 1793641198.8168929}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793641198.8169453, "end": 1793641198.833066}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793641198.8331132, "end": 1793641198.8482194}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793641198.848269, "end": 1793641199.1062827}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for autosave", "action": "ansible.builtin.copy", "start": 1793641199.1063385, "end": 1793641199.5890043}
+{"ev": "task", "name": "find : Read in the support module vars for autosave", "action": "ansible.builtin.include_vars", "start": 1793641199.5890622, "end": 1793641199.6164863}
+{"ev": "task", "name": "find : Check that the install.yml for autosave names a module and a version", "action": "ansible.builtin.assert", "start": 1793641199.616538, "end": 1793641199.6470375}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793641199.6470933, "end": 1793641199.6717675}
+{"ev": "task", "name": "support : System Installs for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641199.671817, "end": 1793641199.6907248}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793641199.690777, "end": 1793641199.929667}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793641199.9297328, "end": 1793641199.9485624}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793641199.948622, "end": 1793641199.9658039}
+{"ev": "task", "name": "support : Download additional files for autosave", "action": "ansible.builtin.get_url", "start": 1793641199.9658515, "end": 1793641199.9778388}
+{"ev": "task", "name": "support : Install system dependencies from registries autosave", "action": "ansible.builtin.package", "start": 1793641199.9778867, "end": 1793641199.9897435}
+{"ev": "task", "name": "support : Install local system dependencies autosave", "action": "ansible.builtin.package", "start": 1793641199.9898014, "end": 1793641200.0011842}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage autosave", "action": "ansible.builtin.lineinfile", "start": 1793641200.0012364, "end": 1793641200.0134373}
+{"ev": "task", "name": "support : Clone autosave", "action": "ansible.builtin.include_tasks", "start": 1793641200.0134857, "end": 1793641200.0328197}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793641200.0328796, "end": 1793641200.216258}
+{"ev": "task", "name": "support : Clone https://github.com/epics-modules/autosave vers R6-0 to /epics/support/autosave", "action": "ansible.builtin.git", "start": 1793641200.2163184, "end": 1793641202.9906614}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for autosave", "action": "ansible.builtin.git", "start": 1793641202.9907277, "end": 1793641203.016165}
+{"ev": "task", "name": "support : Patch file for autosave", "action": "ansible.builtin.command", "start": 1793641203.0162404, "end": 1793641203.0404592}
+{"ev": "task", "name": "support : Pre Build Tasks for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641203.0405202, "end": 1793641203.0603883}
+{"ev": "task", "name": "support : Execute additional tasks for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641203.060439, "end": 1793641203.0724006}
+{"ev": "task", "name": "support : Pre Build for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641203.0724523, "end": 1793641203.0940108}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793641203.094059, "end": 1793641203.10567}
+{"ev": "task", "name": "support : Comment out lines as required for autosave", "action": "ansible.builtin.replace", "start": 1793641203.105719, "end": 1793641203.1189024}
+{"ev": "task", "name": "support : RTEMS settings for autosave", "action": "ansible.builtin.lineinfile", "start": 1793641203.118952, "end": 1793641203.1440854}
+{"ev": "task", "name": "support : Patch blocks for autosave", "action": "ansible.builtin.blockinfile", "start": 1793641203.144136, "end": 1793641203.1577747}
+{"ev": "task", "name": "support : Patch lines for autosave", "action": "ansible.builtin.lineinfile", "start": 1793641203.1578255, "end": 1793641203.1711166}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for autosave", "action": "ansible.builtin.command", "start": 1793641203.1711683, "end": 1793641203.1847506}
+{"ev": "task", "name": "support : Run prebuild bash commands for autosave", "action": "ansible.builtin.shell", "start": 1793641203.1848025, "end": 1793641203.1966388}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641203.1966884, "end": 1793641203.2189152}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793641203.2189648, "end": 1793641203.428264}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for autosave", "action": "ansible.builtin.blockinfile", "start": 1793641203.4283264, "end": 1793641203.7223642}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for autosave", "action": "ansible.builtin.file", "start": 1793641203.7224274, "end": 1793641203.8937109}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - autosave", "action": "ansible.builtin.lineinfile", "start": 1793641203.8937688, "end": 1793641204.1451964}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for autosave", "action": "ansible.builtin.lineinfile", "start": 1793641204.145257, "end": 1793641204.1680853}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641204.1681423, "end": 1793641204.1805224}
+{"ev": "task", "name": "support : Build for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641204.180577, "end": 1793641204.2028782}
+{"ev": "task", "name": "support : Clean module for rebuild - autosave", "action": "ansible.builtin.command", "start": 1793641204.2029295, "end": 1793641204.5787191}
+{"ev": "task", "name": "support : Build module autosave", "action": "ansible.builtin.command", "start": 1793641204.5787861, "end": 1793641206.4213097}
+{"ev": "task", "name": "support : Clean module autosave", "action": "ansible.builtin.command", "start": 1793641206.4213755, "end": 1793641206.8023694}
+{"ev": "task", "name": "support : Post Build for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641206.8024333, "end": 1793641206.8306222}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for autosave", "action": "ansible.builtin.lineinfile", "start": 1793641206.8306785, "end": 1793641207.014082}
+{"ev": "task", "name": "support : Get db folders for autosave", "action": "ansible.builtin.shell", "start": 1793641207.0141516, "end": 1793641207.1865416}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for autosave", "action": "ansible.builtin.lineinfile", "start": 1793641207.1866183, "end": 1793641207.3667226}
+{"ev": "task", "name": "support : Add this module to the libs_list file - autosave", "action": "ansible.builtin.lineinfile", "start": 1793641207.366785, "end": 1793641207.5364377}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - autosave", "action": "ansible.builtin.lineinfile", "start": 1793641207.5364938, "end": 1793641207.7054}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - autosave", "action": "ansible.builtin.lineinfile", "start": 1793641207.7054596, "end": 1793641207.7176816}
+{"ev": "task", "name": "support : Patch blocks for autosave", "action": "ansible.builtin.blockinfile", "start": 1793641207.7177336, "end": 1793641207.7295082}
+{"ev": "task", "name": "support : Patch lines for autosave", "action": "ansible.builtin.lineinfile", "start": 1793641207.7295566, "end": 1793641207.7414124}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for autosave", "action": "ansible.builtin.command", "start": 1793641207.741462, "end": 1793641207.7526863}
+{"ev": "task", "name": "support : Run postbuild bash commands for autosave", "action": "ansible.builtin.shell", "start": 1793641207.7527354, "end": 1793641207.7641923}
+{"ev": "task", "name": "support : Post Build Tasks for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641207.7642384, "end": 1793641207.7888806}
+{"ev": "task", "name": "support : Execute additional tasks for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641207.7889295, "end": 1793641207.8007703}
+{"ev": "task", "name": "support : Runtime setup for autosave", "action": "ansible.builtin.include_tasks", "start": 1793641207.800823, "end": 1793641207.8271325}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793641207.8271847, "end": 1793641208.465491}
+{"ev": "task", "name": "support : Link ibek defs files for autosave", "action": "ansible.builtin.file", "start": 1793641208.4655664, "end": 1793641208.658689}
+{"ev": "task", "name": "support : Link pvi device files for autosave", "action": "ansible.builtin.file", "start": 1793641208.658753, "end": 1793641208.6737843}
+{"ev": "task", "name": "support : Link autosave request files for autosave", "action": "ansible.builtin.file", "start": 1793641208.6738431, "end": 1793641208.6894014}
+{"ev": "task", "name": "support : Copy protocol files for autosave", "action": "ansible.builtin.copy", "start": 1793641208.6894553, "end": 1793641208.705417}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793641208.705471, "end": 1793641208.7248504}
+{"ev": "pb_end", "t": 1793641208.7249038}

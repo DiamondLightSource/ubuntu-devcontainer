@@ -1,0 +1,69 @@
+{"ev": "pb_start", "t": 1793643809.5108232}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793643809.5183241, "end": 1793643811.3593204}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793643811.3593712, "end": 1793643811.3756526}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793643811.3757017, "end": 1793643811.400351}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793643811.400402, "end": 1793643811.4205534}
+{"ev": "task", "name": "find : Find the ibek-support* folder for sequencer", "action": "ansible.builtin.shell", "start": 1793643811.4205968, "end": 1793643811.6731257}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793643811.6731787, "end": 1793643811.6961315}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793643811.696182, "end": 1793643811.7120082}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793643811.7120545, "end": 1793643811.7266297}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793643811.7266862, "end": 1793643812.004573}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for sequencer", "action": "ansible.builtin.copy", "start": 1793643812.00463, "end": 1793643812.4962437}
+{"ev": "task", "name": "find : Read in the support module vars for sequencer", "action": "ansible.builtin.include_vars", "start": 1793643812.4963028, "end": 1793643812.5251312}
+{"ev": "task", "name": "find : Check that the install.yml for sequencer names a module and a version", "action": "ansible.builtin.assert", "start": 1793643812.525186, "end": 1793643812.555377}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793643812.555428, "end": 1793643812.579974}
+{"ev": "task", "name": "support : System Installs for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643812.5800242, "end": 1793643812.5989726}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793643812.5990212, "end": 1793643812.7852097}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793643812.785269, "end": 1793643812.8036695}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793643812.8037233, "end": 1793643812.8236725}
+{"ev": "task", "name": "support : Download additional files for sequencer", "action": "ansible.builtin.get_url", "start": 1793643812.8237243, "end": 1793643812.8351917}
+{"ev": "task", "name": "support : Install system dependencies from registries sequencer", "action": "ansible.builtin.package", "start": 1793643812.835238, "end": 1793643812.8468978}
+{"ev": "task", "name": "support : Install local system dependencies sequencer", "action": "ansible.builtin.package", "start": 1793643812.8469431, "end": 1793643812.858433}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643812.8584795, "end": 1793643812.869671}
+{"ev": "task", "name": "support : Clone sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643812.8697162, "end": 1793643812.8893013}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793643812.8893538, "end": 1793643813.0607734}
+{"ev": "task", "name": "support : Clone https://github.com/epics-modules/sequencer vers R2-2-9 to /epics/support/sequencer", "action": "ansible.builtin.git", "start": 1793643813.0608325, "end": 1793643816.953766}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for sequencer", "action": "ansible.builtin.git", "start": 1793643816.9538205, "end": 1793643816.9774907}
+{"ev": "task", "name": "support : Patch file for sequencer", "action": "ansible.builtin.command", "start": 1793643816.9775457, "end": 1793643817.001655}
+{"ev": "task", "name": "support : Pre Build Tasks for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643817.001709, "end": 1793643817.020309}
+{"ev": "task", "name": "support : Execute additional tasks for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643817.020348, "end": 1793643817.0315466}
+{"ev": "task", "name": "support : Pre Build for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643817.0315993, "end": 1793643817.0528076}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793643817.052844, "end": 1793643817.0638547}
+{"ev": "task", "name": "support : Comment out lines as required for sequencer", "action": "ansible.builtin.replace", "start": 1793643817.0638962, "end": 1793643817.317269}
+{"ev": "task", "name": "support : RTEMS settings for sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643817.3173199, "end": 1793643817.3428502}
+{"ev": "task", "name": "support : Patch blocks for sequencer", "action": "ansible.builtin.blockinfile", "start": 1793643817.3428981, "end": 1793643817.354596}
+{"ev": "task", "name": "support : Patch lines for sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643817.354642, "end": 1793643817.3665879}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for sequencer", "action": "ansible.builtin.command", "start": 1793643817.366634, "end": 1793643817.3775165}
+{"ev": "task", "name": "support : Run prebuild bash commands for sequencer", "action": "ansible.builtin.shell", "start": 1793643817.3775568, "end": 1793643817.3885453}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643817.3885841, "end": 1793643817.4090085}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793643817.4090497, "end": 1793643817.5850933}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for sequencer", "action": "ansible.builtin.blockinfile", "start": 1793643817.585145, "end": 1793643817.8554826}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for sequencer", "action": "ansible.builtin.file", "start": 1793643817.8555398, "end": 1793643818.0286615}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643818.0287132, "end": 1793643818.2767115}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643818.2767682, "end": 1793643818.2985122}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643818.298566, "end": 1793643818.3100717}
+{"ev": "task", "name": "support : Build for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643818.3101227, "end": 1793643818.333322}
+{"ev": "task", "name": "support : Clean module for rebuild - sequencer", "action": "ansible.builtin.command", "start": 1793643818.3333669, "end": 1793643818.8296263}
+{"ev": "task", "name": "support : Build module sequencer", "action": "ansible.builtin.command", "start": 1793643818.8296883, "end": 1793643821.7445123}
+{"ev": "task", "name": "support : Clean module sequencer", "action": "ansible.builtin.command", "start": 1793643821.7445698, "end": 1793643822.1997755}
+{"ev": "task", "name": "support : Post Build for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643822.1998322, "end": 1793643822.227197}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643822.2272644, "end": 1793643822.4018857}
+{"ev": "task", "name": "support : Get db folders for sequencer", "action": "ansible.builtin.shell", "start": 1793643822.4020126, "end": 1793643822.5800834}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643822.5801473, "end": 1793643822.762657}
+{"ev": "task", "name": "support : Add this module to the libs_list file - sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643822.7627149, "end": 1793643823.1568651}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643823.156919, "end": 1793643823.1695714}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643823.1696198, "end": 1793643823.1824543}
+{"ev": "task", "name": "support : Patch blocks for sequencer", "action": "ansible.builtin.blockinfile", "start": 1793643823.182503, "end": 1793643823.1953216}
+{"ev": "task", "name": "support : Patch lines for sequencer", "action": "ansible.builtin.lineinfile", "start": 1793643823.1953723, "end": 1793643823.20783}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for sequencer", "action": "ansible.builtin.command", "start": 1793643823.2078762, "end": 1793643823.2200432}
+{"ev": "task", "name": "support : Run postbuild bash commands for sequencer", "action": "ansible.builtin.shell", "start": 1793643823.2200906, "end": 1793643823.2317991}
+{"ev": "task", "name": "support : Post Build Tasks for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643823.2318435, "end": 1793643823.258095}
+{"ev": "task", "name": "support : Execute additional tasks for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643823.2581475, "end": 1793643823.2719808}
+{"ev": "task", "name": "support : Runtime setup for sequencer", "action": "ansible.builtin.include_tasks", "start": 1793643823.2720454, "end": 1793643823.299107}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793643823.2991571, "end": 1793643823.9647052}
+{"ev": "task", "name": "support : Link ibek defs files for sequencer", "action": "ansible.builtin.file", "start": 1793643823.9647644, "end": 1793643823.9802508}
+{"ev": "task", "name": "support : Link pvi device files for sequencer", "action": "ansible.builtin.file", "start": 1793643823.9803052, "end": 1793643823.9941843}
+{"ev": "task", "name": "support : Link autosave request files for sequencer", "action": "ansible.builtin.file", "start": 1793643823.9942348, "end": 1793643824.007845}
+{"ev": "task", "name": "support : Copy protocol files for sequencer", "action": "ansible.builtin.copy", "start": 1793643824.0078921, "end": 1793643824.0222697}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793643824.0223165, "end": 1793643824.0413306}
+{"ev": "pb_end", "t": 1793643824.0413783}

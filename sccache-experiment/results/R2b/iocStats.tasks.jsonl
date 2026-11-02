@@ -1,0 +1,73 @@
+{"ev": "pb_start", "t": 1793640392.1765606}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793640392.1841846, "end": 1793640392.9576328}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793640392.9576876, "end": 1793640392.9725723}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793640392.9726226, "end": 1793640392.9992476}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793640392.999299, "end": 1793640393.019907}
+{"ev": "task", "name": "find : Find the ibek-support* folder for iocStats", "action": "ansible.builtin.shell", "start": 1793640393.0199544, "end": 1793640393.3443468}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793640393.3444011, "end": 1793640393.373832}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793640393.3738937, "end": 1793640393.3939662}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793640393.3940227, "end": 1793640393.4141731}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793640393.4142346, "end": 1793640393.6765082}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for iocStats", "action": "ansible.builtin.copy", "start": 1793640393.6765597, "end": 1793640394.1528623}
+{"ev": "task", "name": "find : Read in the support module vars for iocStats", "action": "ansible.builtin.include_vars", "start": 1793640394.1529133, "end": 1793640394.1800337}
+{"ev": "task", "name": "find : Check that the install.yml for iocStats names a module and a version", "action": "ansible.builtin.assert", "start": 1793640394.1800816, "end": 1793640394.2093742}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793640394.2094219, "end": 1793640394.2324572}
+{"ev": "task", "name": "support : System Installs for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640394.232507, "end": 1793640394.2505152}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793640394.2505622, "end": 1793640394.4259832}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793640394.4260454, "end": 1793640404.28102}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793640404.2810986, "end": 1793640404.4610736}
+{"ev": "task", "name": "support : Download additional files for iocStats", "action": "ansible.builtin.get_url", "start": 1793640404.4611425, "end": 1793640404.473021}
+{"ev": "task", "name": "support : Install system dependencies from registries iocStats", "action": "ansible.builtin.package", "start": 1793640404.4730647, "end": 1793640409.2967923}
+{"ev": "task", "name": "support : Install local system dependencies iocStats", "action": "ansible.builtin.package", "start": 1793640409.2968562, "end": 1793640409.3144166}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640409.3144853, "end": 1793640409.5770226}
+{"ev": "task", "name": "support : Clone iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640409.577084, "end": 1793640409.5955179}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793640409.5955703, "end": 1793640409.768714}
+{"ev": "task", "name": "support : Clone https://github.com/epics-modules/iocStats vers 3.2.0 to /epics/support/iocStats", "action": "ansible.builtin.git", "start": 1793640409.7687736, "end": 1793640412.1305885}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for iocStats", "action": "ansible.builtin.git", "start": 1793640412.1306486, "end": 1793640412.1675951}
+{"ev": "task", "name": "support : Patch file for iocStats", "action": "ansible.builtin.command", "start": 1793640412.167665, "end": 1793640412.1988955}
+{"ev": "task", "name": "support : Pre Build Tasks for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640412.198957, "end": 1793640412.2194233}
+{"ev": "task", "name": "support : Execute additional tasks for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640412.2194765, "end": 1793640412.2313297}
+{"ev": "task", "name": "support : Pre Build for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640412.231381, "end": 1793640412.2517715}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793640412.2518184, "end": 1793640412.2629845}
+{"ev": "task", "name": "support : Comment out lines as required for iocStats", "action": "ansible.builtin.replace", "start": 1793640412.2630346, "end": 1793640412.513173}
+{"ev": "task", "name": "support : RTEMS settings for iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640412.51323, "end": 1793640412.5415888}
+{"ev": "task", "name": "support : Patch blocks for iocStats", "action": "ansible.builtin.blockinfile", "start": 1793640412.5416443, "end": 1793640412.5535}
+{"ev": "task", "name": "support : Patch lines for iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640412.5535505, "end": 1793640412.565196}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for iocStats", "action": "ansible.builtin.command", "start": 1793640412.565246, "end": 1793640412.57728}
+{"ev": "task", "name": "support : Run prebuild bash commands for iocStats", "action": "ansible.builtin.shell", "start": 1793640412.5773313, "end": 1793640412.5887434}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640412.588794, "end": 1793640412.6098795}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793640412.6099825, "end": 1793640412.7911427}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for iocStats", "action": "ansible.builtin.blockinfile", "start": 1793640412.791199, "end": 1793640413.054891}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for iocStats", "action": "ansible.builtin.file", "start": 1793640413.0549495, "end": 1793640413.2250462}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640413.2251027, "end": 1793640413.4077845}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640413.407838, "end": 1793640413.4336498}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640413.4337554, "end": 1793640413.4559581}
+{"ev": "task", "name": "support : Check for existing macro SNCSEQ", "action": "ansible.builtin.shell", "start": 1793640413.4560056, "end": 1793640413.6254067}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE SNCSEQ", "action": "ansible.builtin.lineinfile", "start": 1793640413.6254637, "end": 1793640413.8066118}
+{"ev": "task", "name": "support : Check for existing macro IPAC", "action": "ansible.builtin.shell", "start": 1793640413.8066673, "end": 1793640413.9811742}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE IPAC", "action": "ansible.builtin.lineinfile", "start": 1793640413.9812348, "end": 1793640414.1570895}
+{"ev": "task", "name": "support : Build for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640414.157141, "end": 1793640414.179563}
+{"ev": "task", "name": "support : Clean module for rebuild - iocStats", "action": "ansible.builtin.command", "start": 1793640414.1796129, "end": 1793640414.7149553}
+{"ev": "task", "name": "support : Build module iocStats", "action": "ansible.builtin.command", "start": 1793640414.7150369, "end": 1793640415.6163332}
+{"ev": "task", "name": "support : Clean module iocStats", "action": "ansible.builtin.command", "start": 1793640415.6163874, "end": 1793640416.1808054}
+{"ev": "task", "name": "support : Post Build for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640416.1808631, "end": 1793640416.2070494}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640416.207104, "end": 1793640416.3924534}
+{"ev": "task", "name": "support : Get db folders for iocStats", "action": "ansible.builtin.shell", "start": 1793640416.3925128, "end": 1793640416.5681796}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640416.5682373, "end": 1793640416.757612}
+{"ev": "task", "name": "support : Add this module to the libs_list file - iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640416.757668, "end": 1793640416.9306984}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640416.9307537, "end": 1793640417.1071124}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640417.1071696, "end": 1793640417.119904}
+{"ev": "task", "name": "support : Patch blocks for iocStats", "action": "ansible.builtin.blockinfile", "start": 1793640417.119957, "end": 1793640417.133311}
+{"ev": "task", "name": "support : Patch lines for iocStats", "action": "ansible.builtin.lineinfile", "start": 1793640417.1333625, "end": 1793640417.1451175}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for iocStats", "action": "ansible.builtin.command", "start": 1793640417.1451666, "end": 1793640417.1565776}
+{"ev": "task", "name": "support : Run postbuild bash commands for iocStats", "action": "ansible.builtin.shell", "start": 1793640417.156628, "end": 1793640417.168031}
+{"ev": "task", "name": "support : Post Build Tasks for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640417.1680794, "end": 1793640417.1915476}
+{"ev": "task", "name": "support : Execute additional tasks for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640417.1916015, "end": 1793640417.2042823}
+{"ev": "task", "name": "support : Runtime setup for iocStats", "action": "ansible.builtin.include_tasks", "start": 1793640417.2043388, "end": 1793640417.2308018}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793640417.230856, "end": 1793640417.9022892}
+{"ev": "task", "name": "support : Link ibek defs files for iocStats", "action": "ansible.builtin.file", "start": 1793640417.9023457, "end": 1793640418.1058574}
+{"ev": "task", "name": "support : Link pvi device files for iocStats", "action": "ansible.builtin.file", "start": 1793640418.1060104, "end": 1793640418.1243203}
+{"ev": "task", "name": "support : Link autosave request files for iocStats", "action": "ansible.builtin.file", "start": 1793640418.1243963, "end": 1793640420.4928732}
+{"ev": "task", "name": "support : Copy protocol files for iocStats", "action": "ansible.builtin.copy", "start": 1793640420.4929326, "end": 1793640420.5077229}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793640420.507778, "end": 1793640420.526413}
+{"ev": "pb_end", "t": 1793640420.5264628}

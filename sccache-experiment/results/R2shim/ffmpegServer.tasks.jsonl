@@ -1,0 +1,69 @@
+{"ev": "pb_start", "t": 1793642464.250716}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793642464.258825, "end": 1793642465.0537975}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793642465.053845, "end": 1793642465.0701463}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793642465.070202, "end": 1793642465.0907204}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793642465.0907743, "end": 1793642465.1116936}
+{"ev": "task", "name": "find : Find the ibek-support* folder for ffmpegServer", "action": "ansible.builtin.shell", "start": 1793642465.1117423, "end": 1793642465.3755324}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793642465.375593, "end": 1793642465.3989706}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793642465.3990493, "end": 1793642465.4159143}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793642465.4159727, "end": 1793642465.431492}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793642465.431546, "end": 1793642465.6981127}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for ffmpegServer", "action": "ansible.builtin.copy", "start": 1793642465.6981704, "end": 1793642466.2170312}
+{"ev": "task", "name": "find : Read in the support module vars for ffmpegServer", "action": "ansible.builtin.include_vars", "start": 1793642466.217099, "end": 1793642466.2456765}
+{"ev": "task", "name": "find : Check that the install.yml for ffmpegServer names a module and a version", "action": "ansible.builtin.assert", "start": 1793642466.245732, "end": 1793642466.275687}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793642466.2757428, "end": 1793642466.299516}
+{"ev": "task", "name": "support : System Installs for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642466.2995658, "end": 1793642466.3185503}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793642466.3186007, "end": 1793642466.5113614}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793642466.5114224, "end": 1793642466.5331771}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793642466.5332396, "end": 1793642466.5507195}
+{"ev": "task", "name": "support : Download additional files for ffmpegServer", "action": "ansible.builtin.get_url", "start": 1793642466.550773, "end": 1793642466.562554}
+{"ev": "task", "name": "support : Install system dependencies from registries ffmpegServer", "action": "ansible.builtin.package", "start": 1793642466.5626018, "end": 1793642499.8368807}
+{"ev": "task", "name": "support : Install local system dependencies ffmpegServer", "action": "ansible.builtin.package", "start": 1793642499.8369591, "end": 1793642499.8566856}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642499.856741, "end": 1793642500.4539933}
+{"ev": "task", "name": "support : Clone ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642500.4540544, "end": 1793642500.4755316}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793642500.475586, "end": 1793642500.6546016}
+{"ev": "task", "name": "support : Clone http://github.com/DiamondLightSource/ffmpegServer vers 3d192ed to /epics/support/ffmpegServer", "action": "ansible.builtin.git", "start": 1793642500.6546628, "end": 1793642506.345064}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for ffmpegServer", "action": "ansible.builtin.git", "start": 1793642506.3451178, "end": 1793642506.3700335}
+{"ev": "task", "name": "support : Patch file for ffmpegServer", "action": "ansible.builtin.command", "start": 1793642506.3700993, "end": 1793642506.3967025}
+{"ev": "task", "name": "support : Pre Build Tasks for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642506.3967555, "end": 1793642506.4152997}
+{"ev": "task", "name": "support : Execute additional tasks for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642506.4153483, "end": 1793642506.4277875}
+{"ev": "task", "name": "support : Pre Build for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642506.4278388, "end": 1793642506.448826}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793642506.4488697, "end": 1793642506.460142}
+{"ev": "task", "name": "support : Comment out lines as required for ffmpegServer", "action": "ansible.builtin.replace", "start": 1793642506.4601922, "end": 1793642506.8967192}
+{"ev": "task", "name": "support : RTEMS settings for ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642506.8967822, "end": 1793642506.9237065}
+{"ev": "task", "name": "support : Patch blocks for ffmpegServer", "action": "ansible.builtin.blockinfile", "start": 1793642506.923765, "end": 1793642506.9357364}
+{"ev": "task", "name": "support : Patch lines for ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642506.9357958, "end": 1793642507.12526}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for ffmpegServer", "action": "ansible.builtin.command", "start": 1793642507.1253235, "end": 1793642507.1387997}
+{"ev": "task", "name": "support : Run prebuild bash commands for ffmpegServer", "action": "ansible.builtin.shell", "start": 1793642507.1388602, "end": 1793642507.1510057}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642507.1510618, "end": 1793642507.1742811}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793642507.174331, "end": 1793642507.3683774}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for ffmpegServer", "action": "ansible.builtin.blockinfile", "start": 1793642507.3684394, "end": 1793642507.6476796}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for ffmpegServer", "action": "ansible.builtin.file", "start": 1793642507.64774, "end": 1793642507.831424}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642507.8314872, "end": 1793642508.0257473}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642508.0258055, "end": 1793642508.0493207}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642508.049381, "end": 1793642508.0624776}
+{"ev": "task", "name": "support : Build for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642508.0625541, "end": 1793642508.0873537}
+{"ev": "task", "name": "support : Clean module for rebuild - ffmpegServer", "action": "ansible.builtin.command", "start": 1793642508.0874186, "end": 1793642508.4061399}
+{"ev": "task", "name": "support : Build module ffmpegServer", "action": "ansible.builtin.command", "start": 1793642508.4061995, "end": 1793642509.2282429}
+{"ev": "task", "name": "support : Clean module ffmpegServer", "action": "ansible.builtin.command", "start": 1793642509.2283018, "end": 1793642509.5691495}
+{"ev": "task", "name": "support : Post Build for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642509.5692112, "end": 1793642509.5974207}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642509.5974755, "end": 1793642509.7782826}
+{"ev": "task", "name": "support : Get db folders for ffmpegServer", "action": "ansible.builtin.shell", "start": 1793642509.7783537, "end": 1793642509.953637}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642509.9537, "end": 1793642510.1351717}
+{"ev": "task", "name": "support : Add this module to the libs_list file - ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642510.1352336, "end": 1793642510.3168364}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642510.3169165, "end": 1793642510.4903915}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642510.4904504, "end": 1793642510.5033233}
+{"ev": "task", "name": "support : Patch blocks for ffmpegServer", "action": "ansible.builtin.blockinfile", "start": 1793642510.5033784, "end": 1793642510.5149672}
+{"ev": "task", "name": "support : Patch lines for ffmpegServer", "action": "ansible.builtin.lineinfile", "start": 1793642510.5150185, "end": 1793642510.5417602}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for ffmpegServer", "action": "ansible.builtin.command", "start": 1793642510.5418117, "end": 1793642510.5537412}
+{"ev": "task", "name": "support : Run postbuild bash commands for ffmpegServer", "action": "ansible.builtin.shell", "start": 1793642510.5537913, "end": 1793642510.5656645}
+{"ev": "task", "name": "support : Post Build Tasks for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642510.5657122, "end": 1793642510.5912106}
+{"ev": "task", "name": "support : Execute additional tasks for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642510.5912633, "end": 1793642510.603797}
+{"ev": "task", "name": "support : Runtime setup for ffmpegServer", "action": "ansible.builtin.include_tasks", "start": 1793642510.603848, "end": 1793642510.6300585}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793642510.6301134, "end": 1793642511.2957835}
+{"ev": "task", "name": "support : Link ibek defs files for ffmpegServer", "action": "ansible.builtin.file", "start": 1793642511.295847, "end": 1793642511.489363}
+{"ev": "task", "name": "support : Link pvi device files for ffmpegServer", "action": "ansible.builtin.file", "start": 1793642511.4894223, "end": 1793642511.8401392}
+{"ev": "task", "name": "support : Link autosave request files for ffmpegServer", "action": "ansible.builtin.file", "start": 1793642511.8402007, "end": 1793642511.8561392}
+{"ev": "task", "name": "support : Copy protocol files for ffmpegServer", "action": "ansible.builtin.copy", "start": 1793642511.8561943, "end": 1793642511.871792}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793642511.871845, "end": 1793642511.8913107}
+{"ev": "pb_end", "t": 1793642511.891365}

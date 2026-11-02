@@ -1,0 +1,71 @@
+{"ev": "pb_start", "t": 1793642278.5637448}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793642278.57172, "end": 1793642280.3945858}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793642280.3946373, "end": 1793642280.4212725}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793642280.421327, "end": 1793642280.4428852}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793642280.4429362, "end": 1793642280.466166}
+{"ev": "task", "name": "find : Find the ibek-support* folder for sscan", "action": "ansible.builtin.shell", "start": 1793642280.4662154, "end": 1793642280.8054094}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793642280.8054614, "end": 1793642280.8277414}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793642280.8277953, "end": 1793642280.8441749}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793642280.8442276, "end": 1793642280.8596606}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793642280.8597112, "end": 1793642281.1176069}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for sscan", "action": "ansible.builtin.copy", "start": 1793642281.1176572, "end": 1793642281.5874157}
+{"ev": "task", "name": "find : Read in the support module vars for sscan", "action": "ansible.builtin.include_vars", "start": 1793642281.587491, "end": 1793642281.617348}
+{"ev": "task", "name": "find : Check that the install.yml for sscan names a module and a version", "action": "ansible.builtin.assert", "start": 1793642281.6174064, "end": 1793642281.6514668}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793642281.651539, "end": 1793642281.6842973}
+{"ev": "task", "name": "support : System Installs for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642281.6843724, "end": 1793642281.7098982}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793642281.7100148, "end": 1793642281.896951}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793642281.8970127, "end": 1793642281.914505}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793642281.9145582, "end": 1793642281.9318337}
+{"ev": "task", "name": "support : Download additional files for sscan", "action": "ansible.builtin.get_url", "start": 1793642281.9318829, "end": 1793642281.9435146}
+{"ev": "task", "name": "support : Install system dependencies from registries sscan", "action": "ansible.builtin.package", "start": 1793642281.9435656, "end": 1793642281.9557054}
+{"ev": "task", "name": "support : Install local system dependencies sscan", "action": "ansible.builtin.package", "start": 1793642281.9557512, "end": 1793642281.9672854}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage sscan", "action": "ansible.builtin.lineinfile", "start": 1793642281.9673295, "end": 1793642281.9783492}
+{"ev": "task", "name": "support : Clone sscan", "action": "ansible.builtin.include_tasks", "start": 1793642281.9783938, "end": 1793642281.9977107}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793642281.9977617, "end": 1793642282.1661603}
+{"ev": "task", "name": "support : Clone https://github.com/epics-modules/sscan vers R2-12 to /epics/support/sscan", "action": "ansible.builtin.git", "start": 1793642282.1662178, "end": 1793642284.7979062}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for sscan", "action": "ansible.builtin.git", "start": 1793642284.7980206, "end": 1793642284.8224058}
+{"ev": "task", "name": "support : Patch file for sscan", "action": "ansible.builtin.command", "start": 1793642284.8224702, "end": 1793642284.8458517}
+{"ev": "task", "name": "support : Pre Build Tasks for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642284.8459182, "end": 1793642284.8647065}
+{"ev": "task", "name": "support : Execute additional tasks for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642284.8647575, "end": 1793642284.8770895}
+{"ev": "task", "name": "support : Pre Build for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642284.877139, "end": 1793642284.897856}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793642284.8979962, "end": 1793642284.9096766}
+{"ev": "task", "name": "support : Comment out lines as required for sscan", "action": "ansible.builtin.replace", "start": 1793642284.909726, "end": 1793642284.922734}
+{"ev": "task", "name": "support : RTEMS settings for sscan", "action": "ansible.builtin.lineinfile", "start": 1793642284.9227812, "end": 1793642284.944833}
+{"ev": "task", "name": "support : Patch blocks for sscan", "action": "ansible.builtin.blockinfile", "start": 1793642284.9448812, "end": 1793642284.9566097}
+{"ev": "task", "name": "support : Patch lines for sscan", "action": "ansible.builtin.lineinfile", "start": 1793642284.956657, "end": 1793642285.2081141}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for sscan", "action": "ansible.builtin.command", "start": 1793642285.2081678, "end": 1793642285.2202032}
+{"ev": "task", "name": "support : Run prebuild bash commands for sscan", "action": "ansible.builtin.shell", "start": 1793642285.220249, "end": 1793642285.231571}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642285.2316165, "end": 1793642285.2525587}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793642285.2526028, "end": 1793642285.4374535}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for sscan", "action": "ansible.builtin.blockinfile", "start": 1793642285.4375143, "end": 1793642285.7083986}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for sscan", "action": "ansible.builtin.file", "start": 1793642285.7084572, "end": 1793642285.8855844}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - sscan", "action": "ansible.builtin.lineinfile", "start": 1793642285.8856409, "end": 1793642286.0758886}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for sscan", "action": "ansible.builtin.lineinfile", "start": 1793642286.0759475, "end": 1793642286.097582}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642286.0976365, "end": 1793642286.1177459}
+{"ev": "task", "name": "support : Check for existing macro SNCSEQ", "action": "ansible.builtin.shell", "start": 1793642286.1177917, "end": 1793642286.2964718}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE SNCSEQ", "action": "ansible.builtin.lineinfile", "start": 1793642286.296529, "end": 1793642286.3106904}
+{"ev": "task", "name": "support : Build for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642286.3107495, "end": 1793642286.3333776}
+{"ev": "task", "name": "support : Clean module for rebuild - sscan", "action": "ansible.builtin.command", "start": 1793642286.3334262, "end": 1793642286.7361531}
+{"ev": "task", "name": "support : Build module sscan", "action": "ansible.builtin.command", "start": 1793642286.7362256, "end": 1793642287.6307597}
+{"ev": "task", "name": "support : Clean module sscan", "action": "ansible.builtin.command", "start": 1793642287.6308162, "end": 1793642288.0112824}
+{"ev": "task", "name": "support : Post Build for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642288.0113397, "end": 1793642288.0394082}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for sscan", "action": "ansible.builtin.lineinfile", "start": 1793642288.0394733, "end": 1793642288.2192452}
+{"ev": "task", "name": "support : Get db folders for sscan", "action": "ansible.builtin.shell", "start": 1793642288.219304, "end": 1793642288.3935905}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for sscan", "action": "ansible.builtin.lineinfile", "start": 1793642288.3936455, "end": 1793642288.5725527}
+{"ev": "task", "name": "support : Add this module to the libs_list file - sscan", "action": "ansible.builtin.lineinfile", "start": 1793642288.5726094, "end": 1793642288.745644}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - sscan", "action": "ansible.builtin.lineinfile", "start": 1793642288.7457037, "end": 1793642288.9172509}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - sscan", "action": "ansible.builtin.lineinfile", "start": 1793642288.9173093, "end": 1793642288.930336}
+{"ev": "task", "name": "support : Patch blocks for sscan", "action": "ansible.builtin.blockinfile", "start": 1793642288.930393, "end": 1793642288.9430394}
+{"ev": "task", "name": "support : Patch lines for sscan", "action": "ansible.builtin.lineinfile", "start": 1793642288.9430845, "end": 1793642288.9726143}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for sscan", "action": "ansible.builtin.command", "start": 1793642288.9726624, "end": 1793642288.9858255}
+{"ev": "task", "name": "support : Run postbuild bash commands for sscan", "action": "ansible.builtin.shell", "start": 1793642288.9858866, "end": 1793642288.9983783}
+{"ev": "task", "name": "support : Post Build Tasks for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642288.9984224, "end": 1793642289.023032}
+{"ev": "task", "name": "support : Execute additional tasks for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642289.02308, "end": 1793642289.0352716}
+{"ev": "task", "name": "support : Runtime setup for sscan", "action": "ansible.builtin.include_tasks", "start": 1793642289.0353208, "end": 1793642289.0651374}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793642289.0651896, "end": 1793642289.7243407}
+{"ev": "task", "name": "support : Link ibek defs files for sscan", "action": "ansible.builtin.file", "start": 1793642289.724396, "end": 1793642289.7409482}
+{"ev": "task", "name": "support : Link pvi device files for sscan", "action": "ansible.builtin.file", "start": 1793642289.7409976, "end": 1793642289.755952}
+{"ev": "task", "name": "support : Link autosave request files for sscan", "action": "ansible.builtin.file", "start": 1793642289.756003, "end": 1793642289.7704248}
+{"ev": "task", "name": "support : Copy protocol files for sscan", "action": "ansible.builtin.copy", "start": 1793642289.7704756, "end": 1793642289.7858458}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793642289.7859054, "end": 1793642289.806701}
+{"ev": "pb_end", "t": 1793642289.8067539}

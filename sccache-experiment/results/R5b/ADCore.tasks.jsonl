@@ -1,0 +1,71 @@
+{"ev": "pb_start", "t": 1793641591.2364967}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793641591.2442245, "end": 1793641592.0036757}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793641592.003718, "end": 1793641592.019193}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793641592.0192404, "end": 1793641592.0398881}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793641592.0399354, "end": 1793641592.0603042}
+{"ev": "task", "name": "find : Find the ibek-support* folder for ADCore", "action": "ansible.builtin.shell", "start": 1793641592.0603433, "end": 1793641592.3205807}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793641592.3206353, "end": 1793641592.3420336}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793641592.342087, "end": 1793641592.3572853}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793641592.3573318, "end": 1793641592.371065}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793641592.3711116, "end": 1793641592.6197402}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for ADCore", "action": "ansible.builtin.copy", "start": 1793641592.6197982, "end": 1793641593.088746}
+{"ev": "task", "name": "find : Read in the support module vars for ADCore", "action": "ansible.builtin.include_vars", "start": 1793641593.0888033, "end": 1793641593.1199114}
+{"ev": "task", "name": "find : Check that the install.yml for ADCore names a module and a version", "action": "ansible.builtin.assert", "start": 1793641593.1199613, "end": 1793641593.1491964}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793641593.1492472, "end": 1793641593.17259}
+{"ev": "task", "name": "support : System Installs for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641593.1726353, "end": 1793641593.1906126}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793641593.1906567, "end": 1793641593.3678706}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793641593.3679342, "end": 1793641593.385397}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793641593.3854544, "end": 1793641593.4026399}
+{"ev": "task", "name": "support : Download additional files for ADCore", "action": "ansible.builtin.get_url", "start": 1793641593.4026928, "end": 1793641596.5160565}
+{"ev": "task", "name": "support : Install system dependencies from registries ADCore", "action": "ansible.builtin.package", "start": 1793641596.5161128, "end": 1793641660.80132}
+{"ev": "task", "name": "support : Install local system dependencies ADCore", "action": "ansible.builtin.package", "start": 1793641660.8013916, "end": 1793641670.2526786}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641670.252745, "end": 1793641671.4880009}
+{"ev": "task", "name": "support : Clone ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641671.4880626, "end": 1793641671.5074291}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793641671.5074813, "end": 1793641671.672364}
+{"ev": "task", "name": "support : Clone https://github.com/areaDetector/ADCore vers ee039d24c9e89e70b31fd383b4817a40db5d6395 to /epics/support/ADCore", "action": "ansible.builtin.git", "start": 1793641671.6724236, "end": 1793641676.220526}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for ADCore", "action": "ansible.builtin.git", "start": 1793641676.2205899, "end": 1793641676.2656991}
+{"ev": "task", "name": "support : Patch file for ADCore", "action": "ansible.builtin.command", "start": 1793641676.2657676, "end": 1793641676.292544}
+{"ev": "task", "name": "support : Pre Build Tasks for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641676.2925942, "end": 1793641676.3115487}
+{"ev": "task", "name": "support : Execute additional tasks for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641676.311595, "end": 1793641676.3233273}
+{"ev": "task", "name": "support : Pre Build for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641676.323391, "end": 1793641676.3464618}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793641676.3465066, "end": 1793641676.3588002}
+{"ev": "task", "name": "support : Comment out lines as required for ADCore", "action": "ansible.builtin.replace", "start": 1793641676.3588524, "end": 1793641676.3708248}
+{"ev": "task", "name": "support : RTEMS settings for ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641676.3708744, "end": 1793641676.3984768}
+{"ev": "task", "name": "support : Patch blocks for ADCore", "action": "ansible.builtin.blockinfile", "start": 1793641676.3985283, "end": 1793641676.6555173}
+{"ev": "task", "name": "support : Patch lines for ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641676.6555865, "end": 1793641676.6698148}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for ADCore", "action": "ansible.builtin.command", "start": 1793641676.6698997, "end": 1793641676.6832888}
+{"ev": "task", "name": "support : Run prebuild bash commands for ADCore", "action": "ansible.builtin.shell", "start": 1793641676.6833403, "end": 1793641676.6965127}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641676.6965783, "end": 1793641676.7219954}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793641676.7220476, "end": 1793641676.9218698}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for ADCore", "action": "ansible.builtin.blockinfile", "start": 1793641676.9220219, "end": 1793641677.1295938}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for ADCore", "action": "ansible.builtin.file", "start": 1793641677.129662, "end": 1793641677.3465588}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641677.346629, "end": 1793641677.5627801}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641677.56284, "end": 1793641677.5855558}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641677.5856075, "end": 1793641677.6058135}
+{"ev": "task", "name": "support : Check for existing macro SNCSEQ", "action": "ansible.builtin.shell", "start": 1793641677.6058574, "end": 1793641677.7789726}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE SNCSEQ", "action": "ansible.builtin.lineinfile", "start": 1793641677.779038, "end": 1793641677.793008}
+{"ev": "task", "name": "support : Build for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641677.7930589, "end": 1793641677.8168392}
+{"ev": "task", "name": "support : Clean module for rebuild - ADCore", "action": "ansible.builtin.command", "start": 1793641677.8168883, "end": 1793641678.2650428}
+{"ev": "task", "name": "support : Build module ADCore", "action": "ansible.builtin.command", "start": 1793641678.2651057, "end": 1793641695.5348032}
+{"ev": "task", "name": "support : Clean module ADCore", "action": "ansible.builtin.command", "start": 1793641695.5348678, "end": 1793641695.993191}
+{"ev": "task", "name": "support : Post Build for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641695.9932659, "end": 1793641696.019732}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641696.0197887, "end": 1793641696.2403696}
+{"ev": "task", "name": "support : Get db folders for ADCore", "action": "ansible.builtin.shell", "start": 1793641696.240445, "end": 1793641696.4224372}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641696.422496, "end": 1793641696.6161377}
+{"ev": "task", "name": "support : Add this module to the libs_list file - ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641696.6162, "end": 1793641697.4240596}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641697.4241195, "end": 1793641698.875946}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641698.8760097, "end": 1793641698.8897455}
+{"ev": "task", "name": "support : Patch blocks for ADCore", "action": "ansible.builtin.blockinfile", "start": 1793641698.8898025, "end": 1793641698.9231849}
+{"ev": "task", "name": "support : Patch lines for ADCore", "action": "ansible.builtin.lineinfile", "start": 1793641698.9232423, "end": 1793641698.9363964}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for ADCore", "action": "ansible.builtin.command", "start": 1793641698.9364622, "end": 1793641698.9496334}
+{"ev": "task", "name": "support : Run postbuild bash commands for ADCore", "action": "ansible.builtin.shell", "start": 1793641698.9497025, "end": 1793641698.9622538}
+{"ev": "task", "name": "support : Post Build Tasks for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641698.9623063, "end": 1793641698.9870265}
+{"ev": "task", "name": "support : Execute additional tasks for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641698.9870775, "end": 1793641698.999733}
+{"ev": "task", "name": "support : Runtime setup for ADCore", "action": "ansible.builtin.include_tasks", "start": 1793641698.9997845, "end": 1793641699.0294657}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793641699.029518, "end": 1793641699.7053268}
+{"ev": "task", "name": "support : Link ibek defs files for ADCore", "action": "ansible.builtin.file", "start": 1793641699.705391, "end": 1793641699.8977304}
+{"ev": "task", "name": "support : Link pvi device files for ADCore", "action": "ansible.builtin.file", "start": 1793641699.897803, "end": 1793641705.8250794}
+{"ev": "task", "name": "support : Link autosave request files for ADCore", "action": "ansible.builtin.file", "start": 1793641705.8251414, "end": 1793641705.8413558}
+{"ev": "task", "name": "support : Copy protocol files for ADCore", "action": "ansible.builtin.copy", "start": 1793641705.8414137, "end": 1793641705.8551126}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793641705.8551664, "end": 1793641705.8752859}
+{"ev": "pb_end", "t": 1793641705.8753386}

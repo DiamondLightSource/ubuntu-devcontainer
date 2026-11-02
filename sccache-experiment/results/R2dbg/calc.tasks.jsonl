@@ -1,0 +1,73 @@
+{"ev": "pb_start", "t": 1793641941.3825336}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793641941.3906114, "end": 1793641942.189575}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793641942.1896389, "end": 1793641942.2075229}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793641942.2075882, "end": 1793641942.2297106}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793641942.229772, "end": 1793641942.2557373}
+{"ev": "task", "name": "find : Find the ibek-support* folder for calc", "action": "ansible.builtin.shell", "start": 1793641942.2557957, "end": 1793641942.5505397}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793641942.5506003, "end": 1793641942.5754304}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793641942.5754867, "end": 1793641942.591567}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793641942.591615, "end": 1793641942.6066184}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793641942.6066685, "end": 1793641942.8732662}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for calc", "action": "ansible.builtin.copy", "start": 1793641942.8733213, "end": 1793641943.361749}
+{"ev": "task", "name": "find : Read in the support module vars for calc", "action": "ansible.builtin.include_vars", "start": 1793641943.3618078, "end": 1793641943.391994}
+{"ev": "task", "name": "find : Check that the install.yml for calc names a module and a version", "action": "ansible.builtin.assert", "start": 1793641943.3920472, "end": 1793641943.4220564}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793641943.4221087, "end": 1793641943.4460068}
+{"ev": "task", "name": "support : System Installs for calc", "action": "ansible.builtin.include_tasks", "start": 1793641943.4460576, "end": 1793641943.4644256}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793641943.4644723, "end": 1793641943.6857843}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793641943.685846, "end": 1793641943.7034357}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793641943.703495, "end": 1793641943.7206206}
+{"ev": "task", "name": "support : Download additional files for calc", "action": "ansible.builtin.get_url", "start": 1793641943.7206714, "end": 1793641943.7318878}
+{"ev": "task", "name": "support : Install system dependencies from registries calc", "action": "ansible.builtin.package", "start": 1793641943.731933, "end": 1793641943.7434103}
+{"ev": "task", "name": "support : Install local system dependencies calc", "action": "ansible.builtin.package", "start": 1793641943.7434585, "end": 1793641943.7548234}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage calc", "action": "ansible.builtin.lineinfile", "start": 1793641943.7548645, "end": 1793641943.7662647}
+{"ev": "task", "name": "support : Clone calc", "action": "ansible.builtin.include_tasks", "start": 1793641943.7663062, "end": 1793641943.7848527}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793641943.7848942, "end": 1793641943.953249}
+{"ev": "task", "name": "support : Clone https://github.com/epics-modules/calc vers R3-7-5 to /epics/support/calc", "action": "ansible.builtin.git", "start": 1793641943.9533088, "end": 1793641946.5422482}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for calc", "action": "ansible.builtin.git", "start": 1793641946.5423088, "end": 1793641946.5667076}
+{"ev": "task", "name": "support : Patch file for calc", "action": "ansible.builtin.command", "start": 1793641946.566771, "end": 1793641946.59019}
+{"ev": "task", "name": "support : Pre Build Tasks for calc", "action": "ansible.builtin.include_tasks", "start": 1793641946.5902429, "end": 1793641946.6085668}
+{"ev": "task", "name": "support : Execute additional tasks for calc", "action": "ansible.builtin.include_tasks", "start": 1793641946.608612, "end": 1793641946.61999}
+{"ev": "task", "name": "support : Pre Build for calc", "action": "ansible.builtin.include_tasks", "start": 1793641946.6200378, "end": 1793641946.6402876}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793641946.6403308, "end": 1793641946.6514547}
+{"ev": "task", "name": "support : Comment out lines as required for calc", "action": "ansible.builtin.replace", "start": 1793641946.6515014, "end": 1793641946.6639419}
+{"ev": "task", "name": "support : RTEMS settings for calc", "action": "ansible.builtin.lineinfile", "start": 1793641946.6639903, "end": 1793641946.6887362}
+{"ev": "task", "name": "support : Patch blocks for calc", "action": "ansible.builtin.blockinfile", "start": 1793641946.688785, "end": 1793641946.700545}
+{"ev": "task", "name": "support : Patch lines for calc", "action": "ansible.builtin.lineinfile", "start": 1793641946.7005928, "end": 1793641946.962418}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for calc", "action": "ansible.builtin.command", "start": 1793641946.9624763, "end": 1793641946.9755056}
+{"ev": "task", "name": "support : Run prebuild bash commands for calc", "action": "ansible.builtin.shell", "start": 1793641946.9755592, "end": 1793641946.9879544}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for calc", "action": "ansible.builtin.include_tasks", "start": 1793641946.988007, "end": 1793641947.0108478}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793641947.0108926, "end": 1793641947.1963394}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for calc", "action": "ansible.builtin.blockinfile", "start": 1793641947.196397, "end": 1793641947.463917}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for calc", "action": "ansible.builtin.file", "start": 1793641947.4639761, "end": 1793641947.63536}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - calc", "action": "ansible.builtin.lineinfile", "start": 1793641947.635419, "end": 1793641947.8165007}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for calc", "action": "ansible.builtin.lineinfile", "start": 1793641947.8165643, "end": 1793641947.8395648}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for calc", "action": "ansible.builtin.include_tasks", "start": 1793641947.8396232, "end": 1793641947.8613532}
+{"ev": "task", "name": "support : Check for existing macro SNCSEQ", "action": "ansible.builtin.shell", "start": 1793641947.8613997, "end": 1793641948.0359821}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE SNCSEQ", "action": "ansible.builtin.lineinfile", "start": 1793641948.0360403, "end": 1793641948.0503523}
+{"ev": "task", "name": "support : Check for existing macro SSCAN", "action": "ansible.builtin.shell", "start": 1793641948.0504005, "end": 1793641948.22542}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE SSCAN", "action": "ansible.builtin.lineinfile", "start": 1793641948.22548, "end": 1793641948.239562}
+{"ev": "task", "name": "support : Build for calc", "action": "ansible.builtin.include_tasks", "start": 1793641948.2396176, "end": 1793641948.2612457}
+{"ev": "task", "name": "support : Clean module for rebuild - calc", "action": "ansible.builtin.command", "start": 1793641948.2612946, "end": 1793641948.644656}
+{"ev": "task", "name": "support : Build module calc", "action": "ansible.builtin.command", "start": 1793641948.6447153, "end": 1793641949.8051445}
+{"ev": "task", "name": "support : Clean module calc", "action": "ansible.builtin.command", "start": 1793641949.805207, "end": 1793641950.1955929}
+{"ev": "task", "name": "support : Post Build for calc", "action": "ansible.builtin.include_tasks", "start": 1793641950.1956584, "end": 1793641950.2225597}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for calc", "action": "ansible.builtin.lineinfile", "start": 1793641950.222611, "end": 1793641950.414835}
+{"ev": "task", "name": "support : Get db folders for calc", "action": "ansible.builtin.shell", "start": 1793641950.4148977, "end": 1793641950.588128}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for calc", "action": "ansible.builtin.lineinfile", "start": 1793641950.5881882, "end": 1793641950.7697473}
+{"ev": "task", "name": "support : Add this module to the libs_list file - calc", "action": "ansible.builtin.lineinfile", "start": 1793641950.7698085, "end": 1793641950.9563391}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - calc", "action": "ansible.builtin.lineinfile", "start": 1793641950.9564006, "end": 1793641951.1365836}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - calc", "action": "ansible.builtin.lineinfile", "start": 1793641951.1366382, "end": 1793641951.1495488}
+{"ev": "task", "name": "support : Patch blocks for calc", "action": "ansible.builtin.blockinfile", "start": 1793641951.149597, "end": 1793641951.1611881}
+{"ev": "task", "name": "support : Patch lines for calc", "action": "ansible.builtin.lineinfile", "start": 1793641951.161234, "end": 1793641951.186671}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for calc", "action": "ansible.builtin.command", "start": 1793641951.1867225, "end": 1793641951.1983998}
+{"ev": "task", "name": "support : Run postbuild bash commands for calc", "action": "ansible.builtin.shell", "start": 1793641951.198446, "end": 1793641951.2103758}
+{"ev": "task", "name": "support : Post Build Tasks for calc", "action": "ansible.builtin.include_tasks", "start": 1793641951.2104213, "end": 1793641951.2343974}
+{"ev": "task", "name": "support : Execute additional tasks for calc", "action": "ansible.builtin.include_tasks", "start": 1793641951.2344418, "end": 1793641951.2465088}
+{"ev": "task", "name": "support : Runtime setup for calc", "action": "ansible.builtin.include_tasks", "start": 1793641951.2465553, "end": 1793641951.2737374}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793641951.2737825, "end": 1793641951.9238195}
+{"ev": "task", "name": "support : Link ibek defs files for calc", "action": "ansible.builtin.file", "start": 1793641951.9238775, "end": 1793641951.9390962}
+{"ev": "task", "name": "support : Link pvi device files for calc", "action": "ansible.builtin.file", "start": 1793641951.9391465, "end": 1793641951.953605}
+{"ev": "task", "name": "support : Link autosave request files for calc", "action": "ansible.builtin.file", "start": 1793641951.9536521, "end": 1793641951.9678566}
+{"ev": "task", "name": "support : Copy protocol files for calc", "action": "ansible.builtin.copy", "start": 1793641951.967904, "end": 1793641951.9815214}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793641951.9815652, "end": 1793641952.0002851}
+{"ev": "pb_end", "t": 1793641952.0003312}

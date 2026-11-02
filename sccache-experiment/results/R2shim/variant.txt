@@ -1,0 +1,3 @@
+developer=exp/sccache-base
+seed=exp/release
+vars=EXP_SHIMS=1

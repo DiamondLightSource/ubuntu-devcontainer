@@ -1,0 +1,73 @@
+{"ev": "pb_start", "t": 1793653696.7294765}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793653696.7371953, "end": 1793653697.5197465}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793653697.5197945, "end": 1793653697.5345004}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793653697.5345504, "end": 1793653697.553664}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793653697.5537128, "end": 1793653697.5724723}
+{"ev": "task", "name": "find : Find the ibek-support* folder for asyn", "action": "ansible.builtin.shell", "start": 1793653697.5725167, "end": 1793653697.83856}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793653697.838619, "end": 1793653697.8599992}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793653697.8600547, "end": 1793653697.8749928}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793653697.8750427, "end": 1793653697.888673}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793653697.8887212, "end": 1793653698.1415453}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for asyn", "action": "ansible.builtin.copy", "start": 1793653698.1416044, "end": 1793653698.663691}
+{"ev": "task", "name": "find : Read in the support module vars for asyn", "action": "ansible.builtin.include_vars", "start": 1793653698.6637537, "end": 1793653698.689694}
+{"ev": "task", "name": "find : Check that the install.yml for asyn names a module and a version", "action": "ansible.builtin.assert", "start": 1793653698.6897452, "end": 1793653698.7191286}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793653698.7191856, "end": 1793653698.7427607}
+{"ev": "task", "name": "support : System Installs for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653698.7428083, "end": 1793653698.7608173}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793653698.7608647, "end": 1793653698.9778993}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793653698.9779615, "end": 1793653698.9951525}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793653698.995212, "end": 1793653699.0119567}
+{"ev": "task", "name": "support : Download additional files for asyn", "action": "ansible.builtin.get_url", "start": 1793653699.0120072, "end": 1793653699.0233076}
+{"ev": "task", "name": "support : Install system dependencies from registries asyn", "action": "ansible.builtin.package", "start": 1793653699.0233567, "end": 1793653701.231507}
+{"ev": "task", "name": "support : Install local system dependencies asyn", "action": "ansible.builtin.package", "start": 1793653701.2315688, "end": 1793653701.2488754}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage asyn", "action": "ansible.builtin.lineinfile", "start": 1793653701.2489266, "end": 1793653701.5326593}
+{"ev": "task", "name": "support : Clone asyn", "action": "ansible.builtin.include_tasks", "start": 1793653701.5327337, "end": 1793653701.5552456}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793653701.5553079, "end": 1793653701.726829}
+{"ev": "task", "name": "support : Clone https://github.com/epics-modules/asyn vers R4-46 to /epics/support/asyn", "action": "ansible.builtin.git", "start": 1793653701.7268841, "end": 1793653701.7404451}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for asyn", "action": "ansible.builtin.git", "start": 1793653701.740495, "end": 1793653701.7625341}
+{"ev": "task", "name": "support : Patch file for asyn", "action": "ansible.builtin.command", "start": 1793653701.7625906, "end": 1793653701.7845104}
+{"ev": "task", "name": "support : Pre Build Tasks for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653701.7845585, "end": 1793653701.8019407}
+{"ev": "task", "name": "support : Execute additional tasks for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653701.8019829, "end": 1793653701.8206296}
+{"ev": "task", "name": "support : Pre Build for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653701.8206728, "end": 1793653701.841873}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793653701.841916, "end": 1793653701.85268}
+{"ev": "task", "name": "support : Comment out lines as required for asyn", "action": "ansible.builtin.replace", "start": 1793653701.8527253, "end": 1793653702.1215653}
+{"ev": "task", "name": "support : RTEMS settings for asyn", "action": "ansible.builtin.lineinfile", "start": 1793653702.1216354, "end": 1793653702.1617963}
+{"ev": "task", "name": "support : Patch blocks for asyn", "action": "ansible.builtin.blockinfile", "start": 1793653702.1618614, "end": 1793653702.1775959}
+{"ev": "task", "name": "support : Patch lines for asyn", "action": "ansible.builtin.lineinfile", "start": 1793653702.1776538, "end": 1793653702.4006238}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for asyn", "action": "ansible.builtin.command", "start": 1793653702.4006896, "end": 1793653702.4149916}
+{"ev": "task", "name": "support : Run prebuild bash commands for asyn", "action": "ansible.builtin.shell", "start": 1793653702.415065, "end": 1793653702.4282112}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653702.428274, "end": 1793653702.454836}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793653702.4548883, "end": 1793653702.7004337}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for asyn", "action": "ansible.builtin.blockinfile", "start": 1793653702.7004905, "end": 1793653703.011953}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for asyn", "action": "ansible.builtin.file", "start": 1793653703.0120137, "end": 1793653703.1950316}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - asyn", "action": "ansible.builtin.lineinfile", "start": 1793653703.1951013, "end": 1793653703.3782158}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for asyn", "action": "ansible.builtin.lineinfile", "start": 1793653703.378277, "end": 1793653703.4034662}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653703.403516, "end": 1793653703.4248092}
+{"ev": "task", "name": "support : Check for existing macro SNCSEQ", "action": "ansible.builtin.shell", "start": 1793653703.4248557, "end": 1793653703.5937235}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE SNCSEQ", "action": "ansible.builtin.lineinfile", "start": 1793653703.5937817, "end": 1793653703.607708}
+{"ev": "task", "name": "support : Check for existing macro IPAC", "action": "ansible.builtin.shell", "start": 1793653703.6077588, "end": 1793653703.7854228}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE IPAC", "action": "ansible.builtin.lineinfile", "start": 1793653703.7854848, "end": 1793653703.799115}
+{"ev": "task", "name": "support : Build for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653703.7991676, "end": 1793653703.8209262}
+{"ev": "task", "name": "support : Clean module for rebuild - asyn", "action": "ansible.builtin.command", "start": 1793653703.8209746, "end": 1793653704.1488194}
+{"ev": "task", "name": "support : Build module asyn", "action": "ansible.builtin.command", "start": 1793653704.1488907, "end": 1793653706.29257}
+{"ev": "task", "name": "support : Clean module asyn", "action": "ansible.builtin.command", "start": 1793653706.29263, "end": 1793653706.6172132}
+{"ev": "task", "name": "support : Post Build for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653706.6172776, "end": 1793653706.6434824}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for asyn", "action": "ansible.builtin.lineinfile", "start": 1793653706.643536, "end": 1793653706.819471}
+{"ev": "task", "name": "support : Get db folders for asyn", "action": "ansible.builtin.shell", "start": 1793653706.819531, "end": 1793653706.995449}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for asyn", "action": "ansible.builtin.lineinfile", "start": 1793653706.9955056, "end": 1793653707.1802673}
+{"ev": "task", "name": "support : Add this module to the libs_list file - asyn", "action": "ansible.builtin.lineinfile", "start": 1793653707.1803272, "end": 1793653707.3497741}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - asyn", "action": "ansible.builtin.lineinfile", "start": 1793653707.3498323, "end": 1793653707.8339438}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - asyn", "action": "ansible.builtin.lineinfile", "start": 1793653707.8340418, "end": 1793653707.8457115}
+{"ev": "task", "name": "support : Patch blocks for asyn", "action": "ansible.builtin.blockinfile", "start": 1793653707.8457594, "end": 1793653707.8583555}
+{"ev": "task", "name": "support : Patch lines for asyn", "action": "ansible.builtin.lineinfile", "start": 1793653707.858399, "end": 1793653707.8828268}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for asyn", "action": "ansible.builtin.command", "start": 1793653707.882875, "end": 1793653707.8939362}
+{"ev": "task", "name": "support : Run postbuild bash commands for asyn", "action": "ansible.builtin.shell", "start": 1793653707.893982, "end": 1793653707.9049592}
+{"ev": "task", "name": "support : Post Build Tasks for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653707.9050076, "end": 1793653707.927345}
+{"ev": "task", "name": "support : Execute additional tasks for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653707.9273932, "end": 1793653707.9382727}
+{"ev": "task", "name": "support : Runtime setup for asyn", "action": "ansible.builtin.include_tasks", "start": 1793653707.938321, "end": 1793653707.9640944}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793653707.9641445, "end": 1793653708.5917165}
+{"ev": "task", "name": "support : Link ibek defs files for asyn", "action": "ansible.builtin.file", "start": 1793653708.5917773, "end": 1793653708.7708807}
+{"ev": "task", "name": "support : Link pvi device files for asyn", "action": "ansible.builtin.file", "start": 1793653708.7709365, "end": 1793653708.7847657}
+{"ev": "task", "name": "support : Link autosave request files for asyn", "action": "ansible.builtin.file", "start": 1793653708.7848172, "end": 1793653708.7978158}
+{"ev": "task", "name": "support : Copy protocol files for asyn", "action": "ansible.builtin.copy", "start": 1793653708.7978582, "end": 1793653708.810599}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793653708.8106425, "end": 1793653708.8277342}
+{"ev": "pb_end", "t": 1793653708.827776}

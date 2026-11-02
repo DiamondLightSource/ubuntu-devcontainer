@@ -1,0 +1,69 @@
+{"ev": "pb_start", "t": 1793650131.8680604}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793650131.875361, "end": 1793650132.6464376}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793650132.6464853, "end": 1793650132.6622362}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793650132.6622918, "end": 1793650132.6829216}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793650132.6829786, "end": 1793650132.704159}
+{"ev": "task", "name": "find : Find the ibek-support* folder for ADSimDetector", "action": "ansible.builtin.shell", "start": 1793650132.704202, "end": 1793650132.962711}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793650132.9627619, "end": 1793650132.9834187}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793650132.983468, "end": 1793650132.9980335}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793650132.99808, "end": 1793650133.0117698}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793650133.011816, "end": 1793650133.256406}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for ADSimDetector", "action": "ansible.builtin.copy", "start": 1793650133.2565777, "end": 1793650133.7831562}
+{"ev": "task", "name": "find : Read in the support module vars for ADSimDetector", "action": "ansible.builtin.include_vars", "start": 1793650133.783204, "end": 1793650133.809433}
+{"ev": "task", "name": "find : Check that the install.yml for ADSimDetector names a module and a version", "action": "ansible.builtin.assert", "start": 1793650133.8094778, "end": 1793650133.8392968}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793650133.8393416, "end": 1793650133.8622625}
+{"ev": "task", "name": "support : System Installs for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650133.862302, "end": 1793650133.8800516}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793650133.8800952, "end": 1793650134.0527954}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793650134.0528462, "end": 1793650134.0689142}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793650134.0689595, "end": 1793650134.0851762}
+{"ev": "task", "name": "support : Download additional files for ADSimDetector", "action": "ansible.builtin.get_url", "start": 1793650134.0852165, "end": 1793650134.0961432}
+{"ev": "task", "name": "support : Install system dependencies from registries ADSimDetector", "action": "ansible.builtin.package", "start": 1793650134.0961819, "end": 1793650134.107064}
+{"ev": "task", "name": "support : Install local system dependencies ADSimDetector", "action": "ansible.builtin.package", "start": 1793650134.1071055, "end": 1793650134.1172876}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650134.1173272, "end": 1793650134.1279786}
+{"ev": "task", "name": "support : Clone ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650134.1280184, "end": 1793650134.1455288}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793650134.1455705, "end": 1793650134.319824}
+{"ev": "task", "name": "support : Clone http://github.com/areaDetector/ADSimDetector vers R2-11 to /epics/support/ADSimDetector", "action": "ansible.builtin.git", "start": 1793650134.3198745, "end": 1793650137.491818}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for ADSimDetector", "action": "ansible.builtin.git", "start": 1793650137.4918752, "end": 1793650137.5158606}
+{"ev": "task", "name": "support : Patch file for ADSimDetector", "action": "ansible.builtin.command", "start": 1793650137.5159144, "end": 1793650137.5387542}
+{"ev": "task", "name": "support : Pre Build Tasks for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650137.5388026, "end": 1793650137.556794}
+{"ev": "task", "name": "support : Execute additional tasks for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650137.5568354, "end": 1793650137.5676212}
+{"ev": "task", "name": "support : Pre Build for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650137.5676637, "end": 1793650137.5878606}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793650137.5878973, "end": 1793650137.5992677}
+{"ev": "task", "name": "support : Comment out lines as required for ADSimDetector", "action": "ansible.builtin.replace", "start": 1793650137.5993083, "end": 1793650137.611321}
+{"ev": "task", "name": "support : RTEMS settings for ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650137.6113636, "end": 1793650137.6340804}
+{"ev": "task", "name": "support : Patch blocks for ADSimDetector", "action": "ansible.builtin.blockinfile", "start": 1793650137.6341257, "end": 1793650137.645107}
+{"ev": "task", "name": "support : Patch lines for ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650137.6451519, "end": 1793650137.656483}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for ADSimDetector", "action": "ansible.builtin.command", "start": 1793650137.6565251, "end": 1793650137.6677432}
+{"ev": "task", "name": "support : Run prebuild bash commands for ADSimDetector", "action": "ansible.builtin.shell", "start": 1793650137.6677861, "end": 1793650137.6786575}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650137.6787, "end": 1793650137.6990137}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793650137.699056, "end": 1793650137.8798454}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for ADSimDetector", "action": "ansible.builtin.blockinfile", "start": 1793650137.8798897, "end": 1793650138.1419992}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for ADSimDetector", "action": "ansible.builtin.file", "start": 1793650138.142059, "end": 1793650138.3138268}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650138.3138747, "end": 1793650138.5682614}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650138.5683105, "end": 1793650138.5892963}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650138.589341, "end": 1793650138.6005917}
+{"ev": "task", "name": "support : Build for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650138.600637, "end": 1793650138.6221812}
+{"ev": "task", "name": "support : Clean module for rebuild - ADSimDetector", "action": "ansible.builtin.command", "start": 1793650138.622221, "end": 1793650138.9724958}
+{"ev": "task", "name": "support : Build module ADSimDetector", "action": "ansible.builtin.command", "start": 1793650138.97255, "end": 1793650139.5127733}
+{"ev": "task", "name": "support : Clean module ADSimDetector", "action": "ansible.builtin.command", "start": 1793650139.5128314, "end": 1793650139.8631651}
+{"ev": "task", "name": "support : Post Build for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650139.8632364, "end": 1793650139.9023633}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650139.9024339, "end": 1793650140.079659}
+{"ev": "task", "name": "support : Get db folders for ADSimDetector", "action": "ansible.builtin.shell", "start": 1793650140.0797107, "end": 1793650140.245852}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650140.2458975, "end": 1793650140.4217818}
+{"ev": "task", "name": "support : Add this module to the libs_list file - ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650140.4218283, "end": 1793650140.5884414}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650140.5884898, "end": 1793650140.7513096}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650140.75136, "end": 1793650140.7632034}
+{"ev": "task", "name": "support : Patch blocks for ADSimDetector", "action": "ansible.builtin.blockinfile", "start": 1793650140.763249, "end": 1793650140.7744255}
+{"ev": "task", "name": "support : Patch lines for ADSimDetector", "action": "ansible.builtin.lineinfile", "start": 1793650140.774473, "end": 1793650140.7860107}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for ADSimDetector", "action": "ansible.builtin.command", "start": 1793650140.786057, "end": 1793650140.7975125}
+{"ev": "task", "name": "support : Run postbuild bash commands for ADSimDetector", "action": "ansible.builtin.shell", "start": 1793650140.7975602, "end": 1793650140.8091137}
+{"ev": "task", "name": "support : Post Build Tasks for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650140.8091588, "end": 1793650140.8337612}
+{"ev": "task", "name": "support : Execute additional tasks for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650140.8338063, "end": 1793650140.8447616}
+{"ev": "task", "name": "support : Runtime setup for ADSimDetector", "action": "ansible.builtin.include_tasks", "start": 1793650140.8448071, "end": 1793650140.8698997}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793650140.8700066, "end": 1793650141.5040894}
+{"ev": "task", "name": "support : Link ibek defs files for ADSimDetector", "action": "ansible.builtin.file", "start": 1793650141.5041392, "end": 1793650141.6835206}
+{"ev": "task", "name": "support : Link pvi device files for ADSimDetector", "action": "ansible.builtin.file", "start": 1793650141.683573, "end": 1793650141.8614163}
+{"ev": "task", "name": "support : Link autosave request files for ADSimDetector", "action": "ansible.builtin.file", "start": 1793650141.8614633, "end": 1793650141.8754506}
+{"ev": "task", "name": "support : Copy protocol files for ADSimDetector", "action": "ansible.builtin.copy", "start": 1793650141.8755064, "end": 1793650141.8912227}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793650141.891264, "end": 1793650141.909551}
+{"ev": "pb_end", "t": 1793650141.9095924}

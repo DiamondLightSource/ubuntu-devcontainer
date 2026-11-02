@@ -1,0 +1,842 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.exp
+#1 transferring dockerfile: 3.33kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 100)
+#1 DONE 0.0s
+
+#2 [context exp] load .dockerignore
+#2 transferring exp: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/exp/release:latest
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/exp/tools:latest
+#4 DONE 0.0s
+
+#5 [internal] load metadata for docker.io/exp/sccache-base:latest
+#5 DONE 0.0s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 95B done
+#6 DONE 0.0s
+
+#7 [context exp] load from client
+#7 transferring exp: 6.05kB done
+#7 DONE 0.0s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 resolve docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a 0.0s done
+#8 ...
+
+#9 [internal] load build context
+#9 transferring context: 251.25kB 0.0s done
+#9 DONE 0.0s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 resolve docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7 0.0s done
+#10 DONE 0.5s
+
+#11 [tools 1/1] FROM docker.io/exp/tools:latest@sha256:84b9adf3759544a2d38f970cc1c799d9e11fa058db9788a688661796e4b90da8
+#11 resolve docker.io/exp/tools:latest@sha256:84b9adf3759544a2d38f970cc1c799d9e11fa058db9788a688661796e4b90da8 0.0s done
+#11 DONE 0.6s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:edd1ed89f0d443580bd42e5a10cd8736aba5a3438b2a0645c2ebb50119bb0eba
+#10 extracting sha256:edd1ed89f0d443580bd42e5a10cd8736aba5a3438b2a0645c2ebb50119bb0eba 0.6s done
+#10 DONE 1.1s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 DONE 1.4s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:2dfd9929033056f5bc44bbf8acbe9c07a8564f2fdbe46d6977d591024f292a13
+#10 extracting sha256:2dfd9929033056f5bc44bbf8acbe9c07a8564f2fdbe46d6977d591024f292a13 2.4s done
+#10 DONE 3.5s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:441b6f57b77ceb43cb5740fabddffedb366471239792ce2249a7e53b2a04d1b7 0.0s done
+#10 extracting sha256:f83755b1cbbdabe0daa1bf38fa1bb395cf7bc83d823866d13371cbd2d855488b 0.1s done
+#10 DONE 3.6s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:69b08f1dc8c4ae37c4b7b8dc295809c042cf3992d67392df025b81befc73c35d 0.0s done
+#10 extracting sha256:d972dc2650284263294b7a93902ffecab345ebc3a856ea43c7c308b05effeb1a 0.0s done
+#10 extracting sha256:9bd80cd6fee839d867887f6e3cf6d0856e172ef033e177953684d3662831f5b3 done
+#10 extracting sha256:7a920eff6e47916ccb7ba07c4149ee13814a36bd0913fc9dc144eaed26e6a150
+#10 extracting sha256:7a920eff6e47916ccb7ba07c4149ee13814a36bd0913fc9dc144eaed26e6a150 0.3s done
+#10 DONE 3.9s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:cccf813d0dbd66d73ddb8f3273773d3fde67a253422239c3069f180b9bc749c6
+#10 extracting sha256:cccf813d0dbd66d73ddb8f3273773d3fde67a253422239c3069f180b9bc749c6 0.7s done
+#10 DONE 4.6s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:6cb50f1a75dca723047af96b215b88f9b80a614c932c90ef4c67a2bf486799ae done
+#10 extracting sha256:22d595b4bf3e7b77428ea8e4e4d13e011c1be4e19b91352ae1d6baaa3105d873
+#10 extracting sha256:22d595b4bf3e7b77428ea8e4e4d13e011c1be4e19b91352ae1d6baaa3105d873 0.5s done
+#10 DONE 5.1s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:aee235830b81b914150c9ac8a34177ba3f383eec1cfc64edaa08cf88c740be39
+#10 extracting sha256:aee235830b81b914150c9ac8a34177ba3f383eec1cfc64edaa08cf88c740be39 0.2s done
+#10 DONE 5.3s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:11b81ba1354520c28d32f6b12fc84b49949f709fb32ba78a99c0bc0a7ef42424
+#10 extracting sha256:11b81ba1354520c28d32f6b12fc84b49949f709fb32ba78a99c0bc0a7ef42424 0.3s done
+#10 DONE 5.5s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:3837042906228aacdf3a232aab31641dd39a14fc3350b644e93ea06338c9b414
+#10 extracting sha256:3837042906228aacdf3a232aab31641dd39a14fc3350b644e93ea06338c9b414 0.6s done
+#10 DONE 6.2s
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:a82c83c0f578478022b201709217c4740ba63cd418cf8e83dd9e5b962c2d24c0 0.0s done
+#10 extracting sha256:136fa1bb48991df0450a1c589546bf14ee3cf4ad18a327543687573dcef27e4c 0.0s done
+#10 extracting sha256:d418fb88d0948b50d8b9c3f2c90c09a55763598adadb5b870ccfaf14c9680261 0.1s done
+#10 DONE 6.3s
+
+#11 [tools 1/1] FROM docker.io/exp/tools:latest@sha256:84b9adf3759544a2d38f970cc1c799d9e11fa058db9788a688661796e4b90da8
+#11 extracting sha256:edbd358e515710d6e715303d5a609a4d9a07ac79900c3618bcc4f2ec2c1bc6de
+#11 ...
+
+#10 [developer  1/36] FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00edb38b75c59d52548fa8c7
+#10 extracting sha256:b50d1464c296efd89ea3042ac1170feaa61ec425c8739ddff6e4baa49502228f done
+#10 extracting sha256:150e28f65a639465402914cd3448ef36270d85da5c102c1e1c2ae91e8a689b7c done
+#10 DONE 6.3s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:2249f23e4ef88b06e00c745a3e4e6f0952d91f864cc3009c6621558b8a8ee239 done
+#8 extracting sha256:0cd622650d31b1166c079e0aa83ca405b6721d2c807fde57f9c780662022e3f4 0.1s done
+#8 DONE 1.5s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1
+#8 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 0.5s done
+#8 DONE 2.0s
+
+#12 [developer  2/36] COPY --from=exp / /exp
+#12 DONE 1.2s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:cef3a558ef1965b111815367a953d4a9f5c716f85f5017e4e1456eb7cee740b7
+#8 ...
+
+#11 [tools 1/1] FROM docker.io/exp/tools:latest@sha256:84b9adf3759544a2d38f970cc1c799d9e11fa058db9788a688661796e4b90da8
+#11 extracting sha256:edbd358e515710d6e715303d5a609a4d9a07ac79900c3618bcc4f2ec2c1bc6de 1.4s done
+#11 DONE 2.0s
+
+#13 [developer  3/36] COPY --from=tools /usr/bin/time /exp/bin/gtime
+#13 DONE 0.0s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:cef3a558ef1965b111815367a953d4a9f5c716f85f5017e4e1456eb7cee740b7 0.6s done
+#8 extracting sha256:12710b50a7cbee3d071596d21ac3db1b469fa746b8de26d97c7ceaeb543e8246 done
+#8 extracting sha256:c388d40c97f1c1f6fb7c84b74bb6fe06436eca426cd2c9ab8167d67dc4ab2b4a done
+#8 extracting sha256:852490d9f280b4ba11507848c3a4646464e5c6e18cb9d503456b332458905352
+#8 extracting sha256:852490d9f280b4ba11507848c3a4646464e5c6e18cb9d503456b332458905352 0.3s done
+#8 DONE 2.9s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:fba162da9867d87750e2b9cda693ba1e72539a108c348be77c0dfb0ee9ee212a done
+#8 extracting sha256:1acc614ab9100dab7c2a2fa471a3eff4cf927c5f30944e6b26af0afad05e2a3f done
+#8 extracting sha256:159aa9cc4164e21c850e5c19ada593d1ca6e5fe04d8b5c1f989adbd96237736a done
+#8 extracting sha256:82a638751eb38cdf28ab5f52b8ff538ac752aaec637ecc2a5c0486accbdc6162
+#8 extracting sha256:82a638751eb38cdf28ab5f52b8ff538ac752aaec637ecc2a5c0486accbdc6162 0.4s done
+#8 DONE 3.4s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:b1c6e69bf03bc816d1db5cae55152f13e9aff5fac4d9a5c787fc3aecaa9431b9 done
+#8 extracting sha256:b86df15ccb945ea77518e1746f9a6b4fb96dab715861654cdc1869b8e14196c4 0.0s done
+#8 extracting sha256:016adc2401f0ddba42aa84e8a6d956b79605ac9b0efcf1c53f360bc8290f1c55 done
+#8 extracting sha256:ae45828a5ae6e49ad553f2c4ba7c47e03ec8380605e4b90ec8b0ef9eeccce033 0.1s done
+#8 DONE 3.5s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:4ed486ba193beaf98ebf4b2076fd5d144e1ca51c921bf5d7edc621ea0a13ee20 done
+#8 extracting sha256:d3fe985818aa72ce272f8cccdea93a74cf4624b83aa3438cdb4f9a86a765a1b2 0.1s done
+#8 DONE 3.6s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:7daf3d19f1710e8c00809aa61bc23c4a1e68509cddef9c5e193ebb1f598c078d done
+#8 extracting sha256:b5f929735c07af716f93445aada394daab08e8bb19c61348799597a98b9e9fd0 0.1s done
+#8 DONE 3.7s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:12799663e0f51731702aec436ba89fd5cebae4a692317ff23a55c671a1789521 done
+#8 extracting sha256:097af6c4759f5d75db6a624b9b71578c306d97c4b86315fab157e7464adae2d4 0.0s done
+#8 extracting sha256:e2eb1205cd43d4f89ef1896b0457f719af037df7d222c1cf2da8090daca7626a done
+#8 extracting sha256:b10302f0fc70cc513be29e6b10e0ec6f7a2f3be21c2017964457f92c95da08aa 0.0s done
+#8 extracting sha256:d3b7565a42e13df7ce89330b271f696a24fed4f366539ea468faa51e7d2e2d1b done
+#8 extracting sha256:293689449b3031e31e9ffb5c5880800e512471620e97cb87860eb44a854c042a 0.0s done
+#8 extracting sha256:74aa11d8b56344d0d6c421a0dce7d541171af4b44ed4d69eb309c190160a5a8d done
+#8 extracting sha256:a6700e30cc4d60a0d152a3f90a018a3219cd672ab33da842b3842177aa211121
+#8 extracting sha256:a6700e30cc4d60a0d152a3f90a018a3219cd672ab33da842b3842177aa211121 2.1s done
+#8 DONE 5.9s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:d70f75bd8d77b2233ebdab8e30af4cfc626cced52a3f3ae838f3cb8324d571b4 done
+#8 extracting sha256:28003adb12b73ae823fdb721ed1975e486a4cebf342e49544c2051689ad3d6ae
+#8 extracting sha256:28003adb12b73ae823fdb721ed1975e486a4cebf342e49544c2051689ad3d6ae 1.5s done
+#8 DONE 7.5s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:3e0b52aa9f76e6e96fd306c9cad09024ee1a4ef1133b59491328917ff09c54d2 done
+#8 extracting sha256:10ad3f57ee606c4e48c25ef13e3f8c81ea65345ec56764142ea0e9ed0dfff280 0.0s done
+#8 extracting sha256:858ea1fc9a4252da5fe87ac721528b02547cc1647a27a08eabff46b25e57f0a0 done
+#8 extracting sha256:dcb94a2f9517b81e2a1ba5845f7931452ed50fb2e0c8aa7272c4d646f082e050 0.1s done
+#8 DONE 7.6s
+
+#8 [seed 1/1] FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc70eea0bf5a97ad4a
+#8 extracting sha256:bc46c95ae7d047fde963bb0725ed8a5073e90e1dfdf0b38811549a3f02e861f9 done
+#8 extracting sha256:98337cab53b52d7c9c82b72b6de114dbe50d7adddcdee2f47e756cf23a6e8708 done
+#8 DONE 7.6s
+
+#14 [developer  4/36] COPY --from=seed /sccache /sccache
+#14 DONE 1.1s
+
+#15 [developer  5/36] RUN /exp/setup.sh
+#15 DONE 0.1s
+
+#16 [developer  6/36] RUN ln -s /epics/generic-source/ioc /epics/ioc
+#16 DONE 0.1s
+
+#17 [developer  7/36] COPY requirements.txt requirements.txt
+#17 DONE 0.0s
+
+#18 [developer  8/36] RUN uv pip install --upgrade -r requirements.txt
+#18 0.058 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+#18 0.167 Using Python 3.14.7 environment at: /venv
+#18 0.487 Resolved 25 packages in 319ms
+#18 0.509 Downloading pygments (1.2MiB)
+#18 0.512 Downloading pydantic-core (2.1MiB)
+#18 0.512 Downloading lxml (5.0MiB)
+#18 0.551  Downloaded pydantic-core
+#18 0.565  Downloaded pygments
+#18 0.572  Downloaded lxml
+#18 0.572 Prepared 25 packages in 84ms
+#18 0.585 Installed 25 packages in 12ms
+#18 0.585  + annotated-doc==0.0.5
+#18 0.585  + annotated-types==0.8.0
+#18 0.585  + gitdb==4.0.12
+#18 0.585  + gitpython==3.2.1
+#18 0.587  + ibek==4.8.2
+#18 0.587  + jinja2==3.1.6
+#18 0.587  + lxml==6.1.3
+#18 0.587  + lxml-stubs==0.5.1
+#18 0.587  + markdown-it-py==4.2.0
+#18 0.587  + markupsafe==3.0.4
+#18 0.587  + mdurl==0.1.2
+#18 0.587  + pvi==0.14.4
+#18 0.587  + pydantic==2.14.2
+#18 0.587  + pydantic-core==2.50.2
+#18 0.587  + pygments==2.21.0
+#18 0.587  + rich==15.0.0
+#18 0.587  + ruamel-yaml==0.19.1
+#18 0.587  + semantic-version==2.10.0
+#18 0.587  + shellingham==1.5.4
+#18 0.587  + smmap==5.0.3
+#18 0.587  + stdio-socket==1.4.1
+#18 0.587  + truststore==0.10.5
+#18 0.587  + typer==0.27.3
+#18 0.587  + typing-extensions==4.16.0
+#18 0.587  + typing-inspection==0.4.4
+#18 DONE 0.7s
+
+#19 [developer  9/36] WORKDIR /epics/generic-source/ibek-support
+#19 DONE 0.0s
+
+#20 [developer 10/36] COPY ibek-support/_ansible _ansible
+#20 DONE 0.0s
+
+#21 [developer 11/36] COPY ibek-support/iocStats/ iocStats
+#21 DONE 0.0s
+
+#22 [developer 12/36] RUN /exp/step.sh iocStats
+#22 0.062 Statistics zeroed.
+#22 28.05 TASK [support : Runtime setup for iocStats] ************************************
+#22 28.05 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#22 28.05 
+#22 28.05 TASK [support : Ensure destination folders exist] ******************************
+#22 28.05 changed: [localhost] => (item=/epics/ibek-defs)
+#22 28.05 changed: [localhost] => (item=/epics/pvi-defs)
+#22 28.05 changed: [localhost] => (item=/epics/autosave)
+#22 28.05 changed: [localhost] => (item=/epics/support/configure/protocol)
+#22 28.05 
+#22 28.05 TASK [support : Link ibek defs files for iocStats] *****************************
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocStats.ibek.support.yaml)
+#22 28.05 
+#22 28.05 TASK [support : Link pvi device files for iocStats] ****************************
+#22 28.05 skipping: [localhost]
+#22 28.05 
+#22 28.05 TASK [support : Link autosave request files for iocStats] **********************
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocGui_settings.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocGui_positions.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocAdminVxWorks_settings.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/ioc_settings.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocAdminVxWorks_positions.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocAdminRTEMS_settings.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocAdminSoft_positions.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/ioc_positions.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocAdminScanMon_settings.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocAdminRTEMS_positions.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocAdminSoft_settings.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/ioc_vxworks_positions.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/iocAdminScanMon_positions.req)
+#22 28.05 changed: [localhost] => (item=/epics/generic-source/ibek-support/iocStats/ioc_vxworks_settings.req)
+#22 28.05 
+#22 28.05 TASK [support : Copy protocol files for iocStats] ******************************
+#22 28.05 skipping: [localhost]
+#22 28.05 
+#22 28.05 TASK [Ioc build] ***************************************************************
+#22 28.05 skipping: [localhost]
+#22 28.05 
+#22 28.05 PLAY RECAP *********************************************************************
+#22 28.05 localhost                  : ok=47   changed=21   unreachable=0    failed=0    skipped=23   rescued=0    ignored=0   
+#22 28.05 
+#22 DONE 28.2s
+
+#23 [developer 13/36] COPY ibek-support/sequencer/ sequencer
+#23 DONE 0.0s
+
+#24 [developer 14/36] RUN /exp/step.sh sequencer
+#24 0.066 Statistics zeroed.
+#24 14.83 
+#24 14.83 TASK [support : Call postbuild ad hoc scripts for sequencer] *******************
+#24 14.83 skipping: [localhost]
+#24 14.83 
+#24 14.83 TASK [support : Run postbuild bash commands for sequencer] *********************
+#24 14.83 skipping: [localhost]
+#24 14.83 
+#24 14.83 TASK [support : Post Build Tasks for sequencer] ********************************
+#24 14.83 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#24 14.83 
+#24 14.83 TASK [support : Execute additional tasks for sequencer] ************************
+#24 14.83 skipping: [localhost]
+#24 14.83 
+#24 14.83 TASK [support : Runtime setup for sequencer] ***********************************
+#24 14.83 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#24 14.83 
+#24 14.83 TASK [support : Ensure destination folders exist] ******************************
+#24 14.83 ok: [localhost] => (item=/epics/ibek-defs)
+#24 14.83 ok: [localhost] => (item=/epics/pvi-defs)
+#24 14.83 ok: [localhost] => (item=/epics/autosave)
+#24 14.83 ok: [localhost] => (item=/epics/support/configure/protocol)
+#24 14.83 
+#24 14.83 TASK [support : Link ibek defs files for sequencer] ****************************
+#24 14.83 skipping: [localhost]
+#24 14.83 
+#24 14.83 TASK [support : Link pvi device files for sequencer] ***************************
+#24 14.83 skipping: [localhost]
+#24 14.83 
+#24 14.83 TASK [support : Link autosave request files for sequencer] *********************
+#24 14.83 skipping: [localhost]
+#24 14.83 
+#24 14.83 TASK [support : Copy protocol files for sequencer] *****************************
+#24 14.83 skipping: [localhost]
+#24 14.83 
+#24 14.83 TASK [Ioc build] ***************************************************************
+#24 14.83 skipping: [localhost]
+#24 14.83 
+#24 14.83 PLAY RECAP *********************************************************************
+#24 14.83 localhost                  : ok=34   changed=11   unreachable=0    failed=0    skipped=31   rescued=0    ignored=0   
+#24 14.83 
+#24 DONE 14.9s
+
+#25 [developer 15/36] COPY ibek-support/sscan/ sscan
+#25 DONE 0.0s
+
+#26 [developer 16/36] RUN /exp/step.sh sscan
+#26 0.071 Statistics zeroed.
+#26 13.34 
+#26 13.34 TASK [support : Call postbuild ad hoc scripts for sscan] ***********************
+#26 13.34 skipping: [localhost]
+#26 13.34 
+#26 13.34 TASK [support : Run postbuild bash commands for sscan] *************************
+#26 13.34 skipping: [localhost]
+#26 13.34 
+#26 13.34 TASK [support : Post Build Tasks for sscan] ************************************
+#26 13.34 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#26 13.34 
+#26 13.34 TASK [support : Execute additional tasks for sscan] ****************************
+#26 13.34 skipping: [localhost]
+#26 13.34 
+#26 13.34 TASK [support : Runtime setup for sscan] ***************************************
+#26 13.34 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#26 13.34 
+#26 13.34 TASK [support : Ensure destination folders exist] ******************************
+#26 13.34 ok: [localhost] => (item=/epics/ibek-defs)
+#26 13.34 ok: [localhost] => (item=/epics/pvi-defs)
+#26 13.34 ok: [localhost] => (item=/epics/autosave)
+#26 13.34 ok: [localhost] => (item=/epics/support/configure/protocol)
+#26 13.34 
+#26 13.34 TASK [support : Link ibek defs files for sscan] ********************************
+#26 13.34 skipping: [localhost]
+#26 13.34 
+#26 13.34 TASK [support : Link pvi device files for sscan] *******************************
+#26 13.34 skipping: [localhost]
+#26 13.34 
+#26 13.34 TASK [support : Link autosave request files for sscan] *************************
+#26 13.34 skipping: [localhost]
+#26 13.34 
+#26 13.34 TASK [support : Copy protocol files for sscan] *********************************
+#26 13.34 skipping: [localhost]
+#26 13.34 
+#26 13.34 TASK [Ioc build] ***************************************************************
+#26 13.34 skipping: [localhost]
+#26 13.34 
+#26 13.34 PLAY RECAP *********************************************************************
+#26 13.34 localhost                  : ok=37   changed=13   unreachable=0    failed=0    skipped=30   rescued=0    ignored=0   
+#26 13.34 
+#26 DONE 13.4s
+
+#27 [developer 17/36] COPY ibek-support/calc/ calc
+#27 DONE 0.0s
+
+#28 [developer 18/36] RUN /exp/step.sh calc
+#28 0.075 Statistics zeroed.
+#28 12.72 
+#28 12.72 TASK [support : Call postbuild ad hoc scripts for calc] ************************
+#28 12.72 skipping: [localhost]
+#28 12.72 
+#28 12.72 TASK [support : Run postbuild bash commands for calc] **************************
+#28 12.72 skipping: [localhost]
+#28 12.72 
+#28 12.72 TASK [support : Post Build Tasks for calc] *************************************
+#28 12.72 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#28 12.72 
+#28 12.72 TASK [support : Execute additional tasks for calc] *****************************
+#28 12.72 skipping: [localhost]
+#28 12.72 
+#28 12.72 TASK [support : Runtime setup for calc] ****************************************
+#28 12.72 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#28 12.72 
+#28 12.72 TASK [support : Ensure destination folders exist] ******************************
+#28 12.72 ok: [localhost] => (item=/epics/ibek-defs)
+#28 12.72 ok: [localhost] => (item=/epics/pvi-defs)
+#28 12.72 ok: [localhost] => (item=/epics/autosave)
+#28 12.72 ok: [localhost] => (item=/epics/support/configure/protocol)
+#28 12.72 
+#28 12.72 TASK [support : Link ibek defs files for calc] *********************************
+#28 12.72 skipping: [localhost]
+#28 12.72 
+#28 12.72 TASK [support : Link pvi device files for calc] ********************************
+#28 12.72 skipping: [localhost]
+#28 12.72 
+#28 12.72 TASK [support : Link autosave request files for calc] **************************
+#28 12.72 skipping: [localhost]
+#28 12.72 
+#28 12.72 TASK [support : Copy protocol files for calc] **********************************
+#28 12.72 skipping: [localhost]
+#28 12.72 
+#28 12.72 TASK [Ioc build] ***************************************************************
+#28 12.72 skipping: [localhost]
+#28 12.72 
+#28 12.72 PLAY RECAP *********************************************************************
+#28 12.72 localhost                  : ok=39   changed=13   unreachable=0    failed=0    skipped=31   rescued=0    ignored=0   
+#28 12.72 
+#28 DONE 12.8s
+
+#29 [developer 19/36] COPY ibek-support/asyn/ asyn
+#29 DONE 0.0s
+
+#30 [developer 20/36] RUN /exp/step.sh asyn
+#30 0.069 Statistics zeroed.
+#30 20.24 
+#30 20.24 TASK [support : Call postbuild ad hoc scripts for asyn] ************************
+#30 20.24 skipping: [localhost]
+#30 20.24 
+#30 20.24 TASK [support : Run postbuild bash commands for asyn] **************************
+#30 20.24 skipping: [localhost]
+#30 20.24 
+#30 20.24 TASK [support : Post Build Tasks for asyn] *************************************
+#30 20.24 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#30 20.24 
+#30 20.24 TASK [support : Execute additional tasks for asyn] *****************************
+#30 20.24 skipping: [localhost]
+#30 20.24 
+#30 20.24 TASK [support : Runtime setup for asyn] ****************************************
+#30 20.24 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#30 20.24 
+#30 20.24 TASK [support : Ensure destination folders exist] ******************************
+#30 20.24 ok: [localhost] => (item=/epics/ibek-defs)
+#30 20.24 ok: [localhost] => (item=/epics/pvi-defs)
+#30 20.24 ok: [localhost] => (item=/epics/autosave)
+#30 20.24 ok: [localhost] => (item=/epics/support/configure/protocol)
+#30 20.24 
+#30 20.24 TASK [support : Link ibek defs files for asyn] *********************************
+#30 20.24 changed: [localhost] => (item=/epics/generic-source/ibek-support/asyn/asyn.ibek.support.yaml)
+#30 20.24 
+#30 20.24 TASK [support : Link pvi device files for asyn] ********************************
+#30 20.24 skipping: [localhost]
+#30 20.24 
+#30 20.24 TASK [support : Link autosave request files for asyn] **************************
+#30 20.24 skipping: [localhost]
+#30 20.24 
+#30 20.24 TASK [support : Copy protocol files for asyn] **********************************
+#30 20.24 skipping: [localhost]
+#30 20.24 
+#30 20.24 TASK [Ioc build] ***************************************************************
+#30 20.24 skipping: [localhost]
+#30 20.24 
+#30 20.24 PLAY RECAP *********************************************************************
+#30 20.24 localhost                  : ok=43   changed=15   unreachable=0    failed=0    skipped=27   rescued=0    ignored=0   
+#30 20.24 
+#30 DONE 20.3s
+
+#31 [developer 21/36] COPY ibek-support/busy/ busy
+#31 DONE 0.0s
+
+#32 [developer 22/36] RUN /exp/step.sh busy
+#32 0.070 Statistics zeroed.
+#32 10.53 
+#32 10.53 TASK [support : Call postbuild ad hoc scripts for busy] ************************
+#32 10.53 skipping: [localhost]
+#32 10.53 
+#32 10.53 TASK [support : Run postbuild bash commands for busy] **************************
+#32 10.53 skipping: [localhost]
+#32 10.53 
+#32 10.53 TASK [support : Post Build Tasks for busy] *************************************
+#32 10.53 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#32 10.53 
+#32 10.53 TASK [support : Execute additional tasks for busy] *****************************
+#32 10.53 skipping: [localhost]
+#32 10.53 
+#32 10.53 TASK [support : Runtime setup for busy] ****************************************
+#32 10.53 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#32 10.53 
+#32 10.53 TASK [support : Ensure destination folders exist] ******************************
+#32 10.53 ok: [localhost] => (item=/epics/ibek-defs)
+#32 10.53 ok: [localhost] => (item=/epics/pvi-defs)
+#32 10.53 ok: [localhost] => (item=/epics/autosave)
+#32 10.53 ok: [localhost] => (item=/epics/support/configure/protocol)
+#32 10.53 
+#32 10.53 TASK [support : Link ibek defs files for busy] *********************************
+#32 10.53 skipping: [localhost]
+#32 10.53 
+#32 10.53 TASK [support : Link pvi device files for busy] ********************************
+#32 10.53 skipping: [localhost]
+#32 10.53 
+#32 10.53 TASK [support : Link autosave request files for busy] **************************
+#32 10.53 skipping: [localhost]
+#32 10.53 
+#32 10.53 TASK [support : Copy protocol files for busy] **********************************
+#32 10.53 skipping: [localhost]
+#32 10.53 
+#32 10.53 TASK [Ioc build] ***************************************************************
+#32 10.53 skipping: [localhost]
+#32 10.53 
+#32 10.53 PLAY RECAP *********************************************************************
+#32 10.53 localhost                  : ok=38   changed=14   unreachable=0    failed=0    skipped=29   rescued=0    ignored=0   
+#32 10.53 
+#32 DONE 10.6s
+
+#33 [developer 23/36] COPY ibek-support/autosave/ autosave
+#33 DONE 0.0s
+
+#34 [developer 24/36] RUN /exp/step.sh autosave
+#34 0.077 Statistics zeroed.
+#34 11.53 
+#34 11.53 TASK [support : Call postbuild ad hoc scripts for autosave] ********************
+#34 11.53 skipping: [localhost]
+#34 11.53 
+#34 11.53 TASK [support : Run postbuild bash commands for autosave] **********************
+#34 11.53 skipping: [localhost]
+#34 11.53 
+#34 11.53 TASK [support : Post Build Tasks for autosave] *********************************
+#34 11.53 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#34 11.53 
+#34 11.53 TASK [support : Execute additional tasks for autosave] *************************
+#34 11.53 skipping: [localhost]
+#34 11.53 
+#34 11.53 TASK [support : Runtime setup for autosave] ************************************
+#34 11.53 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#34 11.53 
+#34 11.53 TASK [support : Ensure destination folders exist] ******************************
+#34 11.53 ok: [localhost] => (item=/epics/ibek-defs)
+#34 11.53 ok: [localhost] => (item=/epics/pvi-defs)
+#34 11.53 ok: [localhost] => (item=/epics/autosave)
+#34 11.53 ok: [localhost] => (item=/epics/support/configure/protocol)
+#34 11.53 
+#34 11.53 TASK [support : Link ibek defs files for autosave] *****************************
+#34 11.53 changed: [localhost] => (item=/epics/generic-source/ibek-support/autosave/autosave.ibek.support.yaml)
+#34 11.53 
+#34 11.53 TASK [support : Link pvi device files for autosave] ****************************
+#34 11.53 skipping: [localhost]
+#34 11.53 
+#34 11.53 TASK [support : Link autosave request files for autosave] **********************
+#34 11.53 skipping: [localhost]
+#34 11.53 
+#34 11.53 TASK [support : Copy protocol files for autosave] ******************************
+#34 11.53 skipping: [localhost]
+#34 11.53 
+#34 11.53 TASK [Ioc build] ***************************************************************
+#34 11.53 skipping: [localhost]
+#34 11.53 
+#34 11.53 PLAY RECAP *********************************************************************
+#34 11.53 localhost                  : ok=35   changed=13   unreachable=0    failed=0    skipped=30   rescued=0    ignored=0   
+#34 11.53 
+#34 DONE 11.6s
+
+#35 [developer 25/36] COPY ibek-support/pvlogging/ pvlogging
+#35 DONE 0.0s
+
+#36 [developer 26/36] RUN /exp/step.sh pvlogging
+#36 0.071 Statistics zeroed.
+#36 10.45 
+#36 10.45 TASK [support : Call postbuild ad hoc scripts for pvlogging] *******************
+#36 10.45 skipping: [localhost]
+#36 10.45 
+#36 10.45 TASK [support : Run postbuild bash commands for pvlogging] *********************
+#36 10.45 skipping: [localhost]
+#36 10.45 
+#36 10.45 TASK [support : Post Build Tasks for pvlogging] ********************************
+#36 10.45 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#36 10.45 
+#36 10.45 TASK [support : Execute additional tasks for pvlogging] ************************
+#36 10.45 skipping: [localhost]
+#36 10.45 
+#36 10.45 TASK [support : Runtime setup for pvlogging] ***********************************
+#36 10.45 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#36 10.45 
+#36 10.45 TASK [support : Ensure destination folders exist] ******************************
+#36 10.45 ok: [localhost] => (item=/epics/ibek-defs)
+#36 10.45 ok: [localhost] => (item=/epics/pvi-defs)
+#36 10.45 ok: [localhost] => (item=/epics/autosave)
+#36 10.45 ok: [localhost] => (item=/epics/support/configure/protocol)
+#36 10.45 
+#36 10.45 TASK [support : Link ibek defs files for pvlogging] ****************************
+#36 10.45 changed: [localhost] => (item=/epics/generic-source/ibek-support/pvlogging/pvlogging.ibek.support.yaml)
+#36 10.45 
+#36 10.45 TASK [support : Link pvi device files for pvlogging] ***************************
+#36 10.45 skipping: [localhost]
+#36 10.45 
+#36 10.45 TASK [support : Link autosave request files for pvlogging] *********************
+#36 10.45 skipping: [localhost]
+#36 10.45 
+#36 10.45 TASK [support : Copy protocol files for pvlogging] *****************************
+#36 10.45 skipping: [localhost]
+#36 10.45 
+#36 10.45 TASK [Ioc build] ***************************************************************
+#36 10.45 skipping: [localhost]
+#36 10.45 
+#36 10.45 PLAY RECAP *********************************************************************
+#36 10.45 localhost                  : ok=36   changed=13   unreachable=0    failed=0    skipped=29   rescued=0    ignored=0   
+#36 10.45 
+#36 DONE 10.5s
+
+#37 [developer 27/36] COPY ibek-support/ADCore/ ADCore
+#37 DONE 0.0s
+
+#38 [developer 28/36] RUN /exp/step.sh ADCore
+#38 0.073 Statistics zeroed.
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDROIStatN.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDStats.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDPvxs.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDROIStat.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDPosPlugin.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDGather.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDTimeSeriesN.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileMagick.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileHDF5.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDTransform.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/ADDriver.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDPluginBase.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttributeN.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFile.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDProcess.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttrPlot.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/CCDMultiTrack.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileJPEG.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttrPlotAttr.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDBadPixel.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDOverlayN.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDOverlay.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFFT.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDColorConvert.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileTIFF.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileNexus.pvi.device.yaml)
+#38 124.8 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttrPlotData.pvi.device.yaml)
+#38 124.8 
+#38 124.8 TASK [support : Link autosave request files for ADCore] ************************
+#38 124.8 skipping: [localhost]
+#38 124.8 
+#38 124.8 TASK [support : Copy protocol files for ADCore] ********************************
+#38 124.8 skipping: [localhost]
+#38 124.8 
+#38 124.8 TASK [Ioc build] ***************************************************************
+#38 124.8 skipping: [localhost]
+#38 124.8 
+#38 124.8 PLAY RECAP *********************************************************************
+#38 124.8 localhost                  : ok=43   changed=18   unreachable=0    failed=0    skipped=24   rescued=0    ignored=0   
+#38 124.8 
+#38 DONE 125.0s
+
+#39 [developer 29/36] COPY ibek-support/ffmpegServer/ ffmpegServer
+#39 DONE 0.0s
+
+#40 [developer 30/36] RUN /exp/step.sh ffmpegServer
+#40 0.066 Statistics zeroed.
+#40 38.22 TASK [support : Call postbuild ad hoc scripts for ffmpegServer] ****************
+#40 38.22 skipping: [localhost]
+#40 38.22 
+#40 38.22 TASK [support : Run postbuild bash commands for ffmpegServer] ******************
+#40 38.22 skipping: [localhost]
+#40 38.22 
+#40 38.22 TASK [support : Post Build Tasks for ffmpegServer] *****************************
+#40 38.22 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#40 38.22 
+#40 38.22 TASK [support : Execute additional tasks for ffmpegServer] *********************
+#40 38.22 skipping: [localhost]
+#40 38.22 
+#40 38.22 TASK [support : Runtime setup for ffmpegServer] ********************************
+#40 38.22 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#40 38.22 
+#40 38.22 TASK [support : Ensure destination folders exist] ******************************
+#40 38.22 ok: [localhost] => (item=/epics/ibek-defs)
+#40 38.22 ok: [localhost] => (item=/epics/pvi-defs)
+#40 38.22 ok: [localhost] => (item=/epics/autosave)
+#40 38.22 ok: [localhost] => (item=/epics/support/configure/protocol)
+#40 38.22 
+#40 38.22 TASK [support : Link ibek defs files for ffmpegServer] *************************
+#40 38.22 changed: [localhost] => (item=/epics/generic-source/ibek-support/ffmpegServer/ffmpegServer.ibek.support.yaml)
+#40 38.22 
+#40 38.22 TASK [support : Link pvi device files for ffmpegServer] ************************
+#40 38.22 changed: [localhost] => (item=/epics/generic-source/ibek-support/ffmpegServer/ffmpegFile.pvi.device.yaml)
+#40 38.22 changed: [localhost] => (item=/epics/generic-source/ibek-support/ffmpegServer/ffmpegStream.pvi.device.yaml)
+#40 38.22 
+#40 38.22 TASK [support : Link autosave request files for ffmpegServer] ******************
+#40 38.22 skipping: [localhost]
+#40 38.22 
+#40 38.22 TASK [support : Copy protocol files for ffmpegServer] **************************
+#40 38.22 skipping: [localhost]
+#40 38.22 
+#40 38.22 TASK [Ioc build] ***************************************************************
+#40 38.22 skipping: [localhost]
+#40 38.22 
+#40 38.22 PLAY RECAP *********************************************************************
+#40 38.22 localhost                  : ok=40   changed=18   unreachable=0    failed=0    skipped=25   rescued=0    ignored=0   
+#40 38.22 
+#40 DONE 38.5s
+
+#41 [developer 31/36] COPY ibek-support/ADSimDetector/ ADSimDetector
+#41 DONE 0.0s
+
+#42 [developer 32/36] RUN /exp/step.sh ADSimDetector
+#42 0.067 Statistics zeroed.
+#42 12.98 
+#42 12.98 TASK [support : Call postbuild ad hoc scripts for ADSimDetector] ***************
+#42 12.98 skipping: [localhost]
+#42 12.98 
+#42 12.98 TASK [support : Run postbuild bash commands for ADSimDetector] *****************
+#42 12.98 skipping: [localhost]
+#42 12.98 
+#42 12.98 TASK [support : Post Build Tasks for ADSimDetector] ****************************
+#42 12.98 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#42 12.98 
+#42 12.98 TASK [support : Execute additional tasks for ADSimDetector] ********************
+#42 12.98 skipping: [localhost]
+#42 12.98 
+#42 12.98 TASK [support : Runtime setup for ADSimDetector] *******************************
+#42 12.98 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#42 12.98 
+#42 12.98 TASK [support : Ensure destination folders exist] ******************************
+#42 12.98 ok: [localhost] => (item=/epics/ibek-defs)
+#42 12.98 ok: [localhost] => (item=/epics/pvi-defs)
+#42 12.98 ok: [localhost] => (item=/epics/autosave)
+#42 12.98 ok: [localhost] => (item=/epics/support/configure/protocol)
+#42 12.98 
+#42 12.98 TASK [support : Link ibek defs files for ADSimDetector] ************************
+#42 12.98 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADSimDetector/ADSimDetector.ibek.support.yaml)
+#42 12.98 
+#42 12.98 TASK [support : Link pvi device files for ADSimDetector] ***********************
+#42 12.98 changed: [localhost] => (item=/epics/generic-source/ibek-support/ADSimDetector/simDetector.pvi.device.yaml)
+#42 12.98 
+#42 12.98 TASK [support : Link autosave request files for ADSimDetector] *****************
+#42 12.98 skipping: [localhost]
+#42 12.98 
+#42 12.98 TASK [support : Copy protocol files for ADSimDetector] *************************
+#42 12.98 skipping: [localhost]
+#42 12.98 
+#42 12.98 TASK [Ioc build] ***************************************************************
+#42 12.98 skipping: [localhost]
+#42 12.98 
+#42 12.98 PLAY RECAP *********************************************************************
+#42 12.98 localhost                  : ok=36   changed=14   unreachable=0    failed=0    skipped=29   rescued=0    ignored=0   
+#42 12.98 
+#42 DONE 13.0s
+
+#43 [developer 33/36] COPY ioc /epics/generic-source/ioc
+#43 DONE 0.0s
+
+#44 [developer 34/36] RUN /exp/step.sh ioc
+#44 0.069 Statistics zeroed.
+#44 8.308 
+#44 8.308 TASK [ioc : Fail on schema failure] ********************************************
+#44 8.308 skipping: [localhost]
+#44 8.308 
+#44 8.308 TASK [ioc : Compile the IOC binary] ********************************************
+#44 8.308 included: /epics/generic-source/ibek-support/_ansible/roles/ioc/tasks/../../support/tasks/build.yml for localhost
+#44 8.308 
+#44 8.308 TASK [ioc : Clean module for rebuild - IOC] ************************************
+#44 8.308 changed: [localhost]
+#44 8.308 
+#44 8.308 TASK [ioc : Build module IOC] **************************************************
+#44 8.308 changed: [localhost]
+#44 8.308 
+#44 8.308 TASK [ioc : Clean module IOC] **************************************************
+#44 8.308 changed: [localhost]
+#44 8.308 
+#44 8.308 TASK [ioc : Make dirs writeable, executable] ***********************************
+#44 8.308 changed: [localhost] => (item=/epics)
+#44 8.308 changed: [localhost] => (item=/epics/autosave)
+#44 8.308 changed: [localhost] => (item=/epics/ioc)
+#44 8.308 
+#44 8.308 TASK [ioc : Make files writeable] **********************************************
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocGui_settings.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocGui_positions.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocAdminVxWorks_settings.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/ioc_settings.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocAdminVxWorks_positions.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocAdminRTEMS_settings.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocAdminSoft_positions.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/ioc_positions.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocAdminScanMon_settings.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocAdminRTEMS_positions.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocAdminSoft_settings.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/ioc_vxworks_positions.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/iocAdminScanMon_positions.req)
+#44 8.308 changed: [localhost] => (item=/epics/autosave/ioc_vxworks_settings.req)
+#44 8.308 
+#44 8.308 PLAY RECAP *********************************************************************
+#44 8.308 localhost                  : ok=10   changed=7    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+#44 8.308 
+#44 DONE 8.4s
+
+#45 [developer 35/36] COPY scripts/generate_manifest.py /tmp/generate_manifest.py
+#45 DONE 0.0s
+
+#46 [developer 36/36] RUN python3 /tmp/generate_manifest.py "unknown"
+#46 0.109 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+#46 0.151 Using Python 3.14.7 environment at: /venv
+#46 0.154 wrote manifest with 11 EPICS modules and 25 python packages to /epics/versions.json
+#46 DONE 0.2s
+
+#47 exporting to image
+#47 exporting layers
+#47 exporting layers 15.6s done
+#47 exporting manifest sha256:057bfe15b2376d9b95298c802db603bce1c07de684aa1e3e92ec4cae12815216 0.0s done
+#47 exporting config sha256:c21b9073557d2fd8f28cac8d9be08360f611e8715cd9c8bfb9cbaf329a00c2a8 done
+#47 exporting attestation manifest sha256:90c69535010819aac10ce16619a1d4f02acbd9a52a985ed105b91a3280b1ed85 done
+#47 exporting manifest list sha256:da3225766192f088df3e6800d25b219456868411b4d0cc327ea734b96bf375e7 done
+#47 naming to docker.io/exp/run:R5a done
+#47 unpacking to docker.io/exp/run:R5a
+#47 unpacking to docker.io/exp/run:R5a 8.0s done
+#47 DONE 23.7s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 100)

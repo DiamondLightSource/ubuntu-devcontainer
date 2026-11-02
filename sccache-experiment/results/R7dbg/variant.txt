@@ -1,0 +1,3 @@
+developer=exp/sccache-patched-base
+seed=exp/release-r7rel
+vars=EXP_DEBUG=1

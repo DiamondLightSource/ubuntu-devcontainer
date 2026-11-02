@@ -1,0 +1,213 @@
++ ansible-playbook /epics/generic-source/ibek-support/_ansible/playbook.yml -i /epics/generic-source/ibek-support/_ansible/hosts.yml -e module_name=autosave
+
+PLAY [Install support module autosave] *****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [PB - Check for single module name] ***************************************
+ok: [localhost]
+
+TASK [PB - All support modules] ************************************************
+skipping: [localhost]
+
+TASK [PB - Find support module yml] ********************************************
+
+TASK [find : Find the ibek-support* folder for autosave] ***********************
+ok: [localhost]
+
+TASK [find : Make sure it was found] *******************************************
+skipping: [localhost]
+
+TASK [find : Set the correct ibek-support folder] ******************************
+ok: [localhost]
+
+TASK [find : Report the ibek-support folder] ***********************************
+ok: [localhost] => 
+    msg: 'ibek_support_folder: /epics/generic-source/ibek-support/autosave'
+
+TASK [find : Ensure root vars folder exists] ***********************************
+ok: [localhost]
+
+TASK [find : Copy module vars into ansible folder for autosave] ****************
+changed: [localhost]
+
+TASK [find : Read in the support module vars for autosave] *********************
+ok: [localhost]
+
+TASK [find : Check that the install.yml for autosave names a module and a version] ***
+ok: [localhost]
+
+TASK [PB - Support module build] ***********************************************
+
+TASK [support : System Installs for autosave] **********************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/system.yml for localhost
+
+TASK [support : Check whether the apt package index is fresh] ******************
+ok: [localhost]
+
+TASK [support : Update apt cache once per container build] *********************
+skipping: [localhost]
+
+TASK [support : Create apt cache sentinel] *************************************
+skipping: [localhost]
+
+TASK [support : Download additional files for autosave] ************************
+skipping: [localhost]
+
+TASK [support : Install system dependencies from registries autosave] **********
+skipping: [localhost]
+
+TASK [support : Install local system dependencies autosave] ********************
+skipping: [localhost]
+
+TASK [support : Register system dependencies for the runtime stage autosave] ***
+skipping: [localhost]
+
+TASK [support : Clone autosave] ************************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/clone.yml for localhost
+
+TASK [support : Check if the repo has already been cloned] *********************
+ok: [localhost]
+
+TASK [support : Clone https://github.com/epics-modules/autosave vers R6-0 to /epics/support/autosave] ***
+skipping: [localhost]
+
+TASK [support : Get specific commit to prepare for patch for autosave] *********
+skipping: [localhost]
+
+TASK [support : Patch file for autosave] ***************************************
+skipping: [localhost]
+
+TASK [support : Pre Build Tasks for autosave] **********************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+
+TASK [support : Execute additional tasks for autosave] *************************
+skipping: [localhost]
+
+TASK [support : Pre Build for autosave] ****************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/pre_build.yml for localhost
+
+TASK [support : Remove files as required for {{ item }}] ***********************
+skipping: [localhost]
+
+TASK [support : Comment out lines as required for autosave] ********************
+skipping: [localhost]
+
+TASK [support : RTEMS settings for autosave] ***********************************
+skipping: [localhost]
+
+TASK [support : Patch blocks for autosave] *************************************
+skipping: [localhost]
+
+TASK [support : Patch lines for autosave] **************************************
+skipping: [localhost]
+
+TASK [support : Call prebuild ad hoc scripts for autosave] *********************
+skipping: [localhost]
+
+TASK [support : Run prebuild bash commands for autosave] ***********************
+skipping: [localhost]
+
+TASK [support : Fixup Configure/RELEASE for autosave] **************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/release.yml for localhost
+
+TASK [support : Ensure that the global configure/RELEASE exists] ***************
+ok: [localhost]
+
+TASK [support : Ensure RELEASE.local is included last for autosave] ************
+ok: [localhost] => (item=RELEASE)
+skipping: [localhost] => (item=RELEASE.linux-x86_64.Common) 
+skipping: [localhost] => (item=RELEASE.Common.linux-x86_64) 
+skipping: [localhost] => (item=RELEASE.linux-x86_64.linux-x86_64) 
+
+TASK [support : Insert the global RELEASE as link to RELEASE.local for autosave] ***
+ok: [localhost]
+
+TASK [support : Add this module to the global configure/RELEASE - autosave] ****
+ok: [localhost]
+
+TASK [support : Add extra release macros to global configure/RELEASE for autosave] ***
+skipping: [localhost]
+
+TASK [support : Remove requested macros from configure/RELEASE for autosave] ***
+skipping: [localhost]
+
+TASK [support : Build for autosave] ********************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/build.yml for localhost
+
+TASK [support : Clean module for rebuild - autosave] ***************************
+changed: [localhost]
+
+TASK [support : Build module autosave] *****************************************
+changed: [localhost]
+
+TASK [support : Clean module autosave] *****************************************
+changed: [localhost]
+
+TASK [support : Post Build for autosave] ***************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/post_build.yml for localhost
+
+TASK [support : Add this module to the RELEASE.shell file for autosave] ********
+ok: [localhost]
+
+TASK [support : Get db folders for autosave] ***********************************
+ok: [localhost]
+
+TASK [support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for autosave] ***
+ok: [localhost]
+
+TASK [support : Add this module to the libs_list file - autosave] **************
+ok: [localhost] => (item=autosave)
+
+TASK [support : Add this module to the dbds_list file - autosave] **************
+ok: [localhost] => (item=asSupport.dbd)
+
+TASK [support : Add this module to the dbds_list file - autosave] **************
+skipping: [localhost]
+
+TASK [support : Patch blocks for autosave] *************************************
+skipping: [localhost]
+
+TASK [support : Patch lines for autosave] **************************************
+skipping: [localhost]
+
+TASK [support : Call postbuild ad hoc scripts for autosave] ********************
+skipping: [localhost]
+
+TASK [support : Run postbuild bash commands for autosave] **********************
+skipping: [localhost]
+
+TASK [support : Post Build Tasks for autosave] *********************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+
+TASK [support : Execute additional tasks for autosave] *************************
+skipping: [localhost]
+
+TASK [support : Runtime setup for autosave] ************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+
+TASK [support : Ensure destination folders exist] ******************************
+ok: [localhost] => (item=/epics/ibek-defs)
+ok: [localhost] => (item=/epics/pvi-defs)
+ok: [localhost] => (item=/epics/autosave)
+ok: [localhost] => (item=/epics/support/configure/protocol)
+
+TASK [support : Link ibek defs files for autosave] *****************************
+ok: [localhost] => (item=/epics/generic-source/ibek-support/autosave/autosave.ibek.support.yaml)
+
+TASK [support : Link pvi device files for autosave] ****************************
+skipping: [localhost]
+
+TASK [support : Link autosave request files for autosave] **********************
+skipping: [localhost]
+
+TASK [support : Copy protocol files for autosave] ******************************
+skipping: [localhost]
+
+TASK [Ioc build] ***************************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=34   changed=4    unreachable=0    failed=0    skipped=31   rescued=0    ignored=0   
+

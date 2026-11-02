@@ -1,0 +1,71 @@
+{"ev": "pb_start", "t": 1793653336.2198386}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793653336.2272224, "end": 1793653336.9854789}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793653336.985528, "end": 1793653337.000487}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793653337.0005407, "end": 1793653337.020607}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793653337.0206556, "end": 1793653337.0403721}
+{"ev": "task", "name": "find : Find the ibek-support* folder for busy", "action": "ansible.builtin.shell", "start": 1793653337.0404167, "end": 1793653337.3045535}
+{"ev": "task", "name": "find : Make sure it was found", "action": "ansible.builtin.fail", "start": 1793653337.30461, "end": 1793653337.3315985}
+{"ev": "task", "name": "find : Set the correct ibek-support folder", "action": "ansible.builtin.set_fact", "start": 1793653337.3316565, "end": 1793653337.348017}
+{"ev": "task", "name": "find : Report the ibek-support folder", "action": "ansible.builtin.debug", "start": 1793653337.3480668, "end": 1793653337.3630464}
+{"ev": "task", "name": "find : Ensure root vars folder exists", "action": "ansible.builtin.file", "start": 1793653337.3630936, "end": 1793653337.6152272}
+{"ev": "task", "name": "find : Copy module vars into ansible folder for busy", "action": "ansible.builtin.copy", "start": 1793653337.615282, "end": 1793653338.1035986}
+{"ev": "task", "name": "find : Read in the support module vars for busy", "action": "ansible.builtin.include_vars", "start": 1793653338.1036572, "end": 1793653338.1298892}
+{"ev": "task", "name": "find : Check that the install.yml for busy names a module and a version", "action": "ansible.builtin.assert", "start": 1793653338.1299398, "end": 1793653338.161188}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793653338.1612775, "end": 1793653338.190204}
+{"ev": "task", "name": "support : System Installs for busy", "action": "ansible.builtin.include_tasks", "start": 1793653338.1902819, "end": 1793653338.211456}
+{"ev": "task", "name": "support : Check whether the apt package index is fresh", "action": "ansible.builtin.shell", "start": 1793653338.211506, "end": 1793653338.3786175}
+{"ev": "task", "name": "support : Update apt cache once per container build", "action": "ansible.builtin.apt", "start": 1793653338.3786802, "end": 1793653338.3946273}
+{"ev": "task", "name": "support : Create apt cache sentinel", "action": "ansible.builtin.file", "start": 1793653338.3946795, "end": 1793653338.4103208}
+{"ev": "task", "name": "support : Download additional files for busy", "action": "ansible.builtin.get_url", "start": 1793653338.4103637, "end": 1793653338.4208333}
+{"ev": "task", "name": "support : Install system dependencies from registries busy", "action": "ansible.builtin.package", "start": 1793653338.4208739, "end": 1793653338.430949}
+{"ev": "task", "name": "support : Install local system dependencies busy", "action": "ansible.builtin.package", "start": 1793653338.430992, "end": 1793653338.4411123}
+{"ev": "task", "name": "support : Register system dependencies for the runtime stage busy", "action": "ansible.builtin.lineinfile", "start": 1793653338.4411561, "end": 1793653338.4512792}
+{"ev": "task", "name": "support : Clone busy", "action": "ansible.builtin.include_tasks", "start": 1793653338.4513214, "end": 1793653338.4691415}
+{"ev": "task", "name": "support : Check if the repo has already been cloned", "action": "ansible.builtin.stat", "start": 1793653338.469184, "end": 1793653338.6754565}
+{"ev": "task", "name": "support : Clone https://github.com/epics-modules/busy vers R1-7-4 to /epics/support/busy", "action": "ansible.builtin.git", "start": 1793653338.6755111, "end": 1793653338.6890686}
+{"ev": "task", "name": "support : Get specific commit to prepare for patch for busy", "action": "ansible.builtin.git", "start": 1793653338.689114, "end": 1793653338.7113404}
+{"ev": "task", "name": "support : Patch file for busy", "action": "ansible.builtin.command", "start": 1793653338.7113893, "end": 1793653338.7332668}
+{"ev": "task", "name": "support : Pre Build Tasks for busy", "action": "ansible.builtin.include_tasks", "start": 1793653338.7333095, "end": 1793653338.7512827}
+{"ev": "task", "name": "support : Execute additional tasks for busy", "action": "ansible.builtin.include_tasks", "start": 1793653338.7513216, "end": 1793653338.7619975}
+{"ev": "task", "name": "support : Pre Build for busy", "action": "ansible.builtin.include_tasks", "start": 1793653338.7620952, "end": 1793653338.7825153}
+{"ev": "task", "name": "support : Remove files as required for {{ item }}", "action": "ansible.builtin.file", "start": 1793653338.7825549, "end": 1793653338.793489}
+{"ev": "task", "name": "support : Comment out lines as required for busy", "action": "ansible.builtin.replace", "start": 1793653338.793562, "end": 1793653339.0334096}
+{"ev": "task", "name": "support : RTEMS settings for busy", "action": "ansible.builtin.lineinfile", "start": 1793653339.0334687, "end": 1793653339.057924}
+{"ev": "task", "name": "support : Patch blocks for busy", "action": "ansible.builtin.blockinfile", "start": 1793653339.0579789, "end": 1793653339.0697436}
+{"ev": "task", "name": "support : Patch lines for busy", "action": "ansible.builtin.lineinfile", "start": 1793653339.0697918, "end": 1793653339.0808256}
+{"ev": "task", "name": "support : Call prebuild ad hoc scripts for busy", "action": "ansible.builtin.command", "start": 1793653339.0808713, "end": 1793653339.0917904}
+{"ev": "task", "name": "support : Run prebuild bash commands for busy", "action": "ansible.builtin.shell", "start": 1793653339.0918412, "end": 1793653339.1026797}
+{"ev": "task", "name": "support : Fixup Configure/RELEASE for busy", "action": "ansible.builtin.include_tasks", "start": 1793653339.1027288, "end": 1793653339.123107}
+{"ev": "task", "name": "support : Ensure that the global configure/RELEASE exists", "action": "ansible.builtin.copy", "start": 1793653339.1231527, "end": 1793653339.3013332}
+{"ev": "task", "name": "support : Ensure RELEASE.local is included last for busy", "action": "ansible.builtin.blockinfile", "start": 1793653339.301384, "end": 1793653339.5537505}
+{"ev": "task", "name": "support : Insert the global RELEASE as link to RELEASE.local for busy", "action": "ansible.builtin.file", "start": 1793653339.5538075, "end": 1793653339.7186303}
+{"ev": "task", "name": "support : Add this module to the global configure/RELEASE - busy", "action": "ansible.builtin.lineinfile", "start": 1793653339.7186852, "end": 1793653339.9643192}
+{"ev": "task", "name": "support : Add extra release macros to global configure/RELEASE for busy", "action": "ansible.builtin.lineinfile", "start": 1793653339.9643734, "end": 1793653339.9854722}
+{"ev": "task", "name": "support : Remove requested macros from configure/RELEASE for busy", "action": "ansible.builtin.include_tasks", "start": 1793653339.9855251, "end": 1793653340.004544}
+{"ev": "task", "name": "support : Check for existing macro AUTOSAVE", "action": "ansible.builtin.shell", "start": 1793653340.0045898, "end": 1793653340.1684706}
+{"ev": "task", "name": "support : Remove requested macro from configure/RELEASE AUTOSAVE", "action": "ansible.builtin.lineinfile", "start": 1793653340.1685295, "end": 1793653340.1820693}
+{"ev": "task", "name": "support : Build for busy", "action": "ansible.builtin.include_tasks", "start": 1793653340.1821241, "end": 1793653340.2039025}
+{"ev": "task", "name": "support : Clean module for rebuild - busy", "action": "ansible.builtin.command", "start": 1793653340.2039468, "end": 1793653340.621269}
+{"ev": "task", "name": "support : Build module busy", "action": "ansible.builtin.command", "start": 1793653340.621327, "end": 1793653341.259041}
+{"ev": "task", "name": "support : Clean module busy", "action": "ansible.builtin.command", "start": 1793653341.2590992, "end": 1793653341.659898}
+{"ev": "task", "name": "support : Post Build for busy", "action": "ansible.builtin.include_tasks", "start": 1793653341.659956, "end": 1793653341.687072}
+{"ev": "task", "name": "support : Add this module to the RELEASE.shell file for busy", "action": "ansible.builtin.lineinfile", "start": 1793653341.687132, "end": 1793653341.8718734}
+{"ev": "task", "name": "support : Get db folders for busy", "action": "ansible.builtin.shell", "start": 1793653341.8719304, "end": 1793653342.039388}
+{"ev": "task", "name": "support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for busy", "action": "ansible.builtin.lineinfile", "start": 1793653342.039445, "end": 1793653342.21721}
+{"ev": "task", "name": "support : Add this module to the libs_list file - busy", "action": "ansible.builtin.lineinfile", "start": 1793653342.2172997, "end": 1793653342.3957481}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - busy", "action": "ansible.builtin.lineinfile", "start": 1793653342.39581, "end": 1793653342.5610328}
+{"ev": "task", "name": "support : Add this module to the dbds_list file - busy", "action": "ansible.builtin.lineinfile", "start": 1793653342.561089, "end": 1793653342.5733674}
+{"ev": "task", "name": "support : Patch blocks for busy", "action": "ansible.builtin.blockinfile", "start": 1793653342.5734193, "end": 1793653342.5852833}
+{"ev": "task", "name": "support : Patch lines for busy", "action": "ansible.builtin.lineinfile", "start": 1793653342.5853322, "end": 1793653342.5981367}
+{"ev": "task", "name": "support : Call postbuild ad hoc scripts for busy", "action": "ansible.builtin.command", "start": 1793653342.5981832, "end": 1793653342.610251}
+{"ev": "task", "name": "support : Run postbuild bash commands for busy", "action": "ansible.builtin.shell", "start": 1793653342.6103008, "end": 1793653342.6213503}
+{"ev": "task", "name": "support : Post Build Tasks for busy", "action": "ansible.builtin.include_tasks", "start": 1793653342.6213968, "end": 1793653342.6455147}
+{"ev": "task", "name": "support : Execute additional tasks for busy", "action": "ansible.builtin.include_tasks", "start": 1793653342.645562, "end": 1793653342.6568053}
+{"ev": "task", "name": "support : Runtime setup for busy", "action": "ansible.builtin.include_tasks", "start": 1793653342.6568537, "end": 1793653342.6825802}
+{"ev": "task", "name": "support : Ensure destination folders exist", "action": "ansible.builtin.file", "start": 1793653342.6826282, "end": 1793653343.315628}
+{"ev": "task", "name": "support : Link ibek defs files for busy", "action": "ansible.builtin.file", "start": 1793653343.3156848, "end": 1793653343.3335567}
+{"ev": "task", "name": "support : Link pvi device files for busy", "action": "ansible.builtin.file", "start": 1793653343.3336086, "end": 1793653343.347498}
+{"ev": "task", "name": "support : Link autosave request files for busy", "action": "ansible.builtin.file", "start": 1793653343.3475468, "end": 1793653343.3615775}
+{"ev": "task", "name": "support : Copy protocol files for busy", "action": "ansible.builtin.copy", "start": 1793653343.3616242, "end": 1793653343.3746216}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793653343.3746715, "end": 1793653343.3928208}
+{"ev": "pb_end", "t": 1793653343.3928673}

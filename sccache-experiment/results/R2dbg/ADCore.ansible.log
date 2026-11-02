@@ -1,0 +1,306 @@
++ ansible-playbook /epics/generic-source/ibek-support/_ansible/playbook.yml -i /epics/generic-source/ibek-support/_ansible/hosts.yml -e module_name=ADCore
+
+PLAY [Install support module ADCore] *******************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [PB - Check for single module name] ***************************************
+ok: [localhost]
+
+TASK [PB - All support modules] ************************************************
+skipping: [localhost]
+
+TASK [PB - Find support module yml] ********************************************
+
+TASK [find : Find the ibek-support* folder for ADCore] *************************
+ok: [localhost]
+
+TASK [find : Make sure it was found] *******************************************
+skipping: [localhost]
+
+TASK [find : Set the correct ibek-support folder] ******************************
+ok: [localhost]
+
+TASK [find : Report the ibek-support folder] ***********************************
+ok: [localhost] => 
+    msg: 'ibek_support_folder: /epics/generic-source/ibek-support/ADCore'
+
+TASK [find : Ensure root vars folder exists] ***********************************
+ok: [localhost]
+
+TASK [find : Copy module vars into ansible folder for ADCore] ******************
+changed: [localhost]
+
+TASK [find : Read in the support module vars for ADCore] ***********************
+ok: [localhost]
+
+TASK [find : Check that the install.yml for ADCore names a module and a version] ***
+ok: [localhost]
+
+TASK [PB - Support module build] ***********************************************
+
+TASK [support : System Installs for ADCore] ************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/system.yml for localhost
+
+TASK [support : Check whether the apt package index is fresh] ******************
+ok: [localhost]
+
+TASK [support : Update apt cache once per container build] *********************
+skipping: [localhost]
+
+TASK [support : Create apt cache sentinel] *************************************
+skipping: [localhost]
+
+TASK [support : Download additional files for ADCore] **************************
+changed: [localhost] => (item={'url': 'https://archive.ubuntu.com/ubuntu/pool/universe/h/hdf5/libhdf5-103-1t64_1.10.10+repack-3.1ubuntu4_amd64.deb', 'dest': '/tmp/libhdf5-103.deb'})
+changed: [localhost] => (item={'url': 'https://archive.ubuntu.com/ubuntu/pool/universe/h/hdf5/libhdf5-cpp-103-1t64_1.10.10+repack-3.1ubuntu4_amd64.deb', 'dest': '/tmp/libhdf5-cpp-103.deb'})
+changed: [localhost] => (item={'url': 'https://archive.ubuntu.com/ubuntu/pool/universe/h/hdf5/libhdf5-dev_1.10.10+repack-3.1ubuntu4_amd64.deb', 'dest': '/tmp/libhdf5-dev-1.deb'})
+
+TASK [support : Install system dependencies from registries ADCore] ************
+changed: [localhost] => (item=libaec-dev)
+changed: [localhost] => (item=libblosc-dev)
+changed: [localhost] => (item=libglib2.0-dev)
+changed: [localhost] => (item=libjpeg-dev)
+changed: [localhost] => (item=libtiff-dev)
+changed: [localhost] => (item=libusb-dev)
+changed: [localhost] => (item=libxml2-dev)
+changed: [localhost] => (item=libx11-dev)
+changed: [localhost] => (item=libxext-dev)
+ok: [localhost] => (item=libz-dev)
+changed: [localhost] => (item=libnetcdf-dev)
+changed: [localhost] => (item=libgraphicsmagick++1-dev)
+skipping: [localhost] => (item=/tmp/libhdf5-103.deb) 
+skipping: [localhost] => (item=/tmp/libhdf5-cpp-103.deb) 
+skipping: [localhost] => (item=/tmp/libhdf5-dev-1.deb) 
+
+TASK [support : Install local system dependencies ADCore] **********************
+skipping: [localhost] => (item=libaec-dev) 
+skipping: [localhost] => (item=libblosc-dev) 
+skipping: [localhost] => (item=libglib2.0-dev) 
+skipping: [localhost] => (item=libjpeg-dev) 
+skipping: [localhost] => (item=libtiff-dev) 
+skipping: [localhost] => (item=libusb-dev) 
+skipping: [localhost] => (item=libxml2-dev) 
+skipping: [localhost] => (item=libx11-dev) 
+skipping: [localhost] => (item=libxext-dev) 
+skipping: [localhost] => (item=libz-dev) 
+skipping: [localhost] => (item=libnetcdf-dev) 
+skipping: [localhost] => (item=libgraphicsmagick++1-dev) 
+ok: [localhost] => (item=/tmp/libhdf5-103.deb)
+ok: [localhost] => (item=/tmp/libhdf5-cpp-103.deb)
+ok: [localhost] => (item=/tmp/libhdf5-dev-1.deb)
+
+TASK [support : Register system dependencies for the runtime stage ADCore] *****
+changed: [localhost] => (item=libtiff6)
+changed: [localhost] => (item=libsz2)
+changed: [localhost] => (item=libblosc1)
+changed: [localhost] => (item=libxml2)
+changed: [localhost] => (item=libhdf5-103-1)
+changed: [localhost] => (item=libnetcdf19)
+changed: [localhost] => (item=libgraphicsmagick++-q16-12)
+
+TASK [support : Clone ADCore] **************************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/clone.yml for localhost
+
+TASK [support : Check if the repo has already been cloned] *********************
+ok: [localhost]
+
+TASK [support : Clone https://github.com/areaDetector/ADCore vers ee039d24c9e89e70b31fd383b4817a40db5d6395 to /epics/support/ADCore] ***
+[WARNING]: Ignoring depth argument. Shallow clones are only available for HEAD,
+branches, tags or in combination with refspec.
+changed: [localhost]
+
+TASK [support : Get specific commit to prepare for patch for ADCore] ***********
+skipping: [localhost]
+
+TASK [support : Patch file for ADCore] *****************************************
+skipping: [localhost]
+
+TASK [support : Pre Build Tasks for ADCore] ************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+
+TASK [support : Execute additional tasks for ADCore] ***************************
+skipping: [localhost]
+
+TASK [support : Pre Build for ADCore] ******************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/pre_build.yml for localhost
+
+TASK [support : Remove files as required for {{ item }}] ***********************
+skipping: [localhost]
+
+TASK [support : Comment out lines as required for ADCore] **********************
+skipping: [localhost]
+
+TASK [support : RTEMS settings for ADCore] *************************************
+skipping: [localhost]
+
+TASK [support : Patch blocks for ADCore] ***************************************
+changed: [localhost] => (item={'path': 'configure/CONFIG_SITE.linux-x86_64.Common', 'marker': '# {mark} set all libraries to external ---------------------------', 'block': 'AREA_DETECTOR=$(SUPPORT)\nCROSS_COMPILER_TARGET_ARCHS =\nWITH_GRAPHICSMAGICK = YES\nGRAPHICSMAGICK_EXTERNAL = YES\nGRAPHICSMAGICK_INCLUDE = /usr/include/GraphicsMagick/\nWITH_HDF5           = YES\nHDF5_EXTERNAL       = YES\nHDF5_LIB            = /usr/lib/x86_64-linux-gnu/hdf5/serial/\nHDF5_INCLUDE        = /usr/include/hdf5/serial/\nWITH_SZIP           = YES\nSZIP_EXTERNAL       = YES\nWITH_JPEG           = YES\nJPEG_EXTERNAL       = YES\nWITH_TIFF           = YES\nTIFF_EXTERNAL       = YES\nXML2_EXTERNAL       = YES\nXML2_INCLUDE        = /usr/include/libxml2/\nWITH_ZLIB           = YES\nZLIB_EXTERNAL       = YES\nWITH_BLOSC          = YES\nBLOSC_EXTERNAL      = YES\nWITH_PVA            = NO\nWITH_BOOST          = NO\nWITH_NETCDF         = YES\nNETCDF_EXTERNAL     = YES\nWITH_PVXS           = YES\n'})
+
+TASK [support : Patch lines for ADCore] ****************************************
+skipping: [localhost]
+
+TASK [support : Call prebuild ad hoc scripts for ADCore] ***********************
+skipping: [localhost]
+
+TASK [support : Run prebuild bash commands for ADCore] *************************
+skipping: [localhost]
+
+TASK [support : Fixup Configure/RELEASE for ADCore] ****************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/release.yml for localhost
+
+TASK [support : Ensure that the global configure/RELEASE exists] ***************
+ok: [localhost]
+
+TASK [support : Ensure RELEASE.local is included last for ADCore] **************
+changed: [localhost] => (item=RELEASE)
+skipping: [localhost] => (item=RELEASE.linux-x86_64.Common) 
+skipping: [localhost] => (item=RELEASE.Common.linux-x86_64) 
+skipping: [localhost] => (item=RELEASE.linux-x86_64.linux-x86_64) 
+
+TASK [support : Insert the global RELEASE as link to RELEASE.local for ADCore] ***
+changed: [localhost]
+
+TASK [support : Add this module to the global configure/RELEASE - ADCore] ******
+changed: [localhost]
+
+TASK [support : Add extra release macros to global configure/RELEASE for ADCore] ***
+skipping: [localhost]
+
+TASK [support : Remove requested macros from configure/RELEASE for ADCore] *****
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/remove_macros.yml for localhost => (item=SNCSEQ)
+
+TASK [support : Check for existing macro SNCSEQ] *******************************
+ok: [localhost]
+
+TASK [support : Remove requested macro from configure/RELEASE SNCSEQ] **********
+skipping: [localhost]
+
+TASK [support : Build for ADCore] **********************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/build.yml for localhost
+
+TASK [support : Clean module for rebuild - ADCore] *****************************
+changed: [localhost]
+
+TASK [support : Build module ADCore] *******************************************
+changed: [localhost]
+
+TASK [support : Clean module ADCore] *******************************************
+changed: [localhost]
+
+TASK [support : Post Build for ADCore] *****************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/post_build.yml for localhost
+
+TASK [support : Add this module to the RELEASE.shell file for ADCore] **********
+changed: [localhost]
+
+TASK [support : Get db folders for ADCore] *************************************
+ok: [localhost]
+
+TASK [support : Add EPICS_DB_INCLUDE_PATH to RELEASE.shell file for ADCore] ****
+changed: [localhost]
+
+TASK [support : Add this module to the libs_list file - ADCore] ****************
+changed: [localhost] => (item=ntndArrayConverterPvxs)
+changed: [localhost] => (item=ADBase)
+changed: [localhost] => (item=NDPlugin)
+ok: [localhost] => (item=pvxs)
+ok: [localhost] => (item=pvxsIoc)
+
+TASK [support : Add this module to the dbds_list file - ADCore] ****************
+changed: [localhost] => (item=NDPluginPvxs.dbd)
+changed: [localhost] => (item=ADSupport.dbd)
+changed: [localhost] => (item=NDPluginSupport.dbd)
+changed: [localhost] => (item=NDFileNull.dbd)
+changed: [localhost] => (item=NDPosPlugin.dbd)
+changed: [localhost] => (item=NDFileHDF5.dbd)
+changed: [localhost] => (item=NDFileJPEG.dbd)
+changed: [localhost] => (item=NDFileTIFF.dbd)
+changed: [localhost] => (item=NDFileNetCDF.dbd)
+
+TASK [support : Add this module to the dbds_list file - ADCore] ****************
+skipping: [localhost]
+
+TASK [support : Patch blocks for ADCore] ***************************************
+skipping: [localhost] => (item={'path': 'configure/CONFIG_SITE.linux-x86_64.Common', 'marker': '# {mark} set all libraries to external ---------------------------', 'block': 'AREA_DETECTOR=$(SUPPORT)\nCROSS_COMPILER_TARGET_ARCHS =\nWITH_GRAPHICSMAGICK = YES\nGRAPHICSMAGICK_EXTERNAL = YES\nGRAPHICSMAGICK_INCLUDE = /usr/include/GraphicsMagick/\nWITH_HDF5           = YES\nHDF5_EXTERNAL       = YES\nHDF5_LIB            = /usr/lib/x86_64-linux-gnu/hdf5/serial/\nHDF5_INCLUDE        = /usr/include/hdf5/serial/\nWITH_SZIP           = YES\nSZIP_EXTERNAL       = YES\nWITH_JPEG           = YES\nJPEG_EXTERNAL       = YES\nWITH_TIFF           = YES\nTIFF_EXTERNAL       = YES\nXML2_EXTERNAL       = YES\nXML2_INCLUDE        = /usr/include/libxml2/\nWITH_ZLIB           = YES\nZLIB_EXTERNAL       = YES\nWITH_BLOSC          = YES\nBLOSC_EXTERNAL      = YES\nWITH_PVA            = NO\nWITH_BOOST          = NO\nWITH_NETCDF         = YES\nNETCDF_EXTERNAL     = YES\nWITH_PVXS           = YES\n'}) 
+skipping: [localhost]
+
+TASK [support : Patch lines for ADCore] ****************************************
+skipping: [localhost]
+
+TASK [support : Call postbuild ad hoc scripts for ADCore] **********************
+skipping: [localhost]
+
+TASK [support : Run postbuild bash commands for ADCore] ************************
+skipping: [localhost]
+
+TASK [support : Post Build Tasks for ADCore] ***********************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+
+TASK [support : Execute additional tasks for ADCore] ***************************
+skipping: [localhost]
+
+TASK [support : Runtime setup for ADCore] **************************************
+included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+
+TASK [support : Ensure destination folders exist] ******************************
+ok: [localhost] => (item=/epics/ibek-defs)
+ok: [localhost] => (item=/epics/pvi-defs)
+ok: [localhost] => (item=/epics/autosave)
+ok: [localhost] => (item=/epics/support/configure/protocol)
+
+TASK [support : Link ibek defs files for ADCore] *******************************
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/ADCore.ibek.support.yaml)
+
+TASK [support : Link pvi device files for ADCore] ******************************
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDStdArrays.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileNetCDF.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDCodec.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDScatter.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDGatherN.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDROI.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDCircularBuff.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttribute.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDArrayBase.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDTimeSeries.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDROIStatN.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDStats.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDPvxs.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDROIStat.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDPosPlugin.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDGather.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDTimeSeriesN.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileMagick.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileHDF5.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDTransform.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/ADDriver.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDPluginBase.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttributeN.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFile.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDProcess.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttrPlot.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/CCDMultiTrack.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileJPEG.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttrPlotAttr.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDBadPixel.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDOverlayN.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDOverlay.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFFT.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDColorConvert.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileTIFF.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDFileNexus.pvi.device.yaml)
+changed: [localhost] => (item=/epics/generic-source/ibek-support/ADCore/NDAttrPlotData.pvi.device.yaml)
+
+TASK [support : Link autosave request files for ADCore] ************************
+skipping: [localhost]
+
+TASK [support : Copy protocol files for ADCore] ********************************
+skipping: [localhost]
+
+TASK [Ioc build] ***************************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=43   changed=18   unreachable=0    failed=0    skipped=24   rescued=0    ignored=0   
+

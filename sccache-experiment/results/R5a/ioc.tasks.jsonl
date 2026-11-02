@@ -1,0 +1,20 @@
+{"ev": "pb_start", "t": 1793641396.3959615}
+{"ev": "task", "name": "Gathering Facts", "action": "gather_facts", "start": 1793641396.4038537, "end": 1793641397.19246}
+{"ev": "task", "name": "PB - Check for single module name", "action": "ansible.builtin.set_fact", "start": 1793641397.1925097, "end": 1793641397.2080157}
+{"ev": "task", "name": "PB - All support modules", "action": "ansible.builtin.include_role", "start": 1793641397.208064, "end": 1793641397.2276359}
+{"ev": "task", "name": "PB - Find support module yml", "action": "ansible.builtin.include_role", "start": 1793641397.2276838, "end": 1793641397.2396886}
+{"ev": "task", "name": "PB - Support module build", "action": "ansible.builtin.include_role", "start": 1793641397.2397358, "end": 1793641397.2508285}
+{"ev": "task", "name": "Ioc build", "action": "ansible.builtin.include_role", "start": 1793641397.2508755, "end": 1793641397.273361}
+{"ev": "task", "name": "ioc : Link global ibek defs file from _ansible", "action": "ansible.builtin.file", "start": 1793641397.2734084, "end": 1793641397.5585625}
+{"ev": "task", "name": "ioc : RTEMS settings", "action": "ansible.builtin.lineinfile", "start": 1793641397.5586252, "end": 1793641397.5848806}
+{"ev": "task", "name": "ioc : Pip install rtems-proxy", "action": "ansible.builtin.pip", "start": 1793641397.5849345, "end": 1793641397.6073017}
+{"ev": "task", "name": "ioc : Make an ioc.yaml schema for all support modules", "action": "ansible.builtin.shell", "start": 1793641397.6073499, "end": 1793641399.0582747}
+{"ev": "task", "name": "ioc : Report errors if needed", "action": "ansible.builtin.debug", "start": 1793641399.0583348, "end": 1793641399.0720518}
+{"ev": "task", "name": "ioc : Fail on schema failure", "action": "ansible.builtin.fail", "start": 1793641399.072099, "end": 1793641399.0841339}
+{"ev": "task", "name": "ioc : Compile the IOC binary", "action": "ansible.builtin.include_tasks", "start": 1793641399.084186, "end": 1793641399.1002834}
+{"ev": "task", "name": "ioc : Clean module for rebuild - IOC", "action": "ansible.builtin.command", "start": 1793641399.100326, "end": 1793641399.3663793}
+{"ev": "task", "name": "ioc : Build module IOC", "action": "ansible.builtin.command", "start": 1793641399.3664556, "end": 1793641401.1383183}
+{"ev": "task", "name": "ioc : Clean module IOC", "action": "ansible.builtin.command", "start": 1793641401.1383762, "end": 1793641401.3983254}
+{"ev": "task", "name": "ioc : Make dirs writeable, executable", "action": "ansible.builtin.file", "start": 1793641401.3983905, "end": 1793641401.8983276}
+{"ev": "task", "name": "ioc : Make files writeable", "action": "ansible.builtin.file", "start": 1793641401.8983896, "end": 1793641404.244634}
+{"ev": "pb_end", "t": 1793641404.2446976}
