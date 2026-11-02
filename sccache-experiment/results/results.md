@@ -29,12 +29,14 @@ Wall = whole `docker build --no-cache --target developer` (includes uv pip, COPY
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | no sccache, cold (baseline) | 322 | 100% | 298 | 39 | – | – | – | – | – | – | – |
 | R1 | sccache, empty cache = release build | 332 | 103% | 296 | 41 | 425 | 0 | 208 | 0.0% | 196 | 19 | 9 MiB |
+| R2a | sccache warm (seeded from R1), direct mode on (default) | 326 | 101% | 283 | 13 | 425 | 205 | 3 | 98.6% | 196 | 19 | 9 MiB |
 
 ### Variance
 
 | group | n | mean wall s | stdev s | min | max |
 |---|---:|---:|---:|---:|---:|
 | R0 cold | 1 | 322 | 0.0 | 322 | 322 |
+| R2 warm (direct on) | 1 | 326 | 0.0 | 326 | 326 |
 
 ## Per-module step wall time (s)
 
@@ -44,6 +46,7 @@ Whole `RUN /exp/step.sh <module>` = ansible.sh incl. apt, clone, configure, make
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | 27 | 12 | 13 | 13 | 19 | 11 | 11 | 9 | 118 | 41 | 15 | 8 |
 | R1 | 28 | 12 | 12 | 13 | 20 | 10 | 14 | 9 | 111 | 46 | 13 | 8 |
+| R2a | 29 | 11 | 12 | 11 | 16 | 11 | 10 | 9 | 116 | 38 | 11 | 8 |
 
 ## Per-module `make` (build only) wall time (s), from `/usr/bin/time -v`
 
@@ -51,6 +54,7 @@ Whole `RUN /exp/step.sh <module>` = ansible.sh incl. apt, clone, configure, make
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | 0.8 | 2.7 | 2.4 | 2.7 | 6.3 | 0.5 | 1.5 | 0.3 | 16.1 | 1.1 | 3.0 | 1.5 |
 | R1 | 0.9 | 2.7 | 2.5 | 2.6 | 6.7 | 0.6 | 1.6 | 0.4 | 16.9 | 1.3 | 3.1 | 1.5 |
+| R2a | 0.7 | 1.1 | 0.7 | 0.9 | 2.2 | 0.5 | 0.7 | 0.3 | 3.2 | 0.6 | 0.4 | 1.4 |
 
 ## Per-module sccache hit rate (hits/(hits+misses)) and misses
 
@@ -58,6 +62,7 @@ Whole `RUN /exp/step.sh <module>` = ansible.sh incl. apt, clone, configure, make
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | – | – | – | – | – | – | – | – | – | – | – | – |
 | R1 | 0% (17m) | 0% (23m) | 0% (7m) | 0% (18m) | 0% (67m) | 0% (4m) | 0% (9m) | 0% (2m) | 0% (50m) | 0% (8m) | 0% (1m) | 0% (2m) |
+| R2a | 100% (0m) | 91% (2m) | 100% (0m) | 100% (0m) | 100% (0m) | 100% (0m) | 89% (1m) | 100% (0m) | 100% (0m) | 100% (0m) | 100% (0m) | 100% (0m) |
 
 ## Where the time goes, by ansible task category (s, summed over modules)
 
@@ -67,6 +72,7 @@ Categories come from the ansible callback timer: `apt` = system/apt/get_url task
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | 122 | 37 | 10 | 4 | 73 | 41 | 9 | 1 | 0 | 0 | 24 | 322 |
 | R1 | 122 | 37 | 10 | 4 | 70 | 43 | 9 | 1 | 0 | 0 | 35 | 332 |
+| R2a | 132 | 38 | 11 | 4 | 73 | 15 | 10 | 1 | 0 | 0 | 43 | 326 |
 
 ### Docker build steps for R0 (s)
 
@@ -107,12 +113,36 @@ Categories come from the ansible callback timer: `apt` = system/apt/get_url task
 | [developer] `RUN /exp/step.sh ADSimDetector` | 12.7 |
 | [developer] `RUN /exp/step.sh ioc` | 8.2 |
 
+### Docker build steps for R2a (s)
+
+| step | s |
+|---|---:|
+| [developer] `FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00ed` | 0.7 |
+| [tools] `FROM docker.io/exp/tools:latest@sha256:84b9adf3759544a2d38f970cc1c799d9e11fa058db9788a6886` | 7.5 |
+| [seed] `FROM docker.io/exp/release:latest@sha256:01c7097fb05a9ce7e8b085f169af19a45acf7ebf133b27dc7` | 7.4 |
+| [developer] `COPY --from=exp / /exp` | 1.1 |
+| [developer] `COPY --from=seed /sccache /sccache` | 1.0 |
+| [developer] `RUN uv pip install --upgrade -r requirements.txt` | 0.8 |
+| [developer] `RUN /exp/step.sh iocStats` | 29.2 |
+| [developer] `RUN /exp/step.sh sequencer` | 10.9 |
+| [developer] `RUN /exp/step.sh sscan` | 11.9 |
+| [developer] `RUN /exp/step.sh calc` | 11.4 |
+| [developer] `RUN /exp/step.sh asyn` | 16.4 |
+| [developer] `RUN /exp/step.sh busy` | 11.1 |
+| [developer] `RUN /exp/step.sh autosave` | 10.0 |
+| [developer] `RUN /exp/step.sh pvlogging` | 9.6 |
+| [developer] `RUN /exp/step.sh ADCore` | 116.1 |
+| [developer] `RUN /exp/step.sh ffmpegServer` | 38.4 |
+| [developer] `RUN /exp/step.sh ADSimDetector` | 11.4 |
+| [developer] `RUN /exp/step.sh ioc` | 8.0 |
+
 ## Non-cacheable calls by reason (sccache `not_cached`)
 
 | run | -E | -MM |
 |---|---:|---:|
 | R0 | 0 | 0 |
 | R1 | 2 | 196 |
+| R2a | 2 | 196 |
 
 ## Image and cache sizes
 
@@ -120,4 +150,5 @@ Categories come from the ansible callback timer: `apt` = system/apt/get_url task
 |---|---:|---:|---:|
 | R0 | 2920 MiB | – | – |
 | R1 | 2971 MiB | – | 9 MiB |
+| R2a | 2990 MiB | 9 MiB | 9 MiB |
 
