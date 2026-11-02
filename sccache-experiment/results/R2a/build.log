@@ -315,3 +315,97 @@
 
 #24 [developer 14/36] RUN /exp/step.sh sequencer
 #24 0.070 Statistics zeroed.
+#24 10.83 
+#24 10.83 TASK [support : Call postbuild ad hoc scripts for sequencer] *******************
+#24 10.83 skipping: [localhost]
+#24 10.83 
+#24 10.83 TASK [support : Run postbuild bash commands for sequencer] *********************
+#24 10.83 skipping: [localhost]
+#24 10.83 
+#24 10.83 TASK [support : Post Build Tasks for sequencer] ********************************
+#24 10.83 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#24 10.83 
+#24 10.83 TASK [support : Execute additional tasks for sequencer] ************************
+#24 10.83 skipping: [localhost]
+#24 10.83 
+#24 10.83 TASK [support : Runtime setup for sequencer] ***********************************
+#24 10.83 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#24 10.83 
+#24 10.83 TASK [support : Ensure destination folders exist] ******************************
+#24 10.83 ok: [localhost] => (item=/epics/ibek-defs)
+#24 10.83 ok: [localhost] => (item=/epics/pvi-defs)
+#24 10.83 ok: [localhost] => (item=/epics/autosave)
+#24 10.83 ok: [localhost] => (item=/epics/support/configure/protocol)
+#24 10.83 
+#24 10.83 TASK [support : Link ibek defs files for sequencer] ****************************
+#24 10.83 skipping: [localhost]
+#24 10.83 
+#24 10.83 TASK [support : Link pvi device files for sequencer] ***************************
+#24 10.83 skipping: [localhost]
+#24 10.83 
+#24 10.83 TASK [support : Link autosave request files for sequencer] *********************
+#24 10.83 skipping: [localhost]
+#24 10.83 
+#24 10.83 TASK [support : Copy protocol files for sequencer] *****************************
+#24 10.83 skipping: [localhost]
+#24 10.83 
+#24 10.83 TASK [Ioc build] ***************************************************************
+#24 10.83 skipping: [localhost]
+#24 10.83 
+#24 10.83 PLAY RECAP *********************************************************************
+#24 10.83 localhost                  : ok=34   changed=11   unreachable=0    failed=0    skipped=31   rescued=0    ignored=0   
+#24 10.83 
+#24 DONE 10.9s
+
+#25 [developer 15/36] COPY ibek-support/sscan/ sscan
+#25 DONE 0.0s
+
+#26 [developer 16/36] RUN /exp/step.sh sscan
+#26 0.065 Statistics zeroed.
+#26 11.89 
+#26 11.89 TASK [support : Call postbuild ad hoc scripts for sscan] ***********************
+#26 11.89 skipping: [localhost]
+#26 11.89 
+#26 11.89 TASK [support : Run postbuild bash commands for sscan] *************************
+#26 11.89 skipping: [localhost]
+#26 11.89 
+#26 11.89 TASK [support : Post Build Tasks for sscan] ************************************
+#26 11.89 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/tasks.yml for localhost
+#26 11.89 
+#26 11.89 TASK [support : Execute additional tasks for sscan] ****************************
+#26 11.89 skipping: [localhost]
+#26 11.89 
+#26 11.89 TASK [support : Runtime setup for sscan] ***************************************
+#26 11.89 included: /epics/generic-source/ibek-support/_ansible/roles/support/tasks/runtime.yml for localhost
+#26 11.89 
+#26 11.89 TASK [support : Ensure destination folders exist] ******************************
+#26 11.89 ok: [localhost] => (item=/epics/ibek-defs)
+#26 11.89 ok: [localhost] => (item=/epics/pvi-defs)
+#26 11.89 ok: [localhost] => (item=/epics/autosave)
+#26 11.89 ok: [localhost] => (item=/epics/support/configure/protocol)
+#26 11.89 
+#26 11.89 TASK [support : Link ibek defs files for sscan] ********************************
+#26 11.89 skipping: [localhost]
+#26 11.89 
+#26 11.89 TASK [support : Link pvi device files for sscan] *******************************
+#26 11.89 skipping: [localhost]
+#26 11.89 
+#26 11.89 TASK [support : Link autosave request files for sscan] *************************
+#26 11.89 skipping: [localhost]
+#26 11.89 
+#26 11.89 TASK [support : Copy protocol files for sscan] *********************************
+#26 11.89 skipping: [localhost]
+#26 11.89 
+#26 11.89 TASK [Ioc build] ***************************************************************
+#26 11.89 skipping: [localhost]
+#26 11.89 
+#26 11.89 PLAY RECAP *********************************************************************
+#26 11.89 localhost                  : ok=37   changed=13   unreachable=0    failed=0    skipped=30   rescued=0    ignored=0   
+#26 11.89 
+#26 DONE 11.9s
+
+#27 [developer 17/36] COPY ibek-support/calc/ calc
+#27 DONE 0.0s
+
+#28 [developer 18/36] RUN /exp/step.sh calc
+#28 0.078 Statistics zeroed.
