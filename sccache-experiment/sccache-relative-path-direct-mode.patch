@@ -1,0 +1,20 @@
+diff --git a/src/compiler/c.rs b/src/compiler/c.rs
+index b4baa8e..fb82f20 100644
+--- a/src/compiler/c.rs
++++ b/src/compiler/c.rs
+@@ -944,7 +944,14 @@ fn process_preprocessor_line(
+         }
+     } else {
+         let path_buf = decode_path(include_path)?;
+-        let normalized = normalize_path(&path_buf);
++        // Resolve relative paths against cwd *before* normalizing: normalizing
++        // a relative path like "../foo.c" drops the leading "..", which makes
++        // the include file unstat-able and disables preprocessor cache mode.
++        let normalized = if path_buf.is_relative() {
++            normalize_path(&cwd.join(&path_buf))
++        } else {
++            normalize_path(&path_buf)
++        };
+         if normalized == path_buf {
+             // `None` is a marker that the normalization is the same
+             normalized_include_paths.insert(include_path.to_owned(), None);
