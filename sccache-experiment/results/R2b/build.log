@@ -194,3 +194,63 @@
 
 #14 [developer  4/36] COPY --from=seed /sccache /sccache
 #14 DONE 1.0s
+
+#15 [developer  5/36] RUN /exp/setup.sh
+#15 DONE 0.1s
+
+#16 [developer  6/36] RUN ln -s /epics/generic-source/ioc /epics/ioc
+#16 DONE 0.1s
+
+#17 [developer  7/36] COPY requirements.txt requirements.txt
+#17 DONE 0.0s
+
+#18 [developer  8/36] RUN uv pip install --upgrade -r requirements.txt
+#18 0.061 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+#18 0.169 Using Python 3.14.7 environment at: /venv
+#18 0.604 Resolved 25 packages in 433ms
+#18 0.632 Downloading pygments (1.2MiB)
+#18 0.635 Downloading pydantic-core (2.1MiB)
+#18 0.637 Downloading lxml (5.0MiB)
+#18 0.664  Downloaded pydantic-core
+#18 0.666  Downloaded pygments
+#18 0.686  Downloaded lxml
+#18 0.686 Prepared 25 packages in 82ms
+#18 0.696 Installed 25 packages in 9ms
+#18 0.696  + annotated-doc==0.0.5
+#18 0.696  + annotated-types==0.8.0
+#18 0.696  + gitdb==4.0.12
+#18 0.696  + gitpython==3.2.1
+#18 0.696  + ibek==4.8.2
+#18 0.696  + jinja2==3.1.6
+#18 0.697  + lxml==6.1.3
+#18 0.697  + lxml-stubs==0.5.1
+#18 0.697  + markdown-it-py==4.2.0
+#18 0.697  + markupsafe==3.0.4
+#18 0.697  + mdurl==0.1.2
+#18 0.697  + pvi==0.14.4
+#18 0.697  + pydantic==2.14.2
+#18 0.697  + pydantic-core==2.50.2
+#18 0.697  + pygments==2.21.0
+#18 0.697  + rich==15.0.0
+#18 0.697  + ruamel-yaml==0.19.1
+#18 0.697  + semantic-version==2.10.0
+#18 0.697  + shellingham==1.5.4
+#18 0.697  + smmap==5.0.3
+#18 0.697  + stdio-socket==1.4.1
+#18 0.697  + truststore==0.10.5
+#18 0.697  + typer==0.27.3
+#18 0.698  + typing-extensions==4.16.0
+#18 0.698  + typing-inspection==0.4.4
+#18 DONE 0.8s
+
+#19 [developer  9/36] WORKDIR /epics/generic-source/ibek-support
+#19 DONE 0.0s
+
+#20 [developer 10/36] COPY ibek-support/_ansible _ansible
+#20 DONE 0.0s
+
+#21 [developer 11/36] COPY ibek-support/iocStats/ iocStats
+#21 DONE 0.0s
+
+#22 [developer 12/36] RUN /exp/step.sh iocStats
+#22 0.068 Statistics zeroed.
