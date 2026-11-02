@@ -28,6 +28,7 @@ Wall = whole `docker build --no-cache --target developer` (includes uv pip, COPY
 | run | description | wall s | % of R0 | ansible steps s | make (build) s | compiles | hits | misses | hit rate | -MM calls (not cacheable) | link/other (not compile) | cache after |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | no sccache, cold (baseline) | 322 | 100% | 298 | 39 | – | – | – | – | – | – | – |
+| R1 | sccache, empty cache = release build | 332 | 103% | 296 | 41 | 425 | 0 | 208 | 0.0% | 196 | 19 | 9 MiB |
 
 ### Variance
 
@@ -42,18 +43,21 @@ Whole `RUN /exp/step.sh <module>` = ansible.sh incl. apt, clone, configure, make
 | run | iocStats | sequencer | sscan | calc | asyn | busy | autosave | pvlogging | ADCore | ffmpegServer | ADSimDetector | ioc |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | 27 | 12 | 13 | 13 | 19 | 11 | 11 | 9 | 118 | 41 | 15 | 8 |
+| R1 | 28 | 12 | 12 | 13 | 20 | 10 | 14 | 9 | 111 | 46 | 13 | 8 |
 
 ## Per-module `make` (build only) wall time (s), from `/usr/bin/time -v`
 
 | run | iocStats | sequencer | sscan | calc | asyn | busy | autosave | pvlogging | ADCore | ffmpegServer | ADSimDetector | ioc |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | 0.8 | 2.7 | 2.4 | 2.7 | 6.3 | 0.5 | 1.5 | 0.3 | 16.1 | 1.1 | 3.0 | 1.5 |
+| R1 | 0.9 | 2.7 | 2.5 | 2.6 | 6.7 | 0.6 | 1.6 | 0.4 | 16.9 | 1.3 | 3.1 | 1.5 |
 
 ## Per-module sccache hit rate (hits/(hits+misses)) and misses
 
 | run | iocStats | sequencer | sscan | calc | asyn | busy | autosave | pvlogging | ADCore | ffmpegServer | ADSimDetector | ioc |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | – | – | – | – | – | – | – | – | – | – | – | – |
+| R1 | 0% (17m) | 0% (23m) | 0% (7m) | 0% (18m) | 0% (67m) | 0% (4m) | 0% (9m) | 0% (2m) | 0% (50m) | 0% (8m) | 0% (1m) | 0% (2m) |
 
 ## Where the time goes, by ansible task category (s, summed over modules)
 
@@ -62,6 +66,7 @@ Categories come from the ansible callback timer: `apt` = system/apt/get_url task
 | run | apt | clone | facts | ansible_startup | ansible_other | make | make_clean | ansible_exit | sccache_srv | cascade_preclone | docker other | wall |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | R0 | 122 | 37 | 10 | 4 | 73 | 41 | 9 | 1 | 0 | 0 | 24 | 322 |
+| R1 | 122 | 37 | 10 | 4 | 70 | 43 | 9 | 1 | 0 | 0 | 35 | 332 |
 
 ### Docker build steps for R0 (s)
 
@@ -81,15 +86,38 @@ Categories come from the ansible callback timer: `apt` = system/apt/get_url task
 | [developer] `RUN /exp/step.sh ADSimDetector` | 14.9 |
 | [developer] `RUN /exp/step.sh ioc` | 8.4 |
 
+### Docker build steps for R1 (s)
+
+| step | s |
+|---|---:|
+| [tools] `FROM docker.io/exp/tools:latest@sha256:84b9adf3759544a2d38f970cc1c799d9e11fa058db9788a6886` | 7.3 |
+| [seed] `FROM docker.io/exp/sccache-base:latest@sha256:dd28d794e542991ae1d86de9630e014500bcf9ca00ed` | 0.5 |
+| [developer] `COPY --from=exp / /exp` | 1.1 |
+| [developer] `RUN uv pip install --upgrade -r requirements.txt` | 0.7 |
+| [developer] `RUN /exp/step.sh iocStats` | 28.4 |
+| [developer] `RUN /exp/step.sh sequencer` | 12.2 |
+| [developer] `RUN /exp/step.sh sscan` | 12.6 |
+| [developer] `RUN /exp/step.sh calc` | 12.7 |
+| [developer] `RUN /exp/step.sh asyn` | 19.8 |
+| [developer] `RUN /exp/step.sh busy` | 10.3 |
+| [developer] `RUN /exp/step.sh autosave` | 13.6 |
+| [developer] `RUN /exp/step.sh pvlogging` | 9.5 |
+| [developer] `RUN /exp/step.sh ADCore` | 111.7 |
+| [developer] `RUN /exp/step.sh ffmpegServer` | 46.2 |
+| [developer] `RUN /exp/step.sh ADSimDetector` | 12.7 |
+| [developer] `RUN /exp/step.sh ioc` | 8.2 |
+
 ## Non-cacheable calls by reason (sccache `not_cached`)
 
-| run |  |
-|---|
-| R0 |  |
+| run | -E | -MM |
+|---|---:|---:|
+| R0 | 0 | 0 |
+| R1 | 2 | 196 |
 
 ## Image and cache sizes
 
 | run | image bytes (docker inspect) | seed cache | cache after |
 |---|---:|---:|---:|
 | R0 | 2920 MiB | – | – |
+| R1 | 2971 MiB | – | 9 MiB |
 
