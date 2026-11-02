@@ -1,3 +1,0 @@
-developer=exp/net
-seed=exp/sccache-base
-vars=

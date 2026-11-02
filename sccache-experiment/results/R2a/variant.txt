@@ -1,3 +1,0 @@
-developer=exp/sccache-base
-seed=exp/release
-vars=
