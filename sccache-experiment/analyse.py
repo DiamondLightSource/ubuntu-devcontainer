@@ -9,15 +9,21 @@ from collections import defaultdict
 from pathlib import Path
 
 RES = Path(sys.argv[1] if len(sys.argv) > 1 else "results")
-ORDER = ["R0", "R0b", "R1", "R2a", "R2b", "R2c", "R5a", "R5b", "R4", "R4b", "R4c",
-         "R6", "R7rel", "R7a", "R7b", "R2shim", "R0shim", "R2dbg", "R7dbg"]
+ORDER = ["R0", "R0b", "R0c", "R0d", "R0e", "R1", "R2a", "R2b", "R2c", "R2d", "R2e", "R2f", "R5a", "R5b", "R4", "R4b", "R4c",
+         "R6", "R7rel", "R7a", "R7b", "R2shim", "R0shim", "R2dbg", "R7dbg", "R8a", "R8b", "R8c"]
 DESC = {
     "R0": "no sccache, cold (baseline)",
     "R0b": "no sccache, cold (repeat)",
+    "R0c": "no sccache, cold (repeat, after host restart)",
+    "R0d": "no sccache, cold (repeat, after host restart)",
+    "R0e": "no sccache, cold (repeat, after host restart)",
     "R1": "sccache, empty cache = release build",
     "R2a": "sccache warm (seeded from R1), direct mode on (default)",
     "R2b": "repeat of R2a",
     "R2c": "repeat of R2a",
+    "R2d": "repeat of R2a (after host restart, interleaved with R0c-e)",
+    "R2e": "repeat of R2a (after host restart, interleaved with R0c-e)",
+    "R2f": "repeat of R2a (after host restart, interleaved with R0c-e)",
     "R5a": "warm, direct (preprocessor-cache) mode OFF",
     "R5b": "repeat of R5a",
     "R4": "warm + comment line inserted near top of asynDriver.h",
@@ -25,6 +31,9 @@ DESC = {
     "R4c": "warm + real declaration added to asynDriver.h",
     "R6": "TUNING: warm + no .d dependency generation (HDEPENDS_FILES=)",
     "R2shim": "warm + timing shims (instrumented, not a headline number)",
+    "R8a": "devcontainer plan: FROM released image (exp/release), re-run all ansible steps",
+    "R8b": "repeat of R8a",
+    "R8c": "repeat of R8a",
     "R0shim": "cold no sccache + timing shims (instrumented)",
     "R2dbg": "warm + SCCACHE_LOG=debug + shims (miss analysis only)",
     "R7rel": "PATCHED sccache (direct mode fixed), empty cache = release build",
@@ -303,8 +312,12 @@ def main():
     P("### Variance\n")
     P("| group | n | mean wall s | stdev s | min | max |")
     P("|---|---:|---:|---:|---:|---:|")
-    for label, rx in (("R0 cold", r"R0b?"), ("R2 warm (direct on)", r"R2[abc]"),
-                      ("R5 warm (direct off)", r"R5[ab]"), ("R7 warm (patched, direct on)", r"R7[ab]")):
+    for label, rx in (("R0 cold, all", r"R0[b-e]?"), ("R2 warm (direct on), all", r"R2[a-f]"),
+                      ("R0 cold, before restart", r"R0b?"), ("R2 warm, before restart", r"R2[abc]"),
+                      ("R0 cold, after restart (interleaved)", r"R0[cde]"),
+                      ("R2 warm, after restart (interleaved)", r"R2[def]"),
+                      ("R5 warm (direct off)", r"R5[ab]"), ("R7 warm (patched, direct on)", r"R7[ab]"),
+                      ("R8 FROM released image", r"R8[a-c]")):
         v = group(rx)
         if v:
             sd = statistics.stdev(v) if len(v) > 1 else 0

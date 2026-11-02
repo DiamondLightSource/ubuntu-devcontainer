@@ -44,7 +44,7 @@ SCCACHE_PATCH=${SCCACHE_PATCH:-$HERE/sccache-relative-path-direct-mode.patch}
 PROXY_CA_BUNDLE=${PROXY_CA_BUNDLE:-/root/.ccr/ca-bundle.crt}
 
 # Order matters: R1 produces the "release" image whose /sccache seeds the rest.
-DEFAULT_RUNS="R0 R1 R2a R2b R2c R5a R5b R4 R2dbg R2shim R0shim R6 R7rel R7a R7b R7dbg R4b R4c R0b"
+DEFAULT_RUNS="R0 R1 R2a R2b R2c R5a R5b R4 R2dbg R2shim R0shim R6 R7rel R7a R7b R7dbg R4b R4c R0b R0c R2d R0d R2e R0e R2f R8a R8b R8c"
 RUNS=${RUNS:-$DEFAULT_RUNS}
 
 log() { printf '\n[%(%F %T)T] %s\n' -1 "$*" >&2; }
@@ -157,7 +157,7 @@ EOF
     cat > "$X/setup.sh" <<'EOF'
 #!/bin/bash
 set -euo pipefail
-R=/exp-results; mkdir -p "$R"
+R=/exp-results; rm -rf "$R"; mkdir -p "$R"   # R8 builds FROM a released image that already has /exp-results
 echo "$EPOCHREALTIME" > "$R/stage_start"
 env | grep -E '^EXP_' | sort > "$R/variant.env" || true
 CS=/epics/epics-base/configure/os/CONFIG_SITE.Common.linux-x86_64
@@ -440,6 +440,9 @@ run_by_name() {
         R7rel)  build_patched_sccache; run_variant "$1" exp/sccache-patched-base exp/sccache-base ;;
         R7?)    run_variant "$1" exp/sccache-patched-base exp/release-r7rel ;;
         R7dbg)  run_variant "$1" exp/sccache-patched-base exp/release-r7rel EXP_DEBUG=1 ;;
+        # R8: the actual devcontainer plan: FROM the released image (apt pkgs, sources,
+        # sccache already present), re-run every ansible step on top of it.
+        R8?)    run_variant "$1" $rel $rel ;;
         *) echo "unknown run $1"; return 1 ;;
     esac
 }
