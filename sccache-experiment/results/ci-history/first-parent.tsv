@@ -1,0 +1,81 @@
+2026-11-02	195414e	support (from pre)	297	297
+2026-09-30	2d6a48e	support (from pre)	297	297
+2026-09-25	ff0194a	support (from pre)	297	297
+2026-07-03	404de25	no dev-stage change	0	0
+2026-06-29	7699888	no dev-stage change	0	0
+2026-06-26	f54e5bc	support (from pre)	23	23
+2026-06-02	3736406	support (from pre)	23	23
+2026-05-20	c9201f8	support (from pre)	23	23
+2026-02-20	400aaf7	support (from pre)	23	23
+2025-11-28	931b4a1	support (from pre)	23	23
+2025-08-01	2e6c6e2	support (from pre)	285	285
+2025-07-30	a5331ff	no dev-stage change	0	0
+2025-07-29	9d583de	support (from pre)	285	285
+2025-05-04	e5fc394	support (from pre)	285	285
+2025-03-29	8abc504	support (from iocStats)	285	285
+2025-03-24	4f1d774	support (from ADCore)	193	285
+2025-03-21	0e156cc	support (from iocStats)	285	285
+2025-03-20	c1b63b9	support (from pre)	285	285
+2025-03-14	b7f5522	support (from pre)	276	276
+2025-03-07	ea7c0ab	support (from ADCore)	193	276
+2025-03-07	19f0a1b	no dev-stage change	0	0
+2025-03-05	15d7c86	support (from ADCore)	152	235
+2025-03-03	77f4106	support (from pre)	235	235
+2025-03-01	2ae0062	support (from pre)	235	235
+2025-02-05	4ac9e0c	no dev-stage change	0	0
+2024-12-17	07ea2da	support (from pre)	235	235
+2024-12-10	cd75452	no dev-stage change	0	0
+2024-12-04	39f7971	no dev-stage change	0	0
+2024-12-02	828ca6b	support (from pre)	235	235
+2024-08-27	574642e	no dev-stage change	0	0
+2024-08-23	fbc3cc5	no dev-stage change	0	0
+2024-08-23	ef62b2e	support (from pvxs)	250	250
+2024-08-12	b7f8517	ioc only	8	8
+2024-08-09	df4962c	no dev-stage change	0	0
+2024-08-08	658478f	no dev-stage change	0	0
+2024-08-07	f702c01	no dev-stage change	0	0
+2024-08-07	39f8233	support (from pvxs)	250	250
+2024-07-30	ee34840	support (from ADCore)	141	235
+2024-07-18	56212f2	no dev-stage change	0	0
+2024-06-25	37da067	support (from pre)	235	235
+2024-06-24	6b33aaf	support (from pre)	235	235
+2024-06-24	9641be1	support (from pre)	235	235
+2024-03-27	3996868	no dev-stage change	0	0
+2024-03-27	fbfb51b	no dev-stage change	0	0
+2024-03-26	c762015	support (from pre)	235	235
+2024-03-05	3607728	support (from pre)	208	208
+2024-03-05	ff92dff	support (from iocStats)	235	235
+2024-03-04	430c925	support (from pre)	235	235
+2024-02-21	d1d68b6	support (from asyn)	208	235
+2024-02-21	691e09a	ioc only	8	8
+2024-02-17	325d957	no dev-stage change	0	0
+2024-02-02	cb21acc	support (from pre)	235	235
+2024-01-28	d1847a9	support (from pre)	235	235
+2024-01-23	5440cac	no dev-stage change	0	0
+2024-01-20	b326ca4	no dev-stage change	0	0
+2024-01-19	53bbe21	support (from pre)	235	235
+2024-01-19	2a4d864	support (from pre)	235	235
+2024-01-18	a6f3fd5	support (from pre)	235	235
+2023-11-29	d0c73fc	support (from pre)	227	227
+2023-11-11	c548209	support (from pre)	201	201
+2023-10-30	1f6c73b	support (from pre)	201	201
+2023-10-27	fc5c1f9	support (from pre)	201	201
+2023-10-26	60329c9	no dev-stage change	0	0
+2023-10-20	6b24060	no dev-stage change	0	0
+2023-10-17	03cb938	no dev-stage change	0	0
+2023-10-17	8200e29	no dev-stage change	0	0
+2023-10-17	ad4325e	no dev-stage change	0	0
+2023-10-13	7e4d132	no dev-stage change	0	0
+2023-10-11	950727b	no dev-stage change	0	0
+2023-10-11	29798ec	support (from pre)	201	201
+2023-10-10	4a9ad8c	support (from iocStats)	201	201
+
+all history: 71 commits; support: 44, no dev-stage change: 25, ioc only: 2
+  layered total 156 min, flat total 162 min, extra 6 min (5 s/commit avg)
+  support-changing commits: layered mean 212 s, flat 221 s
+  first invalidated: [('support (from pre)', 33), ('support (from iocStats)', 4), ('support (from ADCore)', 4), ('support (from pvxs)', 2), ('support (from asyn)', 1)]
+
+last 12 months: 10 commits; support: 8, no dev-stage change: 2
+  layered total 17 min, flat total 17 min, extra 0 min (0 s/commit avg)
+  support-changing commits: layered mean 126 s, flat 126 s
+  first invalidated: [('support (from pre)', 8)]

@@ -1,0 +1,174 @@
+2026-11-02	2ebe7de	support (from pre)	297	297
+2026-11-02	7111316	no dev-stage change	0	0
+2026-10-14	3af5db0	support (from iocStats)	297	297
+2026-10-14	3b186ba	support (from iocStats)	297	297
+2026-10-14	5239be3	support (from iocStats)	297	297
+2026-10-14	024cd5b	support (from pre)	297	297
+2026-10-14	aed7314	support (from iocStats)	297	297
+2026-10-14	207e6f4	support (from pre)	297	297
+2026-10-14	b1cb524	support (from pre)	297	297
+2026-09-30	f118365	support (from pre)	297	297
+2026-09-25	bbaca3c	support (from pre)	297	297
+2026-09-25	d7d1ee4	support (from ADCore)	182	297
+2026-09-25	9fb634e	support (from iocStats)	297	297
+2026-09-25	3c56985	support (from pre)	297	297
+2026-07-03	591bebc	no dev-stage change	0	0
+2026-06-29	bfa7173	no dev-stage change	0	0
+2026-06-26	7a85a6e	support (from pre)	23	23
+2026-06-02	8d3dede	support (from pre)	23	23
+2026-05-20	d5e31e8	support (from pre)	23	23
+2026-02-20	1fc569b	support (from pre)	23	23
+2026-02-18	1355100	support (from pre)	23	23
+2025-11-28	08da8d3	support (from pre)	23	23
+2025-11-28	c0e777f	no dev-stage change	0	0
+2025-11-28	5dcea78	no dev-stage change	0	0
+2025-11-28	6d4c686	no dev-stage change	0	0
+2025-11-28	057d0f8	no dev-stage change	0	0
+2025-11-28	3cfbb57	support (from pre)	23	23
+2025-11-28	e93cfe1	support (from ADSimDetector)	23	23
+2025-11-25	5522f56	no dev-stage change	0	0
+2025-11-25	c1ec05b	support (from pre)	23	23
+2025-11-25	bbf6deb	support (from pre)	23	23
+2025-11-24	371581e	support (from ADSimDetector)	23	23
+2025-11-24	edeaa74	support (from pre)	23	23
+2025-11-24	e8db69a	support (from pre)	285	285
+2025-11-24	503ec70	support (from pre)	285	285
+2025-11-24	840c3cf	ioc only	8	8
+2025-11-24	358df9b	ioc only	8	8
+2025-08-01	66d0660	support (from pre)	285	285
+2025-07-30	79b6485	no dev-stage change	0	0
+2025-07-29	a795141	support (from pre)	285	285
+2025-07-29	c7b7e55	no dev-stage change	0	0
+2025-07-29	43da533	no dev-stage change	0	0
+2025-07-23	13a0cbf	no dev-stage change	0	0
+2025-07-23	a4f45dd	support (from ADCore)	193	285
+2025-07-23	3c18716	support (from pre)	285	285
+2025-07-23	a0cf18c	no dev-stage change	0	0
+2025-07-16	271e753	support (from pre)	285	285
+2025-07-18	d6ca611	no dev-stage change	0	0
+2025-07-18	74467eb	no dev-stage change	0	0
+2025-04-29	67c46b5	support (from pre)	285	285
+2025-04-29	2e2871e	no dev-stage change	0	0
+2025-05-04	9b29f7b	ioc only	8	8
+2025-05-04	67d48d9	ioc only	8	8
+2025-05-04	6c9b7e8	support (from pre)	285	285
+2025-05-01	41bdbfe	support (from pre)	285	285
+2025-03-29	24df0fc	support (from iocStats)	285	285
+2025-03-27	21c1f96	no dev-stage change	0	0
+2025-03-24	c8458cf	support (from ADCore)	193	285
+2025-03-21	51ea2c0	support (from iocStats)	285	285
+2025-03-20	1ff418a	support (from ADCore)	193	285
+2025-03-20	082388e	support (from pre)	285	285
+2025-03-20	317480b	support (from pre)	276	276
+2025-03-14	b7f5522	support (from pre)	276	276
+2025-03-07	5382fc3	support (from ADCore)	193	276
+2025-03-06	4fc9ada	no dev-stage change	0	0
+2025-03-05	67eb5b6	support (from ADCore)	152	235
+2025-03-03	c940476	support (from pre)	235	235
+2025-03-03	3b0a272	support (from ADCore)	152	235
+2025-03-03	b52a2d2	no dev-stage change	0	0
+2025-03-03	9d29a6b	support (from pre)	235	235
+2025-03-01	9802c62	support (from ADCore)	152	235
+2025-03-01	46582e0	support (from ADCore)	152	235
+2025-03-01	883dea6	support (from pre)	235	235
+2025-03-01	b2b9f68	support (from ADCore)	152	235
+2025-03-01	27c1119	support (from iocStats)	235	235
+2025-01-31	72fb4bc	no dev-stage change	0	0
+2024-12-13	8e036e0	support (from pre)	235	235
+2024-12-13	ac44a7c	support (from autosave)	19	235
+2024-12-12	02c4d2c	support (from pre)	235	235
+2024-12-12	709001f	ioc only	8	8
+2024-12-12	289ff15	support (from pre)	235	235
+2024-12-10	61b74b8	no dev-stage change	0	0
+2024-12-04	9ab7447	no dev-stage change	0	0
+2024-12-03	cbeb5ee	no dev-stage change	0	0
+2024-12-03	2e7a421	no dev-stage change	0	0
+2024-12-02	828ca6b	support (from pre)	235	235
+2024-08-27	5541e84	no dev-stage change	0	0
+2024-08-23	2aadde9	no dev-stage change	0	0
+2024-08-23	bca02a4	no dev-stage change	0	0
+2024-08-23	f900403	no dev-stage change	0	0
+2024-08-23	5e44d82	support (from pvxs)	250	250
+2024-08-14	9c9b34c	ioc only	8	8
+2024-08-14	97bf65f	no dev-stage change	0	0
+2024-08-13	89fd54b	no dev-stage change	0	0
+2024-08-13	26161bd	no dev-stage change	0	0
+2024-08-13	24ec4b0	no dev-stage change	0	0
+2024-08-12	0924495	no dev-stage change	0	0
+2024-08-12	d6f1472	ioc only	8	8
+2024-08-09	df4962c	no dev-stage change	0	0
+2024-08-08	2066779	no dev-stage change	0	0
+2024-08-07	8495220	no dev-stage change	0	0
+2024-07-18	63cdad1	support (from pvxs)	250	250
+2024-07-30	ee34840	support (from ADCore)	141	235
+2024-07-17	5377201	no dev-stage change	0	0
+2024-06-25	37da067	support (from pre)	235	235
+2024-06-24	6b33aaf	support (from pre)	235	235
+2024-06-24	9641be1	support (from pre)	235	235
+2024-03-27	48b2455	no dev-stage change	0	0
+2024-03-27	9737ee1	no dev-stage change	0	0
+2024-03-26	c762015	support (from pre)	235	235
+2024-03-05	94627be	support (from pre)	208	208
+2024-03-05	3569b85	support (from pre)	235	235
+2024-03-05	033fc1e	ioc only	8	8
+2024-03-05	e0e80e1	support (from pre)	235	235
+2024-03-05	719df6f	no dev-stage change	0	0
+2024-03-05	ff92dff	support (from iocStats)	235	235
+2024-03-04	430c925	support (from pre)	235	235
+2024-02-21	b9732c8	support (from asyn)	208	235
+2024-02-21	f7433d2	ioc only	8	8
+2024-02-21	5c05039	ioc only	8	8
+2024-02-21	67afcb3	no dev-stage change	0	0
+2024-02-17	325d957	no dev-stage change	0	0
+2024-02-02	5ef9dbc	support (from pre)	235	235
+2024-01-28	5a216ed	support (from iocStats)	235	235
+2024-01-28	d079d4c	support (from pre)	235	235
+2024-01-23	a1f4e61	no dev-stage change	0	0
+2024-01-23	5ac1ff5	no dev-stage change	0	0
+2024-01-20	f3fbce3	no dev-stage change	0	0
+2024-01-19	53bbe21	support (from pre)	235	235
+2024-01-19	2a4d864	support (from pre)	235	235
+2024-01-18	a6f3fd5	support (from pre)	235	235
+2023-11-29	169255c	no dev-stage change	0	0
+2023-11-24	fbd89dd	support (from pre)	227	227
+2023-11-24	c79621a	support (from iocStats)	227	227
+2023-11-24	4903c4a	no dev-stage change	0	0
+2023-11-24	f4ce20e	support (from pre)	227	227
+2023-11-17	4dd4f2d	support (from iocStats)	201	201
+2023-11-11	0efc317	support (from pre)	201	201
+2023-11-06	4ad8fd2	no dev-stage change	0	0
+2023-10-30	751888d	support (from pre)	201	201
+2023-10-30	3f3c3ef	support (from pre)	201	201
+2023-10-30	15608d3	no dev-stage change	0	0
+2023-10-30	ad0f2fd	support (from pre)	201	201
+2023-10-26	dc15fa4	support (from pre)	201	201
+2023-10-26	a174bd6	no dev-stage change	0	0
+2023-10-26	0e7803e	support (from pre)	201	201
+2023-10-26	16a9843	no dev-stage change	0	0
+2023-10-26	b861d51	no dev-stage change	0	0
+2023-10-19	942ebc6	no dev-stage change	0	0
+2023-10-18	0b6db8f	no dev-stage change	0	0
+2023-10-18	895600e	no dev-stage change	0	0
+2023-10-17	03cb938	no dev-stage change	0	0
+2023-10-17	e5176fe	no dev-stage change	0	0
+2023-10-17	8200e29	no dev-stage change	0	0
+2023-10-17	f7eff28	no dev-stage change	0	0
+2023-10-17	ad4325e	no dev-stage change	0	0
+2023-10-13	e280f05	no dev-stage change	0	0
+2023-10-12	29e1668	no dev-stage change	0	0
+2023-10-11	1730d55	no dev-stage change	0	0
+2023-10-11	669c2e0	no dev-stage change	0	0
+2023-10-11	2dce114	no dev-stage change	0	0
+2023-10-11	be0cefc	support (from pre)	201	201
+2023-10-11	26b8c02	support (from pre)	0	201
+2023-10-10	4a9ad8c	support (from iocStats)	201	201
+
+all history: 164 commits; support: 89, no dev-stage change: 65, ioc only: 10
+  layered total 306 min, flat total 329 min, extra 24 min (9 s/commit avg)
+  support-changing commits: layered mean 205 s, flat 221 s
+  first invalidated: [('support (from pre)', 59), ('support (from iocStats)', 13), ('support (from ADCore)', 11), ('support (from ADSimDetector)', 2), ('support (from pvxs)', 2), ('support (from autosave)', 1), ('support (from asyn)', 1)]
+
+last 12 months: 37 commits; support: 27, no dev-stage change: 8, ioc only: 2
+  layered total 77 min, flat total 79 min, extra 2 min (3 s/commit avg)
+  support-changing commits: layered mean 170 s, flat 174 s
+  first invalidated: [('support (from pre)', 19), ('support (from iocStats)', 5), ('support (from ADSimDetector)', 2), ('support (from ADCore)', 1)]
