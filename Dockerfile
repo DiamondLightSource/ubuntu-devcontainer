@@ -1,6 +1,6 @@
 # The devcontainer should use the developer target and run as root with podman
 # or docker with user namespaces.
-FROM ubuntu:resolute-20261024.1
+FROM ubuntu:resolute-20261105.1
 
 # Add any system dependencies for the developer/build environment here
 RUN apt-get update && \
